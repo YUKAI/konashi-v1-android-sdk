@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">KonashiSampleBasic</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    
+    <string name="find_button">Find konashi</string>
 
 </resources>
