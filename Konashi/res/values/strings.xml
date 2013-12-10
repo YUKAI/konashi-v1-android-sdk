@@ -3,4 +3,8 @@
     <string name="app_name">Konashi</string>
 
     <string name="device_list_element_unknown_device">Unknown Device</string>
+    <string name="dialog_device_list_title">Select konashi</string>
+    <string name="dialog_device_list_cancel_button">Cancel</string>
+    <string name="dialog_device_list_finding_text">Finding konashi</string>
+    <string name="dialog_device_list_not_found">konashi Not Found...</string>
 </resources>

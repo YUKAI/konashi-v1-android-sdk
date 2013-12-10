@@ -14,7 +14,6 @@ public class BleDeviceListAdapter extends BaseAdapter {
     private ArrayList<BluetoothDevice> mBleDevices;
     private LayoutInflater mInflater;
     private Context mContext;
-    private ArrayList<BluetoothDevice> mBleDeivceList;
     
     public BleDeviceListAdapter(Context context) {
         mContext = context;
@@ -26,6 +25,10 @@ public class BleDeviceListAdapter extends BaseAdapter {
             KonashiUtils.log("Device name: " + device.getName());
             mBleDevices.add(device);
         }
+    }
+    
+    public void clearDevices(){
+        mBleDevices.clear();
     }
     
     public BluetoothDevice getDevice(int position) {

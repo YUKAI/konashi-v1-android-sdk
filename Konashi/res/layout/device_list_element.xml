@@ -9,12 +9,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/device_list_element_name_text"
-        android:textSize="@dimen/device_list_element_name_text_size"/>
+        android:layout_marginTop="@dimen/device_list_element_margin"
+        android:layout_marginLeft="@dimen/device_list_element_margin"
+        android:layout_marginBottom="@dimen/device_list_element_device_name_margin_bottom"
+        android:textSize="@dimen/device_list_element_name_text_size" />
 
     <TextView 
         android:id="@+id/device_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/device_list_element_margin"
+        android:layout_marginLeft="@dimen/device_list_element_margin"
         android:textColor="@color/device_list_element_address_text"
-        android:textSize="@dimen/device_list_element_address_text_size"/>
+        android:textSize="@dimen/device_list_element_address_text_size" />
 </LinearLayout>
