@@ -15,21 +15,19 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class BleDeviceSelectionDialog implements OnItemClickListener {
-    private Activity mContext;
     private OnBleDeviceSelectListener mListener;
     private AlertDialog mDialog;
     private LinearLayout mFindingContainer = null;
     private LinearLayout mNotFoundContainer = null;
     private BleDeviceListAdapter mAdapter;
     
-    public BleDeviceSelectionDialog(Activity context, BleDeviceListAdapter adapter, OnBleDeviceSelectListener listener){
-        mContext = context;
+    public BleDeviceSelectionDialog(BleDeviceListAdapter adapter, OnBleDeviceSelectListener listener){
         mListener = listener;
         mAdapter = adapter;
     }
     
-    public void show(){
-        View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_device_list, null);
+    public void show(Activity activity){
+        View view = LayoutInflater.from(activity).inflate(R.layout.dialog_device_list, null);
 
         ListView listView = (ListView)view.findViewById(R.id.list);
         listView.setScrollingCacheEnabled(false);
@@ -39,12 +37,20 @@ public class BleDeviceSelectionDialog implements OnItemClickListener {
         mFindingContainer = (LinearLayout)view.findViewById(R.id.finding);
         mNotFoundContainer = (LinearLayout)view.findViewById(R.id.not_found);
         
-        Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle(mContext.getString(R.string.dialog_device_list_title));
+        Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle(activity.getString(R.string.dialog_device_list_title));
         builder.setView(view);
-        builder.setPositiveButton(mContext.getString(R.string.dialog_device_list_cancel_button), new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(activity.getString(R.string.dialog_device_list_cancel_button), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                if(mListener!=null){
+                    mListener.onCancelSelectingBleDevice();
+                }
+            }
+        });
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {  
+            @Override
+            public void onCancel(DialogInterface dialog) {
                 if(mListener!=null){
                     mListener.onCancelSelectingBleDevice();
                 }
@@ -75,6 +81,8 @@ public class BleDeviceSelectionDialog implements OnItemClickListener {
 
     @Override
     public void onItemClick(AdapterView<?> l, View v, int position, long id) {
+        KonashiUtils.log("onItemClick");
+        
         if(mDialog!=null){
             // Hide dialog
             mDialog.dismiss();

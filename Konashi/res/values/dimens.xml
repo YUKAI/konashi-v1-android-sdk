@@ -5,6 +5,7 @@
     <dimen name="device_list_element_address_text_size">14dp</dimen>
     <dimen name="device_list_element_margin">10dp</dimen>
     <dimen name="device_list_element_device_name_margin_bottom">3dp</dimen>
+    
     <dimen name="dialog_device_list_finding_text_size">12dp</dimen>
     <dimen name="dialog_device_list_finding_text_margin_left">3dp</dimen>
     <dimen name="dialog_device_list_finding_margin">4dp</dimen>
