@@ -17,19 +17,40 @@ import android.os.Message;
 public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDeviceSelectListener {
     
     // konashi service UUID
-    public static final String DEVICE_KONASHI_SERVICE_UUID = "0000ff00-0000-1000-8000-00805f9b34fb";
+    public static final String KONASHI_BASE_UUID = "-0000-1000-8000-00805f9b34fb";
+    public static final String KONASHI_SERVICE_UUID = "0000ff00" + KONASHI_BASE_UUID;
    
     // konashi characteristics
-    public static final String CHARACTERISTIC_KONASHI_PIO_SETTING_UUID            = "00003000-0000-1000-8000-00805f9b34fb";
-    public static final String CHARACTERISTIC_KONASHI_PIO_PULLUP_UUID             = "00003001-0000-1000-8000-00805f9b34fb";
-    public static final String CHARACTERISTIC_KONASHI_PIO_OUTPUT_UUID             = "00003002-0000-1000-8000-00805f9b34fb";
-    public static final String CHARACTERISTIC_KONASHI_PIO_INPUT_NOTIFICATION_UUID = "00003003-0000-1000-8000-00805f9b34fb";
-    public static final String CHARACTERISTIC_KONASHI_PWM_CONFIG_UUID             = "00003004-0000-1000-8000-00805f9b34fb";
-    public static final String CHARACTERISTIC_KONASHI_PWM_PARAM_UUID              = "00003005-0000-1000-8000-00805f9b34fb";
-    public static final String CHARACTERISTIC_KONASHI_PWM_DUTY_UUID               = "00003006-0000-1000-8000-00805f9b34fb";
+    public static final String KONASHI_PIO_SETTING_UUID                     = "00003000" + KONASHI_BASE_UUID;
+    public static final String KONASHI_PIO_PULLUP_UUID                      = "00003001" + KONASHI_BASE_UUID;
+    public static final String KONASHI_PIO_OUTPUT_UUID                      = "00003002" + KONASHI_BASE_UUID;
+    public static final String KONASHI_PIO_INPUT_NOTIFICATION_UUID          = "00003003" + KONASHI_BASE_UUID;
     
-    // konashi characteristic config
-    public static final String CLIENT_CHARACTERISTIC_CONFIG = "00002902-0000-1000-8000-00805f9b34fb";
+    public static final String KONASHI_PWM_CONFIG_UUID                      = "00003004" + KONASHI_BASE_UUID;
+    public static final String KONASHI_PWM_PARAM_UUID                       = "00003005" + KONASHI_BASE_UUID;
+    public static final String KONASHI_PWM_DUTY_UUID                        = "00003006" + KONASHI_BASE_UUID;
+
+    public static final String KONASHI_ANALOG_DRIVE_UUID                    = "00003007" + KONASHI_BASE_UUID;
+    public static final String KONASHI_ANALOG_READ0_UUID                    = "00003008" + KONASHI_BASE_UUID;
+    public static final String KONASHI_ANALOG_READ1_UUID                    = "00003009" + KONASHI_BASE_UUID;
+    public static final String KONASHI_ANALOG_READ2_UUID                    = "0000300a" + KONASHI_BASE_UUID;
+
+    public static final String KONASHI_I2C_CONFIG_UUID                      = "0000300b" + KONASHI_BASE_UUID;
+    public static final String KONASHI_I2C_START_STOP_UUID                  = "0000300c" + KONASHI_BASE_UUID;
+    public static final String KONASHI_I2C_WRITE_UUID                       = "0000300d" + KONASHI_BASE_UUID;
+    public static final String KONASHI_I2C_READ_PARAM_UUID                  = "0000300e" + KONASHI_BASE_UUID;
+    public static final String KONASHI_I2C_READ_UUID                        = "0000300f" + KONASHI_BASE_UUID;
+
+    public static final String KONASHI_UART_CONFIG_UUID                     = "00003010" + KONASHI_BASE_UUID;
+    public static final String KONASHI_UART_BAUDRATE_UUID                   = "00003011" + KONASHI_BASE_UUID;
+    public static final String KONASHI_UART_TX_UUID                         = "00003012" + KONASHI_BASE_UUID;
+    public static final String KONASHI_UART_RX_NOTIFICATION_UUID            = "00003013" + KONASHI_BASE_UUID;
+
+    public static final String KONASHI_HARDWARE_RESET_UUID                  = "00003014" + KONASHI_BASE_UUID;
+    public static final String KONASHI_HARDWARE_LOW_BAT_NOTIFICATION_UUID   = "00003015" + KONASHI_BASE_UUID;
+    
+    // konashi characteristic configuration
+    public static final String CLIENT_CHARACTERISTIC_CONFIG = "00002902" + KONASHI_BASE_UUID;
     public static final byte KONASHI_FAILURE = (byte)(0xff);
 
     // PIO
