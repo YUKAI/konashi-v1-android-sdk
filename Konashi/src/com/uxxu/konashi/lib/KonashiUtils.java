@@ -10,10 +10,6 @@ public class KonashiUtils {
     private static final String TAG = "KonashiLib";
     private static final int LOG_STACK_LEVEL = 3;
     
-    public static void log(){
-        log("");
-    }
-    
     public static void log(String text){
         if(DEBUG){
             StackTraceElement[] ste = Thread.currentThread().getStackTrace();
