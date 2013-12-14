@@ -38,7 +38,9 @@ public class MainActivity extends Activity {
         mOnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mKonashiManager.digitalWrite(KonashiManager.LED2, KonashiManager.HIGH);
+                mKonashiManager.digitalWrite(Konashi.LED2, Konashi.HIGH);
+                mKonashiManager.digitalWrite(Konashi.LED3, Konashi.HIGH);
+                mKonashiManager.digitalWrite(Konashi.LED4, Konashi.HIGH);
             }
         });
         
@@ -46,21 +48,25 @@ public class MainActivity extends Activity {
         mOffButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mKonashiManager.digitalWrite(KonashiManager.LED2, KonashiManager.LOW);
+                mKonashiManager.digitalWrite(Konashi.LED2, Konashi.LOW);
+                mKonashiManager.digitalWrite(Konashi.LED3, Konashi.LOW);
+                mKonashiManager.digitalWrite(Konashi.LED4, Konashi.LOW);
             }
         });
         
         mKonashiManager = new KonashiManager();
         mKonashiManager.initialize(getApplicationContext());
-        mKonashiManager.addEventLister(mKonashiEventListener);
+        mKonashiManager.addObserver(mKonashiObserver);
     }
     
-    private final KonashiEventListener mKonashiEventListener = new KonashiEventListener() {
+    private final KonashiObserver mKonashiObserver = new KonashiObserver() {
         @Override
         public void onKonashiReady() {
             Log.d(TAG, "onKonashiReady");
             
-            mKonashiManager.pinMode(KonashiManager.LED2, KonashiManager.OUTPUT);
+            mKonashiManager.pinMode(Konashi.LED2, Konashi.OUTPUT);
+            mKonashiManager.pinMode(Konashi.LED3, Konashi.OUTPUT);
+            mKonashiManager.pinMode(Konashi.LED4, Konashi.OUTPUT);
         }
     };
 }

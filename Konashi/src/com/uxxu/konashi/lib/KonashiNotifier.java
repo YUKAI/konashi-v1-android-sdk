@@ -3,19 +3,19 @@ package com.uxxu.konashi.lib;
 import java.util.ArrayList;
 
 public class KonashiNotifier {
-    private ArrayList<KonashiEventListener> mListeners = null;
+    private ArrayList<KonashiObserver> mListeners = null;
     
     public KonashiNotifier() {
-        mListeners = new ArrayList<KonashiEventListener>();
+        mListeners = new ArrayList<KonashiObserver>();
     }
     
-    public void addEventListener(KonashiEventListener listener){
+    public void addEventListener(KonashiObserver listener){
         if(!mListeners.contains(listener)){
             mListeners.add(listener);
         }
     }
     
-    public void removeEventListener(KonashiEventListener listener){
+    public void removeEventListener(KonashiObserver listener){
         if(mListeners.contains(listener)){
             mListeners.remove(listener);
         }
@@ -26,7 +26,7 @@ public class KonashiNotifier {
     }
     
     public void notifyKonashiEvent(String event){
-        for(KonashiEventListener listener: mListeners){
+        for(KonashiObserver listener: mListeners){
             if(event.equals(KonashiEvent.READY)){
                 listener.onKonashiReady();
             }

@@ -1,6 +1,8 @@
 package com.uxxu.konashi.lib;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.UUID;
 
 import com.uxxu.konashi.lib.BleDeviceSelectionDialog.OnBleDeviceSelectListener;
@@ -56,36 +58,10 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     // konashi characteristic configuration
     private static final String CLIENT_CHARACTERISTIC_CONFIG = "00002902" + KONASHI_BASE_UUID;
     private static final byte KONASHI_FAILURE = (byte)(0xff);
-
-    // PIO
-    public static final byte PIO0 = 0;
-    public static final byte PIO1 = 1;
-    public static final byte PIO2 = 2;
-    public static final byte PIO3 = 3;
-    public static final byte PIO4 = 4;
-    public static final byte PIO5 = 5;
-    public static final byte PIO6 = 6;
-    public static final byte PIO7 = 7;
-    public static final byte S1 = 0;
-    public static final byte LED2 = 1;
-    public static final byte LED3 = 2;
-    public static final byte LED4 = 3;
-    public static final byte LED5 = 4;
-    public static final byte AIO0 = 0;
-    public static final byte AIO1 = 1;
-    public static final byte AIO2 = 2;
-    public static final byte I2C_SDA = 6;
-    public static final byte I2C_SCL = 7;
-    
-    public static final byte INPUT = 0;
-    public static final byte OUTPUT = 1;
-    public static final byte NO_PULLS = 0;
-    public static final byte PULLUP   = 1;
-    public static final byte LOW  = 0;
-    public static final byte HIGH = 1;
     
     private static final long SCAN_PERIOD = 3000;
     private static final String KONAHSI_DEVICE_NAME = "konashi#";
+    private static final long KONASHI_SEND_PERIOD = 20;
     
     private enum BleStatus {
         DISCONNECTED,
@@ -104,6 +80,18 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
             Message message = new Message();
             message.obj = this;
             return message;
+        }
+    }
+    
+    // FIFO buffer
+    private Timer mFifoTimer;
+    private ArrayList<KonashiMessage> mKonashiMessageList;
+    private class KonashiMessage{
+        public String uuid;
+        public byte[] data;
+        public KonashiMessage(String uuid, byte[] data){
+            this.uuid = uuid;
+            this.data = data;
         }
     }
     
@@ -151,6 +139,9 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         };   
         
         mNotifier = new KonashiNotifier();
+        mKonashiMessageList = new ArrayList<KonashiMessage>();
+        
+        startFifoTimer();
     }
     
     public void find(Activity activity){
@@ -255,6 +246,14 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     
     private void connect(BluetoothDevice device){
         mBluetoothGatt = device.connectGatt(mActivity.getApplicationContext(), false, mBluetoothGattCallback);
+    }
+    
+    private void disconnect(){
+        if(mBluetoothGatt!=null){
+            mBluetoothGatt.close();
+            mBluetoothGatt = null;
+            setStatus(BleStatus.CLOSED);
+        }
     }
     
     private final BluetoothGattCallback mBluetoothGattCallback = new BluetoothGattCallback() {
@@ -390,6 +389,56 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         }
     }
     
+    
+    /*********************************
+     * FIFO send messenger
+     *********************************/
+    
+    private void addMessage(String uuidString, byte[] value){
+        mKonashiMessageList.add(new KonashiMessage(uuidString, value));
+    }
+    
+    private KonashiMessage getFirstMessage(){
+        if(mKonashiMessageList.size()>0){
+            KonashiMessage message = mKonashiMessageList.get(0);
+            mKonashiMessageList.remove(0);
+            return message;
+        } else {
+            return null;
+        }
+    }
+    
+    private void startFifoTimer(){
+        mFifoTimer = new Timer(true);
+        final Handler handler = new Handler();
+        mFifoTimer.schedule(new TimerTask(){
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        KonashiMessage message = getFirstMessage();
+                        if(message!=null){
+                            writeValue(message.uuid, message.data);
+                        }
+                    }
+                });
+            }
+        }, KONASHI_SEND_PERIOD, KONASHI_SEND_PERIOD);
+    }
+    
+    private void stopFifoTimer(){
+        if(mFifoTimer!=null){
+            mFifoTimer.cancel();
+            mFifoTimer = null;
+        }
+    }
+    
+    
+    /*********************************
+     * Write/Read on BLE
+     *********************************/
+    
     private void writeValue(String uuidString, byte[] value){
         if (mBluetoothGatt != null) {
             BluetoothGattService service = mBluetoothGatt.getService(UUID.fromString(KONASHI_SERVICE_UUID));
@@ -406,9 +455,13 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * Konashi methods
      ******************************/
     
-    public void pinMode(byte pin, byte mode){
-        if(pin >= PIO0 && pin <= PIO7 && (mode == OUTPUT || mode == INPUT)){
-            if(mode == OUTPUT){
+    ///////////////////////////
+    // PIO
+    ///////////////////////////
+    
+    public void pinMode(int pin, int mode){
+        if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (mode == Konashi.OUTPUT || mode == Konashi.INPUT)){
+            if(mode == Konashi.OUTPUT){
                 mPinModeSetting |= (byte)(0x01 << pin);
             }else{
                 mPinModeSetting &= (byte)(~(0x01 << pin) & 0xFF);
@@ -417,15 +470,15 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
             byte[] val = new byte[1];
             val[0] = mPinModeSetting;
             
-            writeValue(KONASHI_PIO_SETTING_UUID, val);
+            addMessage(KONASHI_PIO_SETTING_UUID, val);
         }
     }
     
-    public void digitalWrite(byte pin, byte value){
-        if(pin >= PIO0 && pin <= PIO7 && (value == HIGH || value == LOW)){
+    public void digitalWrite(int pin, int value){
+        if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (value == Konashi.HIGH || value == Konashi.LOW)){
             KonashiUtils.log("digitalWrite pin: " + pin + ", value: " + value);
             
-            if(value == HIGH){
+            if(value == Konashi.HIGH){
                 mPioOutput |= 0x01 << pin;
             } else {
                 mPioOutput &= ~(0x01 << pin) & 0xFF;
@@ -434,24 +487,24 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
             byte[] val = new byte[1];
             val[0] = mPioOutput;
             
-            writeValue(KONASHI_PIO_OUTPUT_UUID, val);
+            addMessage(KONASHI_PIO_OUTPUT_UUID, val);
         }
     }
     
     
     /******************************
-     * Konashi event listener
+     * Konashi observer
      ******************************/
 
-    public void addEventLister(KonashiEventListener listener){
-        mNotifier.addEventListener(listener);
+    public void addObserver(KonashiObserver observer){
+        mNotifier.addEventListener(observer);
     }
     
-    public void removeEventListener(KonashiEventListener listener){
-        mNotifier.removeEventListener(listener);
+    public void removeObserver(KonashiObserver observer){
+        mNotifier.removeEventListener(observer);
     }
     
-    public void removeAllEventListeners(){
+    public void removeAllObservers(){
         mNotifier.removeAllEventListeners();
     }
     
