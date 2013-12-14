@@ -61,7 +61,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     
     private static final long SCAN_PERIOD = 3000;
     private static final String KONAHSI_DEVICE_NAME = "konashi#";
-    private static final long KONASHI_SEND_PERIOD = 20;
+    private static final long KONASHI_SEND_PERIOD = 10;
     
     private enum BleStatus {
         DISCONNECTED,
@@ -166,6 +166,14 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         mDialog.show(activity);
     }
     
+    public void disconnect(){
+        if(mBluetoothGatt!=null){
+            mBluetoothGatt.close();
+            mBluetoothGatt = null;
+            setStatus(BleStatus.CLOSED);
+        }
+    }
+    
     private void stopFindHandler(){
         mFindHandler.removeCallbacks(mFindRunnable);
     }
@@ -246,14 +254,6 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     
     private void connect(BluetoothDevice device){
         mBluetoothGatt = device.connectGatt(mActivity.getApplicationContext(), false, mBluetoothGattCallback);
-    }
-    
-    private void disconnect(){
-        if(mBluetoothGatt!=null){
-            mBluetoothGatt.close();
-            mBluetoothGatt = null;
-            setStatus(BleStatus.CLOSED);
-        }
     }
     
     private final BluetoothGattCallback mBluetoothGattCallback = new BluetoothGattCallback() {

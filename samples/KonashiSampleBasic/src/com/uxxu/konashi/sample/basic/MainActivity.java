@@ -14,18 +14,14 @@ public class MainActivity extends Activity {
     private static final String TAG = "KonashiSample";
     
     private KonashiManager mKonashiManager;
-    
-    private Button mFindButton;
-    private Button mOnButton;
-    private Button mOffButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        mFindButton = (Button)findViewById(R.id.find_button);
-        mFindButton.setOnClickListener(new View.OnClickListener() {
+        Button findButton = (Button)findViewById(R.id.find_button);
+        findButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mKonashiManager.find(MainActivity.this);
@@ -34,23 +30,25 @@ public class MainActivity extends Activity {
             }
         });
         
-        mOnButton = (Button)findViewById(R.id.on_button);
-        mOnButton.setOnClickListener(new View.OnClickListener() {
+        Button onButton = (Button)findViewById(R.id.on_button);
+        onButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mKonashiManager.digitalWrite(Konashi.LED2, Konashi.HIGH);
                 mKonashiManager.digitalWrite(Konashi.LED3, Konashi.HIGH);
                 mKonashiManager.digitalWrite(Konashi.LED4, Konashi.HIGH);
+                mKonashiManager.digitalWrite(Konashi.LED5, Konashi.HIGH);
             }
         });
         
-        mOffButton = (Button)findViewById(R.id.off_button);
-        mOffButton.setOnClickListener(new View.OnClickListener() {
+        Button offButton = (Button)findViewById(R.id.off_button);
+        offButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mKonashiManager.digitalWrite(Konashi.LED2, Konashi.LOW);
                 mKonashiManager.digitalWrite(Konashi.LED3, Konashi.LOW);
                 mKonashiManager.digitalWrite(Konashi.LED4, Konashi.LOW);
+                mKonashiManager.digitalWrite(Konashi.LED5, Konashi.LOW);
             }
         });
         
@@ -59,6 +57,13 @@ public class MainActivity extends Activity {
         mKonashiManager.addObserver(mKonashiObserver);
     }
     
+    @Override
+    protected void onDestroy() {
+        mKonashiManager.disconnect();
+        mKonashiManager = null;
+        super.onDestroy();
+    }
+
     private final KonashiObserver mKonashiObserver = new KonashiObserver() {
         @Override
         public void onKonashiReady() {
@@ -67,6 +72,7 @@ public class MainActivity extends Activity {
             mKonashiManager.pinMode(Konashi.LED2, Konashi.OUTPUT);
             mKonashiManager.pinMode(Konashi.LED3, Konashi.OUTPUT);
             mKonashiManager.pinMode(Konashi.LED4, Konashi.OUTPUT);
+            mKonashiManager.pinMode(Konashi.LED5, Konashi.OUTPUT);
         }
     };
 }
