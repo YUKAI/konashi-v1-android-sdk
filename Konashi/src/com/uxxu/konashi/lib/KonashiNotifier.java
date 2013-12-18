@@ -25,28 +25,23 @@ public class KonashiNotifier {
         mObservers.clear();
     }
     
-    public void notifyKonashiEvent(String event){
+    public void notifyKonashiEvent(final String event){
         for(final KonashiObserver observer: mObservers){
             if(observer.getActivity().isDestroyed()){
                 break;
             }
             
-            if(event.equals(KonashiEvent.READY)){
-                observer.getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+            observer.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(event.equals(KonashiEvent.READY)){
                         observer.onKonashiReady();
                     }
-                });
-            }
-            else if(event.equals(KonashiEvent.UPDATE_PIO_INPUT)){
-                observer.getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+                    else if(event.equals(KonashiEvent.UPDATE_PIO_INPUT)){
                         observer.onUpdatePioInput();
                     }
-                });
-            }
+                }
+            });
         }
     }
 }
