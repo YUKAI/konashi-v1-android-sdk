@@ -12,36 +12,44 @@
         android:layout_margin="@dimen/find_button_margin"
         android:text="@string/find_button"/>
     
-    <Button 
-        android:id="@+id/on_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/find_button_margin"
-        android:text="on"/>
-    
-    <Button 
-        android:id="@+id/off_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/find_button_margin"
-        android:text="off"/>
-    
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/container"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="@dimen/find_button_margin" >
+        android:orientation="vertical" >
         
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sw" />
-        
-        <TextView
-            android:id="@+id/sw_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
+        <Button 
+	        android:id="@+id/on_button"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="@dimen/find_button_margin"
+	        android:text="@string/led_on"/>
+	    
+	    <Button 
+	        android:id="@+id/off_button"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="@dimen/find_button_margin"
+	        android:text="@string/led_off"/>
+	    
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_margin="@dimen/find_button_margin" >
+	        
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/sw" />
+	        
+	        <TextView
+	            android:id="@+id/sw_state"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="" />
+	        
+	    </LinearLayout>
         
     </LinearLayout>
 

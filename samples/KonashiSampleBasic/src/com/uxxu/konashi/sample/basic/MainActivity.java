@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.uxxu.konashi.lib.*;
@@ -19,11 +20,15 @@ public class MainActivity extends Activity {
     private Button onButton;
     private Button offButton;
     private TextView mSwStateTextView;
+    private LinearLayout mContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        mContainer = (LinearLayout)findViewById(R.id.container);
+        mContainer.setVisibility(View.GONE);
         
         findButton = (Button)findViewById(R.id.find_button);
         findButton.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +65,7 @@ public class MainActivity extends Activity {
         mSwStateTextView = (TextView)findViewById(R.id.sw_state);
         mSwStateTextView.setText("OFF");
         
+        // Initialize konashi manager
         mKonashiManager = new KonashiManager();
         mKonashiManager.initialize(getApplicationContext());
         mKonashiManager.addObserver(mKonashiObserver);
@@ -80,6 +86,8 @@ public class MainActivity extends Activity {
         @Override
         public void onKonashiReady(){
             Log.d(TAG, "onKonashiReady");
+            
+            mContainer.setVisibility(View.VISIBLE);
             
             mKonashiManager.pinMode(Konashi.LED2, Konashi.OUTPUT);
             mKonashiManager.pinMode(Konashi.LED3, Konashi.OUTPUT);
