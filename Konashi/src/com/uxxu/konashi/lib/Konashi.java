@@ -35,13 +35,13 @@ public class Konashi {
     public static final int NO_PULLS = 0;
     
     // AIO
-    public static final int ANALOG_REFERENCE = 1300;
+    public static final int ANALOG_REFERENCE = 1300;    // 1300mV
     
     // PWM
     public static final int PWM_DISABLE = 0;
     public static final int PWM_ENABLE = 1;
     public static final int PWM_ENABLE_LED_MODE = 2;
-    public static final int PWM_LED_PERIOD = 10000;
+    public static final int PWM_LED_PERIOD = 10000;     // 10ms
     
     // UART
     public static final int UART_DISABLE = 0;

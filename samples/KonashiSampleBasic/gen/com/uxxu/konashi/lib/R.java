@@ -29,11 +29,11 @@ public final class R {
 		public static final int ic_launcher = 0x7f020000;
 	}
 	public static final class id {
-		public static final int device_address = 0x7f090004;
-		public static final int device_name = 0x7f090003;
-		public static final int finding = 0x7f090006;
-		public static final int list = 0x7f090005;
-		public static final int not_found = 0x7f090007;
+		public static final int device_address = 0x7f090005;
+		public static final int device_name = 0x7f090004;
+		public static final int finding = 0x7f090007;
+		public static final int list = 0x7f090006;
+		public static final int not_found = 0x7f090008;
 	}
 	public static final class layout {
 		public static final int device_list_element = 0x7f030002;

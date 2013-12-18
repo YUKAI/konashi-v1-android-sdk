@@ -4,5 +4,8 @@
     <string name="app_name">KonashiSampleBasic</string>
     
     <string name="find_button">Find konashi</string>
-
+    <string name="led_on">LED ON</string>
+    <string name="led_off">LED OFF</string>
+    <string name="sw">On-board Switch S1: </string>
+    
 </resources>

@@ -39,15 +39,16 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090008;
-        public static final int device_address=0x7f090004;
-        public static final int device_name=0x7f090003;
+        public static final int action_settings=0x7f090009;
+        public static final int device_address=0x7f090005;
+        public static final int device_name=0x7f090004;
         public static final int find_button=0x7f090000;
-        public static final int finding=0x7f090006;
-        public static final int list=0x7f090005;
-        public static final int not_found=0x7f090007;
+        public static final int finding=0x7f090007;
+        public static final int list=0x7f090006;
+        public static final int not_found=0x7f090008;
         public static final int off_button=0x7f090002;
         public static final int on_button=0x7f090001;
+        public static final int sw_state=0x7f090003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -66,6 +67,9 @@ public final class R {
         public static final int dialog_device_list_not_found=0x7f060005;
         public static final int dialog_device_list_title=0x7f060002;
         public static final int find_button=0x7f060006;
+        public static final int led_off=0x7f060008;
+        public static final int led_on=0x7f060007;
+        public static final int sw=0x7f060009;
     }
     public static final class style {
         /** 

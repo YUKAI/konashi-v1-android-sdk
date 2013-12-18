@@ -109,7 +109,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     private Handler mFindHandler;
     private Runnable mFindRunnable;
     private BleDeviceListAdapter mBleDeviceListAdapter;
-    private Boolean mIsShowKonashiOnly = true;
+    private boolean mIsShowKonashiOnly = true;
     
     // konashi event listenr
     private KonashiNotifier mNotifier;
@@ -117,6 +117,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     // UI members
     private Activity mActivity;
     private BleDeviceSelectionDialog mDialog;
+    
+    
+    /////////////////////////////////////////////////////////////
+    // Public methods
+    ///////////////////////////////////////////////////////////// 
     
     public void initialize(Context context){        
         mFindHandler = new Handler();
@@ -139,16 +144,14 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         };   
         
         mNotifier = new KonashiNotifier();
-        mKonashiMessageList = new ArrayList<KonashiMessage>();
-        
-        startFifoTimer();
+        mKonashiMessageList = new ArrayList<KonashiMessage>();        
     }
     
     public void find(Activity activity){
         find(activity, true);
     }
     
-    public void find(Activity activity, Boolean isShowKonashiOnly){
+    public void find(Activity activity, boolean isShowKonashiOnly){
         KonashiUtils.log("start");
         
         mActivity = activity;
@@ -164,50 +167,45 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         setStatus(BleStatus.SCANNING);
         
         mDialog.show(activity);
+        
+        startFifoTimer();
     }
     
     public void disconnect(){
         if(mBluetoothGatt!=null){
             mBluetoothGatt.close();
             mBluetoothGatt = null;
-            setStatus(BleStatus.CLOSED);
+            setStatus(BleStatus.DISCONNECTED);
         }
-    }
-    
-    private void stopFindHandler(){
-        mFindHandler.removeCallbacks(mFindRunnable);
-    }
-    
-    private void setStatus(BleStatus status) {
-        mStatus = status;
         
-        if(status==BleStatus.DISCONNECTED){
-            KonashiUtils.log("konashi_status: DISCONNECTED");
-        } else if(status==BleStatus.SCANNING){
-            KonashiUtils.log("konashi_status: SCANNING");
-        } else if(status==BleStatus.SCAN_END){
-            KonashiUtils.log("konashi_status: SCAN_END");
-        } else if(status==BleStatus.DEVICE_FOUND){
-            KonashiUtils.log("konashi_status: DEVICE_FOUND");
-        } else if(status==BleStatus.CONNECTED){
-            KonashiUtils.log("konashi_status: CONNECTED");
-        } else if(status==BleStatus.SERVICE_NOT_FOUND){
-            KonashiUtils.log("konashi_status: SERVICE_NOT_FOUND");
-        } else if(status==BleStatus.SERVICE_FOUND){
-            KonashiUtils.log("konashi_status: SERVICE_FOUND");
-        } else if(status==BleStatus.CHARACTERISTICS_NOT_FOUND){
-            KonashiUtils.log("konashi_status: CHARACTERISTICS_NOT_FOUND");
-        } else if(status==BleStatus.CHARACTERISTICS_FOUND){
-            KonashiUtils.log("konashi_status: CHARACTERISTICS_FOUND");
-        } else if(status==BleStatus.READY){
-            KonashiUtils.log("konashi_status: READY");
-            notifyKonashiEvent(KonashiEvent.READY);
-        } else if(status==BleStatus.CLOSED){
-            KonashiUtils.log("konashi_status: CLOSED");
-        } else {
-            KonashiUtils.log("konashi_status: UNKNOWN");
-        }
+        stopFifoTimer();
+        
+        mKonashiMessageList.clear();
     }
+    
+    public void close(){
+        if(mStatus.equals(BleStatus.CLOSED)){
+            return;
+        }
+        
+        // disconnect if not-disconnected & close
+        if(!mStatus.equals(BleStatus.DISCONNECTED)){
+            disconnect();
+        }
+        
+        // remove all messages
+        mKonashiMessageList.clear();
+        
+        // remove all observers
+        mNotifier.removeAllEventListeners();
+        
+        setStatus(BleStatus.CLOSED);
+    }
+        
+    
+    /****************************
+     * BLE Override methods
+     ****************************/
     
     @Override
     public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
@@ -248,8 +246,48 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     }
     
     
+    /////////////////////////////////////////////////////////////
+    // Private methods
+    /////////////////////////////////////////////////////////////    
+    
+    private void stopFindHandler(){
+        mFindHandler.removeCallbacks(mFindRunnable);
+    }
+    
+    private void setStatus(BleStatus status) {
+        mStatus = status;
+        
+        if(status==BleStatus.DISCONNECTED){
+            KonashiUtils.log("konashi_status: DISCONNECTED");
+        } else if(status==BleStatus.SCANNING){
+            KonashiUtils.log("konashi_status: SCANNING");
+        } else if(status==BleStatus.SCAN_END){
+            KonashiUtils.log("konashi_status: SCAN_END");
+        } else if(status==BleStatus.DEVICE_FOUND){
+            KonashiUtils.log("konashi_status: DEVICE_FOUND");
+        } else if(status==BleStatus.CONNECTED){
+            KonashiUtils.log("konashi_status: CONNECTED");
+        } else if(status==BleStatus.SERVICE_NOT_FOUND){
+            KonashiUtils.log("konashi_status: SERVICE_NOT_FOUND");
+        } else if(status==BleStatus.SERVICE_FOUND){
+            KonashiUtils.log("konashi_status: SERVICE_FOUND");
+        } else if(status==BleStatus.CHARACTERISTICS_NOT_FOUND){
+            KonashiUtils.log("konashi_status: CHARACTERISTICS_NOT_FOUND");
+        } else if(status==BleStatus.CHARACTERISTICS_FOUND){
+            KonashiUtils.log("konashi_status: CHARACTERISTICS_FOUND");
+        } else if(status==BleStatus.READY){
+            KonashiUtils.log("konashi_status: READY");
+            notifyKonashiEvent(KonashiEvent.READY);
+        } else if(status==BleStatus.CLOSED){
+            KonashiUtils.log("konashi_status: CLOSED");
+        } else {
+            KonashiUtils.log("konashi_status: UNKNOWN");
+        }
+    }
+    
+    
     /******************************************
-     * BLE functions
+     * BLE methods
      ******************************************/
     
     private void connect(BluetoothDevice device){
@@ -259,8 +297,18 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     private final BluetoothGattCallback mBluetoothGattCallback = new BluetoothGattCallback() {
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
-            // TODO Auto-generated method stub
-            super.onCharacteristicChanged(gatt, characteristic);
+            KonashiUtils.log("onCharacteristicChanged: " + characteristic.getUuid());
+            
+            if(characteristic.getUuid().toString().equals(KONASHI_PIO_INPUT_NOTIFICATION_UUID)){
+                // PIO input notification
+                byte value = characteristic.getValue()[0];
+                mPioInput = value;
+                
+                KonashiUtils.log("#####  " + mPioInput);
+                
+                // fire event
+                notifyKonashiEvent(KonashiEvent.UPDATE_PIO_INPUT);
+            }
         }
 
         @Override
@@ -359,16 +407,43 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
                 // available all konashi characteristics
                 setStatus(BleStatus.CHARACTERISTICS_FOUND);
                 
+                // enable notification
+                if(!enableNotification(KONASHI_PIO_INPUT_NOTIFICATION_UUID)
+                ){
+                    setStatus(BleStatus.CHARACTERISTICS_NOT_FOUND);
+                    return;
+                }
+                
                 setStatus(BleStatus.READY);
             }
         }
     };
     
-    private Boolean isAvailableCharacteristic(String uuidString){
-        if (mBluetoothGatt != null) {
+    private BluetoothGattCharacteristic getCharacteristic(String uuidString){
+        if(mBluetoothGatt!=null){
             BluetoothGattService service = mBluetoothGatt.getService(UUID.fromString(KONASHI_SERVICE_UUID));
-            BluetoothGattCharacteristic characteristic = service.getCharacteristic(UUID.fromString(uuidString));
-            return characteristic != null;
+            return service.getCharacteristic(UUID.fromString(uuidString));
+        } else {
+            return null;
+        }
+    }
+    
+    private boolean isAvailableCharacteristic(String uuidString){
+        KonashiUtils.log("check characteristic: " + uuidString);
+
+        return getCharacteristic(uuidString) != null;
+    }
+    
+    private boolean enableNotification(String uuidString){
+        KonashiUtils.log("try enable notification: " + uuidString);
+        
+        BluetoothGattCharacteristic characteristic = getCharacteristic(uuidString);
+        if(mBluetoothGatt!=null && characteristic!=null){
+            boolean registered = mBluetoothGatt.setCharacteristicNotification(characteristic, true);
+            BluetoothGattDescriptor descriptor = characteristic.getDescriptor(UUID.fromString(CLIENT_CHARACTERISTIC_CONFIG));
+            descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+            mBluetoothGatt.writeDescriptor(descriptor);
+            return registered;
         } else {
             return false;
         }
@@ -391,7 +466,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     
     
     /*********************************
-     * FIFO send messenger
+     * FIFO send buffer
      *********************************/
     
     private void addMessage(String uuidString, byte[] value){
@@ -409,6 +484,8 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     }
     
     private void startFifoTimer(){
+        stopFifoTimer();
+        
         mFifoTimer = new Timer(true);
         final Handler handler = new Handler();
         mFifoTimer.schedule(new TimerTask(){
@@ -489,6 +566,10 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
             
             addMessage(KONASHI_PIO_OUTPUT_UUID, val);
         }
+    }
+    
+    public int digitalRead(int pin){
+        return (mPioInput >> pin) & 0x01;
     }
     
     
