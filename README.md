@@ -4,6 +4,7 @@
 
 ### 進捗
 - PIOのdigitalWriteでLED制御するところまでできた
+- PIOの入力変化のnotificationを受信できた 12/18/2013
 
 ### 使い方
 - KonashiLibをライブラリプロジェクトとして追加 
