@@ -2,6 +2,7 @@ package com.uxxu.konashi.lib;
 
 public class KonashiEvent {
     public static final String PERIPHERAL_NOT_FOUND = "PERIPHERAL_NOT_FOUND";
+    public static final String CANCEL_SELECT_KONASHI = "CANCEL_SELECT_KONASHI";
     public static final String CONNECTED = "CONNECTED";
     public static final String DISCONNECTED = "DISCONNECTED";
     public static final String READY = "READY";

@@ -40,6 +40,9 @@ public class KonashiNotifier {
                     else if(event.equals(KonashiEvent.UPDATE_PIO_INPUT)){
                         observer.onUpdatePioInput();
                     }
+                    else if(event.equals(KonashiEvent.CANCEL_SELECT_KONASHI)){
+                        observer.onCancelSelectKonashi();
+                    }
                 }
             });
         }

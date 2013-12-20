@@ -15,4 +15,5 @@ public abstract class KonashiObserver {
     
     public void onKonashiReady(){}
     public void onUpdatePioInput(){}
+    public void onCancelSelectKonashi(){}
 }

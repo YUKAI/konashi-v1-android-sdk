@@ -17,10 +17,17 @@ import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
+import android.widget.Toast;
 
 public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDeviceSelectListener {
+    
+    /*************************
+     * konashi constants
+     *************************/
     
     // konashi service UUID
     private static final String KONASHI_BASE_UUID = "-0000-1000-8000-00805f9b34fb";
@@ -63,6 +70,14 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     private static final String KONAHSI_DEVICE_NAME = "konashi#";
     private static final long KONASHI_SEND_PERIOD = 10;
     
+    
+    /*****************************
+     * BLE constants
+     *****************************/
+    
+    private static final int REQUEST_ENABLE_BT = 1;
+    private static final int REQUEST_STATE_CHANGE_BT = 2;
+    
     private enum BleStatus {
         DISCONNECTED,
         SCANNING,
@@ -82,6 +97,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
             return message;
         }
     }
+    
+    
+    /*****************************
+     * Members
+     *****************************/
     
     // FIFO buffer
     private Timer mFifoTimer;
@@ -110,6 +130,8 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     private Runnable mFindRunnable;
     private BleDeviceListAdapter mBleDeviceListAdapter;
     private boolean mIsShowKonashiOnly = true;
+    private boolean mIsSupportBle = false;
+    private boolean mIsInitialized = false;
     
     // konashi event listenr
     private KonashiNotifier mNotifier;
@@ -123,8 +145,20 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     // Public methods
     ///////////////////////////////////////////////////////////// 
     
-    public void initialize(Context context){        
-        mFindHandler = new Handler();
+    public KonashiManager(){
+        mNotifier = new KonashiNotifier();
+        mKonashiMessageList = new ArrayList<KonashiMessage>();
+    }
+    
+    public void initialize(Context context){
+        mIsSupportBle = isSupportBle(context);
+        if(!mIsSupportBle){
+            // BLE not supported. can't initialize
+            Toast.makeText(context, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        // initialize BLE
         mBleDeviceListAdapter = new BleDeviceListAdapter(context);
         
         mBluetoothManager = (BluetoothManager)context.getSystemService(context.BLUETOOTH_SERVICE);
@@ -132,6 +166,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         
         mDialog = new BleDeviceSelectionDialog(mBleDeviceListAdapter, this);
         
+        mFindHandler = new Handler();
         mFindRunnable = new Runnable() {
             @Override
             public void run() {
@@ -141,10 +176,9 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
                     mDialog.finishFinding();
                 }
             }
-        };   
+        };
         
-        mNotifier = new KonashiNotifier();
-        mKonashiMessageList = new ArrayList<KonashiMessage>();        
+        mIsInitialized = true;
     }
     
     public void find(Activity activity){
@@ -154,7 +188,18 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     public void find(Activity activity, boolean isShowKonashiOnly){
         KonashiUtils.log("start");
         
+        // check initialized
+        if(!mIsInitialized){
+            return;
+        }
+        
         mActivity = activity;
+        
+        if (mBluetoothAdapter == null || !mBluetoothAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            activity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+            return;
+        }
         
         mIsShowKonashiOnly = isShowKonashiOnly;
         
@@ -180,6 +225,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         
         stopFifoTimer();
         
+        // reset members
         mKonashiMessageList.clear();
     }
     
@@ -238,10 +284,12 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
 
     @Override
     public void onCancelSelectingBleDevice() {
+        notifyKonashiEvent(KonashiEvent.CANCEL_SELECT_KONASHI);
+
         if(mStatus.equals(BleStatus.SCANNING)){
             stopFindHandler();
             mBluetoothAdapter.stopLeScan(KonashiManager.this);
-            setStatus(BleStatus.DISCONNECTED);
+            setStatus(BleStatus.DISCONNECTED);            
         }
     }
     
@@ -249,6 +297,14 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     /////////////////////////////////////////////////////////////
     // Private methods
     /////////////////////////////////////////////////////////////    
+    
+    private boolean isSupportBle(Context context){
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE);
+    }
+    
+    private boolean isEnableAccessKonashi(){
+        return mIsSupportBle && mIsInitialized && mStatus.equals(BleStatus.READY);
+    }
     
     private void stopFindHandler(){
         mFindHandler.removeCallbacks(mFindRunnable);
