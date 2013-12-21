@@ -270,6 +270,26 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         
         setStatus(BleStatus.CLOSED);
     }
+    
+    public boolean isConnected(){
+        return mStatus.equals(BleStatus.CONNECTED) ||
+               mStatus.equals(BleStatus.CHARACTERISTICS_FOUND) ||
+               mStatus.equals(BleStatus.SERVICE_FOUND) ||
+               mStatus.equals(BleStatus.READY)
+        ;
+    }
+    
+    public boolean isReady(){
+        return mStatus.equals(BleStatus.READY);
+    }
+    
+    public String getPeripheralName(){
+        if(mBluetoothGatt!=null && mBluetoothGatt.getDevice()!=null){
+            return mBluetoothGatt.getDevice().getName();
+        } else {
+            return "";
+        }
+    }
         
     
     /****************************
