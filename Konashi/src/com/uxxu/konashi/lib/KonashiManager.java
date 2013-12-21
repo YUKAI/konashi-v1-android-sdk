@@ -185,13 +185,13 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         find(activity, true);
     }
     
-    public void find(Activity activity, boolean isShowKonashiOnly){
-        KonashiUtils.log("start");
-        
+    public void find(Activity activity, boolean isShowKonashiOnly){        
         // check initialized
-        if(!mIsInitialized){
+        if(!mIsInitialized || mStatus.equals(BleStatus.READY)){
             return;
         }
+        
+        KonashiUtils.log("find start");
         
         mActivity = activity;
         
@@ -385,10 +385,16 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
             
             if(newState == BluetoothProfile.STATE_CONNECTED){
                 setStatus(BleStatus.CONNECTED);
+                
+                notifyKonashiEvent(KonashiEvent.CONNECTED);
+                
                 gatt.discoverServices();
             }
             else if(newState == BluetoothProfile.STATE_DISCONNECTED){
                 setStatus(BleStatus.DISCONNECTED);
+                
+                notifyKonashiEvent(KonashiEvent.DISCONNECTED);
+                
                 mBluetoothGatt = null;
             }
         }

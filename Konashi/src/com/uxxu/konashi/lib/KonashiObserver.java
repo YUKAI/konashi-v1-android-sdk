@@ -13,7 +13,9 @@ public abstract class KonashiObserver {
         return mActivity;
     }
     
-    public void onKonashiReady(){}
+    public void onConnected(){}
+    public void onDisconncted(){}
+    public void onReady(){}
     public void onUpdatePioInput(){}
     public void onCancelSelectKonashi(){}
 }

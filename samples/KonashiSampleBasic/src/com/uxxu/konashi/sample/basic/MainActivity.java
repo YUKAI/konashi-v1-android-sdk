@@ -78,7 +78,17 @@ public class MainActivity extends Activity {
 
     private final KonashiObserver mKonashiObserver = new KonashiObserver(MainActivity.this) {
         @Override
-        public void onKonashiReady(){
+        public void onConnected() {
+            Log.d(TAG, "#########onConnected");
+        }
+
+        @Override
+        public void onDisconncted() {
+            Log.d(TAG, "#########onDisconncted");
+        }
+
+        @Override
+        public void onReady(){
             Log.d(TAG, "onKonashiReady");
             
             mContainer.setVisibility(View.VISIBLE);

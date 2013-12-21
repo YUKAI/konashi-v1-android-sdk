@@ -34,8 +34,14 @@ public class KonashiNotifier {
             observer.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if(event.equals(KonashiEvent.READY)){
-                        observer.onKonashiReady();
+                    if(event.equals(KonashiEvent.CONNECTED)){
+                        observer.onConnected();
+                    }
+                    else if(event.equals(KonashiEvent.DISCONNECTED)){
+                        observer.onDisconncted();
+                    }
+                    else if(event.equals(KonashiEvent.READY)){
+                        observer.onReady();
                     }
                     else if(event.equals(KonashiEvent.UPDATE_PIO_INPUT)){
                         observer.onUpdatePioInput();

@@ -28,19 +28,19 @@ $ git clone git@github.com:YUKAI/konashi-android-sdk.git
 ```
 
 #### eclipse でライブラリのプロジェクトとしてインポート
-File -> Import でImportウィンドウを開く。<br/>
-そして、Android -> Existing Android Code into Workspace を選択。<br/>
-Import Projectsウィンドウが開くので、Root Directory にさきほどダウンロードした konashi-android-sdk/Konashi ディレクトリを指定して、Finishをクリック。
+`File -> Import`で Import ウィンドウを開く。<br/>
+そして、`Android -> Existing Android Code into Workspace`を選択。<br/>
+Import Projects ウィンドウが開くので、Root Directory にさきほどダウンロードした `konashi-android-sdk/Konashi`ディレクトリを指定して、Finishをクリック。
 
-eclipseのプロジェクトに KonashiLib というライブラリプロジェクトが追加されているか確認してください。
+eclipse のプロジェクトに KonashiLib というライブラリプロジェクトが追加されているか確認してください。
 
 ##### サンプルプロジェクトを作成
-eclipseでAndroidプロジェクトを作成してください。
+eclipse でAndroidプロジェクトを作成してください。
 
 #### konashi-android-sdk ライブラリをサンプルプロジェクトに追加
-Package Explorer にて、サンプルプロジェクトを右クリック -> Properties を選択。<br/>
-Properties ウィンドウが開いたら左のプロパティリストの中にある「Android」という項目を選択。<br/>
-Library の Add を押し、KonashiLib を選択。
+`Package Explorer`にて、サンプルプロジェクトを右クリックして`Properties`を選択。<br/>
+Properties ウィンドウが開いたら左のプロパティリストの中にある`Android`という項目を選択。<br/>
+Library の `Add` を押し、`KonashiLib`を選択。
 
 これで konashi ライブラリを使えるようになりました。
 
