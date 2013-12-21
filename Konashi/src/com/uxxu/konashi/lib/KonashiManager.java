@@ -643,6 +643,27 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     
     
     /******************************
+     * Konashi observer
+     ******************************/
+
+    public void addObserver(KonashiObserver observer){
+        mNotifier.addEventListener(observer);
+    }
+    
+    public void removeObserver(KonashiObserver observer){
+        mNotifier.removeEventListener(observer);
+    }
+    
+    public void removeAllObservers(){
+        mNotifier.removeAllEventListeners();
+    }
+    
+    public void notifyKonashiEvent(String event){
+        mNotifier.notifyKonashiEvent(event);
+    }
+    
+    
+    /******************************
      * Konashi methods
      ******************************/
     
@@ -665,6 +686,21 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         }
     }
     
+    public void pinModeAll(int modes){
+        if(modes >= 0x00 && modes <= 0xFF){
+            mPinModeSetting = (byte)modes;
+            
+            byte[] val = new byte[1];
+            val[0] = mPinModeSetting;
+            
+            addMessage(KONASHI_PIO_SETTING_UUID, val);
+        }
+    }
+    
+    public void pinPullup(int pin, int pullup){
+        
+    }
+    
     public void digitalWrite(int pin, int value){
         if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (value == Konashi.HIGH || value == Konashi.LOW)){
             KonashiUtils.log("digitalWrite pin: " + pin + ", value: " + value);
@@ -685,25 +721,5 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     public int digitalRead(int pin){
         return (mPioInput >> pin) & 0x01;
     }
-    
-    
-    /******************************
-     * Konashi observer
-     ******************************/
 
-    public void addObserver(KonashiObserver observer){
-        mNotifier.addEventListener(observer);
-    }
-    
-    public void removeObserver(KonashiObserver observer){
-        mNotifier.removeEventListener(observer);
-    }
-    
-    public void removeAllObservers(){
-        mNotifier.removeAllEventListeners();
-    }
-    
-    public void notifyKonashiEvent(String event){
-        mNotifier.notifyKonashiEvent(event);
-    }
 }

@@ -16,6 +16,12 @@
 
 ----
 
+### javadoc 生成
+以下のantコマンドを実行すると、docsディレクトリにjavadocのhtmlが生成される。
+```
+$ ant javadoc
+```
+
 ### 動作環境
 - Android4.3以降 (SDK Version >= 18)
 - Bluetooth Low Energy (Bluetooth4.0) 対応端末

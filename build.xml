@@ -1,0 +1,32 @@
+<project>
+  <target name="javadoc">
+
+    <property file="docdata.properties" />
+    <property name="doc" location="docs" />
+    <property name="project.name" location="konashi-android-sdk" />
+
+    <delete dir="${doc}" />
+
+    <javadoc packagenames="com.uxxu.konashi.lib.*"
+             classpath="${sdk.dir}/platforms/${target}/android.jar"
+             destdir="${doc}"
+             sourcepath="Konashi/src"
+             docletpath="tools/doclava-1.0.6/doclava-1.0.6.jar"
+             bootclasspath="${javahome}/jre/lib/rt.jar"
+             linkoffline="http://d.android.com/reference ${sdk.dir}/docs/reference"
+    >
+      <doclet name="com.google.doclava.Doclava">
+        <param name="-stubs" value="build/stubs" />
+        <param name="-hdf"/> <param name="project.name"/> <param name="Doclava"/>
+        <!-- versioning -->
+        <param name="-since"/> <param name="doclava/previous.xml"/> <param name="v1" />
+        <param name="-apiversion" value="v2"/>
+        <!-- federation -->
+        <param name="-federate" /><param name="JDK"/>
+        <param name="http://download.oracle.com/javase/6/docs/api/index.html?"/>
+        <param name="-federationxml"/><param name="JDK"/>
+        <param name="http://doclava.googlecode.com/svn/static/api/openjdk-6.xml"/>
+      </doclet>
+    </javadoc>
+  </target>
+</project>
