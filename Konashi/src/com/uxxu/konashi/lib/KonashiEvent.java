@@ -15,5 +15,4 @@ public class KonashiEvent {
     public static final String UART_RX_COMPLETE = "UART_RX_COMPLETE";
     public static final String UPDATE_BATTERY_LEVEL = "UPDATE_BATTERY_LEVEL";
     public static final String UPDATE_SIGNAL_STRENGTH = "UPDATE_SIGNAL_STRENGTH";
-    
 }
