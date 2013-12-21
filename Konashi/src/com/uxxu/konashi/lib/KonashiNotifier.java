@@ -34,7 +34,10 @@ public class KonashiNotifier {
             observer.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if(event.equals(KonashiEvent.CONNECTED)){
+                    if(event.equals(KonashiEvent.PERIPHERAL_NOT_FOUND)){
+                        observer.onNotFoundKonashi();
+                    }
+                    else if(event.equals(KonashiEvent.CONNECTED)){
                         observer.onConnected();
                     }
                     else if(event.equals(KonashiEvent.DISCONNECTED)){

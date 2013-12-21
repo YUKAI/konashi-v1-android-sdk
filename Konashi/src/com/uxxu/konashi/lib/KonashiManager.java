@@ -132,6 +132,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     private boolean mIsShowKonashiOnly = true;
     private boolean mIsSupportBle = false;
     private boolean mIsInitialized = false;
+    private String mKonashiName;
     
     // konashi event listenr
     private KonashiNotifier mNotifier;
@@ -173,7 +174,13 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
                 if(mStatus.equals(BleStatus.SCANNING)){
                     mBluetoothAdapter.stopLeScan(KonashiManager.this);
                     setStatus(BleStatus.SCAN_END);
-                    mDialog.finishFinding();
+                    
+                    if(mKonashiName!=null){
+                        // called findWithName. dispatch PERIPHERAL_NOT_FOUND event
+                        notifyKonashiEvent(KonashiEvent.PERIPHERAL_NOT_FOUND);
+                    } else {
+                        mDialog.finishFinding();
+                    }
                 }
             }
         };
@@ -182,10 +189,18 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     }
     
     public void find(Activity activity){
-        find(activity, true);
+        find(activity, true, null);
     }
     
-    public void find(Activity activity, boolean isShowKonashiOnly){        
+    public void find(Activity activity, boolean isShowKonashiOnly){
+        find(activity, isShowKonashiOnly, null);
+    }
+    
+    public void findWithName(Activity activity, String name){
+        find(activity, true, name);
+    }
+    
+    private void find(Activity activity, boolean isShowKonashiOnly, String name){        
         // check initialized
         if(!mIsInitialized || mStatus.equals(BleStatus.READY)){
             return;
@@ -211,7 +226,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         mBluetoothAdapter.startLeScan(this);
         setStatus(BleStatus.SCANNING);
         
-        mDialog.show(activity);
+        mKonashiName = name;
+        
+        if(mKonashiName==null){
+            mDialog.show(activity);
+        }
         
         startFifoTimer();
     }
@@ -256,6 +275,15 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     @Override
     public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
         KonashiUtils.log("DeviceName: " + device.getName());
+        
+        if(mKonashiName!=null){
+            // called findWithName
+            if(device.getName().equals(mKonashiName)){
+                onSelectBleDevice(device);
+            }
+            
+            return;
+        }
 
         // runOnUiThread to be able to tap list element on BLE DeviceList dialog
         mActivity.runOnUiThread(new Runnable() {
