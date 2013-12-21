@@ -35,7 +35,7 @@ public class KonashiNotifier {
                 @Override
                 public void run() {
                     if(event.equals(KonashiEvent.PERIPHERAL_NOT_FOUND)){
-                        observer.onNotFoundKonashi();
+                        observer.onNotFoundPeripheral();
                     }
                     else if(event.equals(KonashiEvent.CONNECTED)){
                         observer.onConnected();

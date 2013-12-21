@@ -13,7 +13,7 @@ public abstract class KonashiObserver {
         return mActivity;
     }
     
-    public void onNotFoundKonashi(){}    
+    public void onNotFoundPeripheral(){}    
     public void onConnected(){}
     public void onDisconncted(){}
     public void onReady(){}

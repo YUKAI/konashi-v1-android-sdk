@@ -180,6 +180,10 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
                         notifyKonashiEvent(KonashiEvent.PERIPHERAL_NOT_FOUND);
                     } else {
                         mDialog.finishFinding();
+                        
+                        if(mBleDeviceListAdapter.getCount()==0){
+                            notifyKonashiEvent(KonashiEvent.PERIPHERAL_NOT_FOUND);
+                        }
                     }
                 }
             }
