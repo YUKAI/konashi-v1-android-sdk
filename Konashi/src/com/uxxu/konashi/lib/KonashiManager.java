@@ -91,6 +91,10 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     private static final String KONAHSI_DEVICE_NAME = "konashi#";
     private static final long KONASHI_SEND_PERIOD = 10;
     
+    private static final int PIO_LENGTH = 8;
+    private static final int PWM_LENGTH = 8;
+    private static final int AIO_LENGTH = 3;
+    
     
     /*****************************
      * BLE constants
@@ -137,10 +141,35 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     }
     
     // konashi members
+    // PIO
     private byte mPioModeSetting = 0;
     private byte mPioPullup = 0;
     private byte mPioInput = 0;
     private byte mPioOutput = 0;
+    
+    // PWM
+    private byte mPwmSetting = 0;
+    private int[] mPwmDuty;
+    private int[] mPwmPeriod;
+    
+    // AIO
+    private int[] mAioValue;
+    
+    // I2C
+    private byte mI2cSetting;
+    private byte[] mI2cReadData;
+    private byte mI2cReadDataLength;
+    private byte mI2cReadAddress;
+    
+    // UART
+    private byte mUartSetting;
+    private byte mUartBaudrate;
+    private byte mUartRxData;
+    
+    // Hardware
+    private int mBatteryLevel;
+    private int mRssi;
+    
     
     // BLE members
     private BleStatus mStatus = BleStatus.DISCONNECTED;
@@ -213,6 +242,8 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
                 }
             }
         };
+        
+        initializeMembers();
         
         mIsInitialized = true;
     }
@@ -405,7 +436,48 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     
     /////////////////////////////////////////////////////////////
     // Private methods
-    /////////////////////////////////////////////////////////////    
+    /////////////////////////////////////////////////////////////
+    
+    private void initializeMembers(){
+        int i;
+        
+        // PIO
+        mPioModeSetting = 0;
+        mPioPullup = 0;
+        mPioInput = 0;
+        mPioOutput = 0;
+            
+        // PWM
+        mPwmSetting = 0;
+        mPwmDuty = new int[PWM_LENGTH];
+        for(i=0; i<PWM_LENGTH; i++)
+            mPwmDuty[i] = 0;
+        mPwmPeriod = new int[PWM_LENGTH];
+        for(i=0; i<PWM_LENGTH; i++)
+            mPwmPeriod[i] = 0;
+            
+        // AIO
+        mAioValue = new int[AIO_LENGTH];
+        for(i=0; i<AIO_LENGTH; i++)
+            mAioValue[i] = 0;
+        
+        // I2C
+        mI2cSetting = 0;
+        mI2cReadData = new byte[Konashi.I2C_DATA_MAX_LENGTH];
+        for(i=0; i<Konashi.I2C_DATA_MAX_LENGTH; i++)
+            mI2cReadData[i] = 0;
+        mI2cReadDataLength = 0;
+        mI2cReadAddress = 0;
+            
+        // UART
+        mUartSetting = 0;
+        mUartBaudrate = 0;
+        mUartRxData = 0;
+            
+        // Hardware
+        mBatteryLevel = 0;
+        mRssi = 0;
+    }
     
     private boolean isSupportBle(Context context){
         return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE);
@@ -700,7 +772,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     
     
     /******************************
-     * Konashi observer
+     * Konashi observer methods
      ******************************/
 
     /**
@@ -872,8 +944,100 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     // PWM
     ///////////////////////////
     
+    /**
+     * PIO の指定のピンを PWM として使用する/しないかを設定する
+     * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
+     * @param mode 設定するPWMのモード。Konashi.PWM_DISABLE, Konashi.PWM_ENABLE, Konashi.PWM_ENABLE_LED_MODE のいずれかをセットする。
+     */
     public void pwmMode(int pin, int mode){
+        if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (mode == Konashi.PWM_DISABLE || mode == Konashi.PWM_ENABLE || mode == Konashi.PWM_ENABLE_LED_MODE)){
+            if(mode == Konashi.PWM_ENABLE || mode == Konashi.PWM_ENABLE_LED_MODE){
+                mPwmSetting |= 0x01 << pin;
+            } else {
+                mPwmSetting &= ~(0x01 << pin) & 0xFF;
+            }
+            
+            if (mode == Konashi.PWM_ENABLE_LED_MODE){
+                pwmPeriod(pin, Konashi.PWM_LED_PERIOD);
+                pwmLedDrive(pin, 0.0F);
+            }
+            
+            byte[] val = new byte[1];
+            val[0] = mPwmSetting;
+            
+            addMessage(KONASHI_PWM_CONFIG_UUID, val);
+        }
+    }
+    
+    /**
+     * 指定のピンのPWM周期を設定する
+     * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
+     * @param period 周期。単位はマイクロ秒(us)で32bitで指定してください。最大2^(32)us = 71.5分。
+     */
+    public void pwmPeriod(int pin, int period){
+        if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && mPwmDuty[pin] <= period){
+            mPwmPeriod[pin] = period;
+            
+            byte[] val = new byte[5];
+            val[0] = (byte)pin;
+            val[1] = (byte)((mPwmPeriod[pin] >> 24) & 0xFF);
+            val[2] = (byte)((mPwmPeriod[pin] >> 16) & 0xFF);
+            val[3] = (byte)((mPwmPeriod[pin] >> 8) & 0xFF);
+            val[4] = (byte)((mPwmPeriod[pin] >> 0) & 0xFF);
+            
+            addMessage(KONASHI_PWM_PARAM_UUID, val);
+        }
+    }
+    
+    /**
+     * 指定のピンのPWMのデューティ(ONになっている時間)を設定する。
+     * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
+     * @param duty デューティ。単位はマイクロ秒(us)で32bitで指定してください。最大2^(32)us = 71.5分。
+     */
+    public void pwmDuty(int pin, int duty){
+        if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && duty <= mPwmPeriod[pin]){
+            mPwmDuty[pin] = duty;
+            
+            byte[] val = new byte[5];
+            val[0] = (byte)pin;
+            val[1] = (byte)((mPwmDuty[pin] >> 24) & 0xFF);
+            val[2] = (byte)((mPwmDuty[pin] >> 16) & 0xFF);
+            val[3] = (byte)((mPwmDuty[pin] >> 8) & 0xFF);
+            val[4] = (byte)((mPwmDuty[pin] >> 0) & 0xFF);
+            
+            addMessage(KONASHI_PWM_DUTY_UUID, val);
+        }
+    }
+    
+    /**
+     * 指定のピンのLEDの明るさを0%〜100%で指定する
+     * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
+     * @param dutyRatio LEDの明るさ。0.0F〜100.0F をしてしてください。
+     */
+    public void pwmLedDrive(int pin, float dutyRatio){
+        int duty;
+
+        if(dutyRatio < 0.0){
+            dutyRatio = 0.0F;
+        }
+        if(dutyRatio > 100.0){
+            dutyRatio = 100.0F;
+        }
+
+        duty = (int)(Konashi.PWM_LED_PERIOD * dutyRatio / 100);
         
+        KonashiUtils.log("#### duty: " + duty);
+        
+        pwmDuty(pin, duty);
+    }
+    
+    /**
+     * pwmLedDrive(int pin, float dutyRatio) の doubleでdutyRatioを指定する版。
+     * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
+     * @param dutyRatio LEDの明るさ。0.0〜100.0 をしてしてください。
+     */
+    public void pwmLedDrive(int pin, double dutyRatio){
+        pwmLedDrive(pin, (float)dutyRatio);
     }
 
 }

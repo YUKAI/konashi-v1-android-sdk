@@ -95,6 +95,8 @@ public class MainActivity extends Activity {
             mContainer.setVisibility(View.VISIBLE);
             
             mKonashiManager.pinMode(Konashi.LED2, Konashi.OUTPUT);
+            /*mKonashiManager.pwmMode(Konashi.LED3, Konashi.PWM_ENABLE_LED_MODE);
+            mKonashiManager.pwmLedDrive(Konashi.LED3, 20.0);*/
         }
         
         @Override
