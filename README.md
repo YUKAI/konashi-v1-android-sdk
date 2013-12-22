@@ -16,8 +16,14 @@
 
 ----
 
+### jar 生成
+以下の ant コマンドを実行すると、libs ディレクトリに konashi-${versino}.jar が生成される。
+```
+$ ant jar
+```
+
 ### javadoc 生成
-以下のantコマンドを実行すると、docsディレクトリにjavadocのhtmlが生成される。
+以下の ant コマンドを実行すると、docs ディレクトリに javadoc の html が生成される。
 ```
 $ ant javadoc
 ```
