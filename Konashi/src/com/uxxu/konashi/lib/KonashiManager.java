@@ -1024,10 +1024,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
             dutyRatio = 100.0F;
         }
 
-        duty = (int)(Konashi.PWM_LED_PERIOD * dutyRatio / 100);
-        
-        KonashiUtils.log("#### duty: " + duty);
-        
+        duty = (int)(Konashi.PWM_LED_PERIOD * dutyRatio / 100);        
         pwmDuty(pin, duty);
     }
     
