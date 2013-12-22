@@ -1,4 +1,5 @@
 <project name="konashi-android-sdk">
+  <!-- javadoc -->
   <target name="javadoc">
 
     <property file="docdata.properties" />
@@ -28,4 +29,11 @@
       </doclet>
     </javadoc>
   </target>
+
+  <!-- Generate konashi.jar -->
+  <target name="jar">
+    <xmlproperty file="Konashi/AndroidManifest.xml" prefix="konashiManifest" collapseAttributes="true"/>
+    <jar destfile="libs/konashi-${konashiManifest.manifest.android:versionName}.jar" basedir="Konashi/bin/classes"/>
+  </target>
+
 </project>
