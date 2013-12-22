@@ -1194,6 +1194,81 @@
 <parameter name="pullups" type="int">
 </parameter>
 </method>
+<method name="pwmDuty"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="duty" type="int">
+</parameter>
+</method>
+<method name="pwmLedDrive"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="dutyRatio" type="float">
+</parameter>
+</method>
+<method name="pwmLedDrive"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="dutyRatio" type="double">
+</parameter>
+</method>
+<method name="pwmMode"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="pwmPeriod"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="period" type="int">
+</parameter>
+</method>
 <method name="removeAllObservers"
  return="void"
  abstract="false"

@@ -824,6 +824,96 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pwmDuty(int, int)">pwmDuty</a></span>(int pin, int duty)
+        
+        <div class="jd-descrdiv">指定のピンのPWMのデューティ(ONになっている時間)を設定する。</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pwmLedDrive(int, float)">pwmLedDrive</a></span>(int pin, float dutyRatio)
+        
+        <div class="jd-descrdiv">指定のピンのLEDの明るさを0%〜100%で指定する</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pwmLedDrive(int, double)">pwmLedDrive</a></span>(int pin, double dutyRatio)
+        
+        <div class="jd-descrdiv">pwmLedDrive(int pin, float dutyRatio) の doubleでdutyRatioを指定する版。</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pwmMode(int, int)">pwmMode</a></span>(int pin, int mode)
+        
+        <div class="jd-descrdiv">PIO の指定のピンを PWM として使用する/しないかを設定する</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pwmPeriod(int, int)">pwmPeriod</a></span>(int pin, int period)
+        
+        <div class="jd-descrdiv">指定のピンのPWM周期を設定する</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#removeAllObservers()">removeAllObservers</a></span>()
         
         <div class="jd-descrdiv">すべてのオブザーバを削除する
@@ -833,7 +923,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -2073,6 +2163,241 @@ From interface
         <tr>
           <th>pullups</th>
           <td>PIO0 〜 PIO7 の計8ピンのプルアップの設定
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="pwmDuty(int, int)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">pwmDuty</span>
+      <span class="normal">(int pin, int duty)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>指定のピンのPWMのデューティ(ONになっている時間)を設定する。</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。</td>
+        </tr>
+        <tr>
+          <th>duty</th>
+          <td>デューティ。単位はマイクロ秒(us)で32bitで指定してください。最大2^(32)us = 71.5分。
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="pwmLedDrive(int, float)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">pwmLedDrive</span>
+      <span class="normal">(int pin, float dutyRatio)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>指定のピンのLEDの明るさを0%〜100%で指定する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。</td>
+        </tr>
+        <tr>
+          <th>dutyRatio</th>
+          <td>LEDの明るさ。0.0F〜100.0F をしてしてください。
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="pwmLedDrive(int, double)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">pwmLedDrive</span>
+      <span class="normal">(int pin, double dutyRatio)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>pwmLedDrive(int pin, float dutyRatio) の doubleでdutyRatioを指定する版。</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。</td>
+        </tr>
+        <tr>
+          <th>dutyRatio</th>
+          <td>LEDの明るさ。0.0〜100.0 をしてしてください。
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="pwmMode(int, int)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">pwmMode</span>
+      <span class="normal">(int pin, int mode)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>PIO の指定のピンを PWM として使用する/しないかを設定する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。</td>
+        </tr>
+        <tr>
+          <th>mode</th>
+          <td>設定するPWMのモード。Konashi.PWM_DISABLE, Konashi.PWM_ENABLE, Konashi.PWM_ENABLE_LED_MODE のいずれかをセットする。
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="pwmPeriod(int, int)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">pwmPeriod</span>
+      <span class="normal">(int pin, int period)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>指定のピンのPWM周期を設定する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。</td>
+        </tr>
+        <tr>
+          <th>period</th>
+          <td>周期。単位はマイクロ秒(us)で32bitで指定してください。最大2^(32)us = 71.5分。
 </td>
         </tr>
       </table>
