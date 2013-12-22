@@ -5,7 +5,7 @@ import android.content.Context;
 
 /**
  * KonashiManagerを内包するシングルトンクラス。
- * 1つしかkonashiを使わない人や初心者はこちらを使ってね！
+ * 1つしかkonashiを使わない人や初心者はこちらを使うと楽だよっ！
  * 
  * @author monakaz, YUKAI Engineering
  * http://konashi.ux-xu.com

@@ -444,8 +444,7 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#addObserver(com.uxxu.konashi.lib.KonashiObserver)">addObserver</a></span>(<a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html">KonashiObserver</a> observer)
         
-        <div class="jd-descrdiv">Konashi observer
-</div>
+        <div class="jd-descrdiv">konashiのイベントのオブザーバを追加する</div>
   
   </td></tr>
 
@@ -463,6 +462,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#close()">close</a></span>()
         
+        <div class="jd-descrdiv">disconnectし、変数をリセットする
+</div>
+  
   </td></tr>
 
 
@@ -479,6 +481,44 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#digitalRead(int)">digitalRead</a></span>(int pin)
         
+        <div class="jd-descrdiv">PIOの特定のピンの入力状態を取得する</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#digitalReadAll()">digitalReadAll</a></span>()
+        
+        <div class="jd-descrdiv">PIOのすべてのピンの状態を取得する</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#digitalWrite(int, int)">digitalWrite</a></span>(int pin, int value)
+        
+        <div class="jd-descrdiv">PIOの特定のピンの出力状態を設定する</div>
+  
   </td></tr>
 
 
@@ -493,8 +533,10 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#digitalWrite(int, int)">digitalWrite</a></span>(int pin, int value)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#digitalWriteAll(int)">digitalWriteAll</a></span>(int value)
         
+        <div class="jd-descrdiv">PIOの特定のピンの出力状態を設定する</div>
+  
   </td></tr>
 
 
@@ -511,6 +553,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#disconnect()">disconnect</a></span>()
         
+        <div class="jd-descrdiv">konashiとの接続を解除する
+</div>
+  
   </td></tr>
 
 
@@ -527,6 +572,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#find(Activity)">find</a></span>(Activity activity)
         
+        <div class="jd-descrdiv">konashiを見つける(konashiのみBLEデバイスリストに表示する)</div>
+  
   </td></tr>
 
 
@@ -543,6 +590,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#find(Activity, boolean)">find</a></span>(Activity activity, boolean isShowKonashiOnly)
         
+        <div class="jd-descrdiv">konashiを見つける</div>
+  
   </td></tr>
 
 
@@ -559,6 +608,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#findWithName(Activity, java.lang.String)">findWithName</a></span>(Activity activity, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> name)
         
+        <div class="jd-descrdiv">名前を指定してkonashiを探索。</div>
+  
   </td></tr>
 
 
@@ -575,6 +626,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#getPeripheralName()">getPeripheralName</a></span>()
         
+        <div class="jd-descrdiv">接続しているkonashiの名前を取得する</div>
+  
   </td></tr>
 
 
@@ -591,6 +644,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#initialize(Context)">initialize</a></span>(Context context)
         
+        <div class="jd-descrdiv">初期化</div>
+  
   </td></tr>
 
 
@@ -607,6 +662,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#isConnected()">isConnected</a></span>()
         
+        <div class="jd-descrdiv">konashiと接続済みかどうか</div>
+  
   </td></tr>
 
 
@@ -623,27 +680,13 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#isReady()">isReady</a></span>()
         
+        <div class="jd-descrdiv">konashiを使える状態になっているか</div>
+  
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-v2" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#notifyKonashiEvent(java.lang.String)">notifyKonashiEvent</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> event)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -662,7 +705,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -681,7 +724,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -699,7 +742,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -711,8 +754,25 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pinMode(int, int)">pinMode</a></span>(int pin, int mode)
         
-        <div class="jd-descrdiv">Konashi methods
-</div>
+        <div class="jd-descrdiv">PIOのピンを入力として使うか、出力として使うかの設定を行う</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pinModeAll(int)">pinModeAll</a></span>(int modes)
+        
+        <div class="jd-descrdiv">PIOのピンを入力として使うか、出力として使うかの設定を行う</div>
   
   </td></tr>
 
@@ -728,8 +788,10 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pinModeAll(int)">pinModeAll</a></span>(int modes)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pinPullup(int, int)">pinPullup</a></span>(int pin, int pullup)
         
+        <div class="jd-descrdiv">PIOのピンをプルアップするかの設定を行う</div>
+  
   </td></tr>
 
 
@@ -744,8 +806,10 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pinPullup(int, int)">pinPullup</a></span>(int pin, int pullup)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#pinPullupAll(int)">pinPullupAll</a></span>(int pullups)
         
+        <div class="jd-descrdiv">PIOのピンをプルアップするかの設定を行う</div>
+  
   </td></tr>
 
 
@@ -762,6 +826,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#removeAllObservers()">removeAllObservers</a></span>()
         
+        <div class="jd-descrdiv">すべてのオブザーバを削除する
+</div>
+  
   </td></tr>
 
 
@@ -778,6 +845,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#removeObserver(com.uxxu.konashi.lib.KonashiObserver)">removeObserver</a></span>(<a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html">KonashiObserver</a> observer)
         
+        <div class="jd-descrdiv">指定したオブザーバを削除する</div>
+  
   </td></tr>
 
 
@@ -1169,8 +1238,17 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Konashi observer
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiのイベントのオブザーバを追加する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>observer</th>
+          <td>追加するオブザーバ
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1203,7 +1281,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>disconnectし、変数をリセットする
+</p></div>
 
     </div>
 </div>
@@ -1236,7 +1315,59 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>PIOの特定のピンの入力状態を取得する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>PIOのピン名</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>HIGH(1) もしくは LOW(0)
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="digitalReadAll()"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">digitalReadAll</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>PIOのすべてのピンの状態を取得する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>PIOの状態(PIO0〜PIO7の入力状態が8bit(1byte)で表現)
+</li></ul>
+  </div>
 
     </div>
 </div>
@@ -1269,7 +1400,64 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>PIOの特定のピンの出力状態を設定する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>設定するPIOのピン名</td>
+        </tr>
+        <tr>
+          <th>value</th>
+          <td>設定するPIOの出力状態。HIGH もしくは LOW が指定可能
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="digitalWriteAll(int)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">digitalWriteAll</span>
+      <span class="normal">(int value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>PIOの特定のピンの出力状態を設定する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</th>
+          <td>PIOの出力状態。PIO0〜PIO7の出力状態が8bit(1byte)で表現
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1302,7 +1490,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiとの接続を解除する
+</p></div>
 
     </div>
 </div>
@@ -1335,7 +1524,17 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiを見つける(konashiのみBLEデバイスリストに表示する)</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>activity</th>
+          <td>BLEデバイスリストを表示する先のActivity
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1368,7 +1567,21 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiを見つける</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>activity</th>
+          <td>BLEデバイスリストを表示する先のActivity</td>
+        </tr>
+        <tr>
+          <th>isShowKonashiOnly</th>
+          <td>konashiだけを表示するか、すべてのBLEデバイスを表示するか
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1401,7 +1614,21 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>名前を指定してkonashiを探索。</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>activity</th>
+          <td>BLEデバイスリストを表示する先のActivity</td>
+        </tr>
+        <tr>
+          <th>name</th>
+          <td>konashiの緑色のチップに貼られているシールに書いている数字(例: konashi#0-1234)
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1434,7 +1661,12 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>接続しているkonashiの名前を取得する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>konashiの名前
+</li></ul>
+  </div>
 
     </div>
 </div>
@@ -1467,7 +1699,17 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>初期化</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</th>
+          <td>コンテキスト(activityよりgetApplicationContext()が良い)
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1500,7 +1742,12 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiと接続済みかどうか</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>konashiと接続済みだったらtrue
+</li></ul>
+  </div>
 
     </div>
 </div>
@@ -1533,40 +1780,12 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="notifyKonashiEvent(java.lang.String)"></a>
-
-<div class="jd-details api apilevel-v2"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">notifyKonashiEvent</span>
-      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> event)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiを使える状態になっているか</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>konashiを使えるならtrue
+</li></ul>
+  </div>
 
     </div>
 </div>
@@ -1710,8 +1929,21 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Konashi methods
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>PIOのピンを入力として使うか、出力として使うかの設定を行う</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>設定するPIOのピン名。</td>
+        </tr>
+        <tr>
+          <th>mode</th>
+          <td>ピンに設定するモード。INPUT か OUTPUT が設定できます。
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1744,7 +1976,17 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>PIOのピンを入力として使うか、出力として使うかの設定を行う</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>modes</th>
+          <td>PIO0 〜 PIO7 の計8ピンの設定
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1777,7 +2019,64 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>PIOのピンをプルアップするかの設定を行う</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>設定するPIOのピン名</td>
+        </tr>
+        <tr>
+          <th>pullup</th>
+          <td>ピンをプルアップするかの設定。PULLUP か NO_PULLS が設定できます。
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="pinPullupAll(int)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">pinPullupAll</span>
+      <span class="normal">(int pullups)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>PIOのピンをプルアップするかの設定を行う</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pullups</th>
+          <td>PIO0 〜 PIO7 の計8ピンのプルアップの設定
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1810,7 +2109,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>すべてのオブザーバを削除する
+</p></div>
 
     </div>
 </div>
@@ -1843,7 +2143,17 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>指定したオブザーバを削除する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>observer</th>
+          <td>削除するオブザーバ
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>

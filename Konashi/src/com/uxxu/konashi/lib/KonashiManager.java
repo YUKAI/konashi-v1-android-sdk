@@ -137,7 +137,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     }
     
     // konashi members
-    private byte mPinModeSetting = 0;
+    private byte mPioModeSetting = 0;
     private byte mPioPullup = 0;
     private byte mPioInput = 0;
     private byte mPioOutput = 0;
@@ -172,6 +172,10 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         mKonashiMessageList = new ArrayList<KonashiMessage>();
     }
     
+    /**
+     * 初期化
+     * @param context コンテキスト(activityよりgetApplicationContext()が良い)
+     */
     public void initialize(Context context){
         mIsSupportBle = isSupportBle(context);
         if(!mIsSupportBle){
@@ -213,14 +217,28 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         mIsInitialized = true;
     }
     
+    /**
+     * konashiを見つける(konashiのみBLEデバイスリストに表示する)
+     * @param activity BLEデバイスリストを表示する先のActivity
+     */
     public void find(Activity activity){
         find(activity, true, null);
     }
     
+    /**
+     * konashiを見つける
+     * @param activity BLEデバイスリストを表示する先のActivity
+     * @param isShowKonashiOnly konashiだけを表示するか、すべてのBLEデバイスを表示するか
+     */
     public void find(Activity activity, boolean isShowKonashiOnly){
         find(activity, isShowKonashiOnly, null);
     }
     
+    /**
+     * 名前を指定してkonashiを探索。
+     * @param activity BLEデバイスリストを表示する先のActivity
+     * @param name konashiの緑色のチップに貼られているシールに書いている数字(例: konashi#0-1234)
+     */
     public void findWithName(Activity activity, String name){
         find(activity, true, name);
     }
@@ -260,6 +278,9 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         startFifoTimer();
     }
     
+    /**
+     * konashiとの接続を解除する
+     */
     public void disconnect(){
         if(mBluetoothGatt!=null){
             mBluetoothGatt.close();
@@ -273,6 +294,9 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         mKonashiMessageList.clear();
     }
     
+    /**
+     * disconnectし、変数をリセットする
+     */
     public void close(){
         if(mStatus.equals(BleStatus.CLOSED)){
             return;
@@ -292,6 +316,10 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         setStatus(BleStatus.CLOSED);
     }
     
+    /**
+     * konashiと接続済みかどうか
+     * @return konashiと接続済みだったらtrue
+     */
     public boolean isConnected(){
         return mStatus.equals(BleStatus.CONNECTED) ||
                mStatus.equals(BleStatus.CHARACTERISTICS_FOUND) ||
@@ -300,10 +328,18 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         ;
     }
     
+    /**
+     * konashiを使える状態になっているか
+     * @return konashiを使えるならtrue
+     */
     public boolean isReady(){
         return mStatus.equals(BleStatus.READY);
     }
     
+    /**
+     * 接続しているkonashiの名前を取得する
+     * @return konashiの名前
+     */
     public String getPeripheralName(){
         if(mBluetoothGatt!=null && mBluetoothGatt.getDevice()!=null){
             return mBluetoothGatt.getDevice().getName();
@@ -667,19 +703,34 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * Konashi observer
      ******************************/
 
+    /**
+     * konashiのイベントのオブザーバを追加する
+     * @param observer 追加するオブザーバ
+     */
     public void addObserver(KonashiObserver observer){
         mNotifier.addObserver(observer);
     }
     
+    /**
+     * 指定したオブザーバを削除する
+     * @param observer 削除するオブザーバ
+     */
     public void removeObserver(KonashiObserver observer){
         mNotifier.removeObserver(observer);
     }
     
+    /**
+     * すべてのオブザーバを削除する
+     */
     public void removeAllObservers(){
         mNotifier.removeAllObservers();
     }
     
-    public void notifyKonashiEvent(String event){
+    /**
+     * オブザーバにイベントを通知する
+     * @param event 通知するイベント名
+     */
+    private void notifyKonashiEvent(String event){
         mNotifier.notifyKonashiEvent(event);
     }
     
@@ -692,36 +743,98 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     // PIO
     ///////////////////////////
     
+    /**
+     * PIOのピンを入力として使うか、出力として使うかの設定を行う
+     * @param pin 設定するPIOのピン名。
+     * @param mode ピンに設定するモード。INPUT か OUTPUT が設定できます。
+     */
     public void pinMode(int pin, int mode){
         if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (mode == Konashi.OUTPUT || mode == Konashi.INPUT)){
             if(mode == Konashi.OUTPUT){
-                mPinModeSetting |= (byte)(0x01 << pin);
+                mPioModeSetting |= (byte)(0x01 << pin);
             }else{
-                mPinModeSetting &= (byte)(~(0x01 << pin) & 0xFF);
+                mPioModeSetting &= (byte)(~(0x01 << pin) & 0xFF);
             }
             
             byte[] val = new byte[1];
-            val[0] = mPinModeSetting;
+            val[0] = mPioModeSetting;
             
             addMessage(KONASHI_PIO_SETTING_UUID, val);
         }
     }
     
+    /**
+     * PIOのピンを入力として使うか、出力として使うかの設定を行う
+     * @param modes PIO0 〜 PIO7 の計8ピンの設定
+     */
     public void pinModeAll(int modes){
         if(modes >= 0x00 && modes <= 0xFF){
-            mPinModeSetting = (byte)modes;
+            mPioModeSetting = (byte)modes;
             
             byte[] val = new byte[1];
-            val[0] = mPinModeSetting;
+            val[0] = mPioModeSetting;
             
             addMessage(KONASHI_PIO_SETTING_UUID, val);
         }
     }
     
+    /**
+     * PIOのピンをプルアップするかの設定を行う
+     * @param pin 設定するPIOのピン名
+     * @param pullup ピンをプルアップするかの設定。PULLUP か NO_PULLS が設定できます。
+     */
     public void pinPullup(int pin, int pullup){
-        
+        if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (pullup == Konashi.PULLUP || pullup == Konashi.NO_PULLS)){
+            if(pullup == Konashi.PULLUP){
+                mPioPullup |= (byte)(0x01 << pin);
+            }else{
+                mPioPullup &= (byte)(~(0x01 << pin) & 0xFF);
+            }
+            
+            byte[] val = new byte[1];
+            val[0] = mPioPullup;
+            
+            addMessage(KONASHI_PIO_PULLUP_UUID, val);
+        }
     }
     
+    /**
+     * PIOのピンをプルアップするかの設定を行う
+     * @param pullups PIO0 〜 PIO7 の計8ピンのプルアップの設定
+     */
+    public void pinPullupAll(int pullups){
+        if(pullups >= 0x00 && pullups <= 0xFF){
+            mPioPullup = (byte)pullups;
+            
+            byte[] val = new byte[1];
+            val[0] = mPioPullup;
+            
+            addMessage(KONASHI_PIO_PULLUP_UUID, val);
+        }
+    }
+    
+    /**
+     * PIOの特定のピンの入力状態を取得する
+     * @param pin PIOのピン名
+     * @return HIGH(1) もしくは LOW(0)
+     */
+    public int digitalRead(int pin){
+        return (mPioInput >> pin) & 0x01;
+    }
+    
+    /**
+     * PIOのすべてのピンの状態を取得する
+     * @return PIOの状態(PIO0〜PIO7の入力状態が8bit(1byte)で表現)
+     */
+    public int digitalReadAll(){
+        return mPioInput;
+    }
+    
+    /**
+     * PIOの特定のピンの出力状態を設定する
+     * @param pin 設定するPIOのピン名
+     * @param value 設定するPIOの出力状態。HIGH もしくは LOW が指定可能
+     */
     public void digitalWrite(int pin, int value){
         if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (value == Konashi.HIGH || value == Konashi.LOW)){
             KonashiUtils.log("digitalWrite pin: " + pin + ", value: " + value);
@@ -739,8 +852,28 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         }
     }
     
-    public int digitalRead(int pin){
-        return (mPioInput >> pin) & 0x01;
+    /**
+     * PIOの特定のピンの出力状態を設定する
+     * @param value PIOの出力状態。PIO0〜PIO7の出力状態が8bit(1byte)で表現
+     */
+    public void digitalWriteAll(int value){
+        if(value >= 0x00 && value <= 0xFF){            
+            mPioOutput = (byte)value;
+            
+            byte[] val = new byte[1];
+            val[0] = mPioOutput;
+            
+            addMessage(KONASHI_PIO_OUTPUT_UUID, val);
+        }
+    }
+    
+    
+    ///////////////////////////
+    // PWM
+    ///////////////////////////
+    
+    public void pwmMode(int pin, int mode){
+        
     }
 
 }
