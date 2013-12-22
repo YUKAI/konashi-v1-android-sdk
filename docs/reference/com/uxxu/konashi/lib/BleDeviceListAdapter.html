@@ -353,6 +353,9 @@ Summary:
 <div class="jd-descr">
 
 
+<h2>Class Overview</h2>
+<p>周りにあるBLEデバイスをリストに表示するためのAdapter</p>
+
 
 
 
@@ -419,6 +422,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html#BleDeviceListAdapter(Context)">BleDeviceListAdapter</a></span>(Context context)
         
+        <div class="jd-descrdiv">コンストラクタ</div>
+  
   </td></tr>
 
 
@@ -448,6 +453,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html#addDevice(BluetoothDevice)">addDevice</a></span>(BluetoothDevice device)
         
+        <div class="jd-descrdiv">BLEデバイスをリストに追加する</div>
+  
   </td></tr>
 
 
@@ -464,6 +471,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html#clearDevices()">clearDevices</a></span>()
         
+        <div class="jd-descrdiv">BLEデバイスのリストの中身をすべてクリアする
+</div>
+  
   </td></tr>
 
 
@@ -480,6 +490,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html#getCount()">getCount</a></span>()
         
+        <div class="jd-descrdiv">BLEデバイスの個数を取得する
+</div>
+  
   </td></tr>
 
 
@@ -496,6 +509,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html#getDevice(int)">getDevice</a></span>(int position)
         
+        <div class="jd-descrdiv">リストの指定のポジションのBLEデバイスオブジェクトを取得する</div>
+  
   </td></tr>
 
 
@@ -512,6 +527,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html#getItem(int)">getItem</a></span>(int position)
         
+        <div class="jd-descrdiv">指定のポジションのBLEデバイスオブジェクトを取得する</div>
+  
   </td></tr>
 
 
@@ -528,6 +545,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html#getItemId(int)">getItemId</a></span>(int position)
         
+        <div class="jd-descrdiv">アイテムIDを取得する</div>
+  
   </td></tr>
 
 
@@ -544,6 +563,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html#getView(int, View, ViewGroup)">getView</a></span>(int position, View convertView, ViewGroup parent)
         
+        <div class="jd-descrdiv">BLEデバイスリストの要素Viewを返す</div>
+  
   </td></tr>
 
 
@@ -826,7 +847,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>コンストラクタ</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</th>
+          <td>表示先のContext
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -874,7 +905,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>BLEデバイスをリストに追加する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>device</th>
+          <td>BLEデバイスオブジェクト
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -907,7 +948,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>BLEデバイスのリストの中身をすべてクリアする
+</p></div>
 
     </div>
 </div>
@@ -940,7 +982,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>BLEデバイスの個数を取得する
+</p></div>
 
     </div>
 </div>
@@ -973,7 +1016,21 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>リストの指定のポジションのBLEデバイスオブジェクトを取得する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>position</th>
+          <td>取得したいポジション</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>BLEデバイスオブジェクト
+</li></ul>
+  </div>
 
     </div>
 </div>
@@ -1006,7 +1063,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>指定のポジションのBLEデバイスオブジェクトを取得する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>position</th>
+          <td>取得したいBLEデバイスのポジション
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1039,7 +1106,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>アイテムIDを取得する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>position</th>
+          <td>取得したいポジション
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1072,7 +1149,25 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>BLEデバイスリストの要素Viewを返す</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>position</th>
+          <td>生成するViewのポジション</td>
+        </tr>
+        <tr>
+          <th>convertView</th>
+          <td>そのポジションのView</td>
+        </tr>
+        <tr>
+          <th>parent</th>
+          <td>返すViewが所属するViewGroup
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>

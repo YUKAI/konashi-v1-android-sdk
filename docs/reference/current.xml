@@ -152,9 +152,9 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="l" type="&lt;any&gt;">
+<parameter name="adapterView" type="&lt;any&gt;">
 </parameter>
-<parameter name="v" type="View">
+<parameter name="view" type="View">
 </parameter>
 <parameter name="position" type="int">
 </parameter>
@@ -1211,7 +1211,7 @@
  visibility="public"
 >
 </constructor>
-<method name="addEventListener"
+<method name="addObserver"
  return="void"
  abstract="false"
  native="false"
@@ -1221,7 +1221,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="listener" type="com.uxxu.konashi.lib.KonashiObserver">
+<parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
 </parameter>
 </method>
 <method name="notifyKonashiEvent"
@@ -1237,7 +1237,7 @@
 <parameter name="event" type="java.lang.String">
 </parameter>
 </method>
-<method name="removeAllEventListeners"
+<method name="removeAllObservers"
  return="void"
  abstract="false"
  native="false"
@@ -1248,7 +1248,7 @@
  visibility="public"
 >
 </method>
-<method name="removeEventListener"
+<method name="removeObserver"
  return="void"
  abstract="false"
  native="false"
@@ -1258,7 +1258,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="listener" type="com.uxxu.konashi.lib.KonashiObserver">
+<parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
 </parameter>
 </method>
 </class>

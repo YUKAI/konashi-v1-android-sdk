@@ -23,6 +23,27 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
 
+/**
+ * konashiを管理するメインクラス
+ * 
+ * @author monakaz, YUKAI Engineering
+ * http://konashi.ux-xu.com
+ * ========================================================================
+ * Copyright 2013 Yukai Engineering Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDeviceSelectListener {
     
     /*************************
@@ -266,7 +287,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
         mKonashiMessageList.clear();
         
         // remove all observers
-        mNotifier.removeAllEventListeners();
+        mNotifier.removeAllObservers();
         
         setStatus(BleStatus.CLOSED);
     }
@@ -647,15 +668,15 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      ******************************/
 
     public void addObserver(KonashiObserver observer){
-        mNotifier.addEventListener(observer);
+        mNotifier.addObserver(observer);
     }
     
     public void removeObserver(KonashiObserver observer){
-        mNotifier.removeEventListener(observer);
+        mNotifier.removeObserver(observer);
     }
     
     public void removeAllObservers(){
-        mNotifier.removeAllEventListeners();
+        mNotifier.removeAllObservers();
     }
     
     public void notifyKonashiEvent(String event){

@@ -1,38 +1,36 @@
 # konashi SDK for Android
 
-----
-
-### 進捗
+## 進捗
 - PIOのdigitalWriteでLED制御するところまでできた
 - PIOの入力変化のnotificationを受信できた 12/18/2013
 
-### 使い方
+## 使い方
 - KonashiLibをライブラリプロジェクトとして追加 
 - KonashiManagerをnewする or Konashiシングルトン。
 
-### 要検証
+## 要検証
 - konashi2台使う時、KonashiManager2つとかでいけるのかな。 多分いけると思うけど
 
 
 ----
 
-### jar 生成
+## jar 生成
 以下の ant コマンドを実行すると、libs ディレクトリに konashi-${versino}.jar が生成される。
 ```
 $ ant jar
 ```
 
-### javadoc 生成
+## javadoc 生成
 以下の ant コマンドを実行すると、docs ディレクトリに javadoc の html が生成される。
 ```
 $ ant javadoc
 ```
 
-### 動作環境
+## 動作環境
 - Android4.3以降 (SDK Version >= 18)
 - Bluetooth Low Energy (Bluetooth4.0) 対応端末
 
-### Getting started
+## Getting started
 
 #### まず konashi-android-sdk をダウンロード
 ```
@@ -75,3 +73,14 @@ comming soon
 
 #### 実機で動かす
 comming soon
+
+
+## ライセンス
+konashi のソフトウェアのソースコード、ハードウェアに関するドキュメント・ファイルのライセンスは以下です。
+
+- ソフトウェア
+  - konashi-ios-sdk のソースコードは [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) のもと公開されています。
+- ハードウェア
+  - konashi の回路図などハードウェア関連のドキュメント・ファイルのライセンスは [クリエイティブ・コモンズ・ライセンス「表示-継承 2.1 日本」](http://creativecommons.org/licenses/by-sa/2.1/jp/deed.ja)です。これに従う場合に限り、自由に複製、頒布、二次的著作物を作成することができます。
+  - 回路図のデータ(eagleライブラリ)は3月上旬公開予定です。
+- konashi のBLEモジュールのファームウェアは [csr社](http://www.csr.com/) とのNDAのため公開しておりません。

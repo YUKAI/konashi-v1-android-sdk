@@ -14,18 +14,64 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * 周りにあるBLEデバイスを表示するダイアログ
+ * 
+ * @author monakaz, YUKAI Engineering
+ * http://konashi.ux-xu.com
+ * ========================================================================
+ * Copyright 2013 Yukai Engineering Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ */
 public class BleDeviceSelectionDialog implements OnItemClickListener {
+    /**
+     * ダイアログでキャンセルを押されたか、BLEデバイスが選択されたかをキャッチするためのオブジェクト。
+     */
     private OnBleDeviceSelectListener mListener;
+    /**
+     * ダイアログ本体
+     */
     private AlertDialog mDialog;
+    /**
+     * 「konashi探索中」というテキストを格納するContainer
+     */
     private LinearLayout mFindingContainer = null;
+    /**
+     * 「konashiが見つかりませんでした」というテキストを格納するContainer
+     */
     private LinearLayout mNotFoundContainer = null;
+    /**
+     * 表示するBLEデバイスリストのAdapter
+     */
     private BleDeviceListAdapter mAdapter;
     
+    /**
+     * コンストラクタ
+     * 
+     * @param adapter 表示するBLEデバイスリストのAdapter
+     * @param listener ダイアログでキャンセルを押されたか、BLEデバイスが選択されたかをキャッチするためのオブジェクト
+     */
     public BleDeviceSelectionDialog(BleDeviceListAdapter adapter, OnBleDeviceSelectListener listener){
         mListener = listener;
         mAdapter = adapter;
     }
     
+    /**
+     * BLEデバイスリストのダイアログを表示する
+     * @param activity ダイアログを表示する先のActivity
+     */
     public void show(Activity activity){
         View view = LayoutInflater.from(activity).inflate(R.layout.dialog_device_list, null);
 
@@ -61,6 +107,9 @@ public class BleDeviceSelectionDialog implements OnItemClickListener {
         startFinding();
     }
     
+    /**
+     * 「konashi探索中」というテキストを表示し、「konashiが見つかりませんでした」というテキストを非表示にする
+     */
     public void startFinding(){
         if(mFindingContainer!=null){
             mFindingContainer.setVisibility(View.VISIBLE);
@@ -70,6 +119,9 @@ public class BleDeviceSelectionDialog implements OnItemClickListener {
         }
     }
     
+    /**
+     * 「konashi探索中」というテキストを非表示し、「konashiが見つかりませんでした」というテキストを表示にする
+     */
     public void finishFinding(){
         if(mFindingContainer!=null){
             mFindingContainer.setVisibility(View.GONE);
@@ -79,8 +131,16 @@ public class BleDeviceSelectionDialog implements OnItemClickListener {
         }
     }
 
+    /**
+     * リスト中のBLEデバイスがクリックされたら
+     * 
+     * @param adapterView AdapterView(使ってない)
+     * @param view View（使ってない)
+     * @param position 選択されたBLEデバイスのポジション
+     * @param id そのBLEデバイスのID
+     */
     @Override
-    public void onItemClick(AdapterView<?> l, View v, int position, long id) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         KonashiUtils.log("onItemClick");
         
         if(mDialog!=null){
@@ -95,9 +155,19 @@ public class BleDeviceSelectionDialog implements OnItemClickListener {
     }
     
     
+    /**
+     * ダイアログ内のBLEデバイスが選択されたか、キャンセルを押されたかのイベントを伝えるインタフェース
+     */
     public interface OnBleDeviceSelectListener
     {
+        /**
+         * BLEデバイス選択ダイアログに表示されているBLEデバイスが選択された時
+         * @param device 選択されたBLEデバイスオブジェクト
+         */
         public void onSelectBleDevice(BluetoothDevice device);
+        /**
+         * BLEデバイス選択ダイアログでキャンセルが押された時
+         */
         public void onCancelSelectingBleDevice();
     }
 }

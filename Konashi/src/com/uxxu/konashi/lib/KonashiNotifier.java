@@ -2,29 +2,71 @@ package com.uxxu.konashi.lib;
 
 import java.util.ArrayList;
 
+/**
+ * konashiのイベントをKonashiObserverに伝えるクラス
+ * 
+ * @author monakaz, YUKAI Engineering
+ * http://konashi.ux-xu.com
+ * ========================================================================
+ * Copyright 2013 Yukai Engineering Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ */
 public class KonashiNotifier {
+    /**
+     * オブザーバたち
+     */
     private ArrayList<KonashiObserver> mObservers = null;
     
+    /**
+     * コンストラクタ
+     */
     public KonashiNotifier() {
         mObservers = new ArrayList<KonashiObserver>();
     }
     
-    public void addEventListener(KonashiObserver listener){
-        if(!mObservers.contains(listener)){
-            mObservers.add(listener);
+    /**
+     * オブザーバを追加する
+     * @param observer 追加するオブザーバ
+     */
+    public void addObserver(KonashiObserver observer){
+        if(!mObservers.contains(observer)){
+            mObservers.add(observer);
         }
     }
     
-    public void removeEventListener(KonashiObserver listener){
-        if(mObservers.contains(listener)){
-            mObservers.remove(listener);
+    /**
+     * オブザーバを削除する
+     * @param observer 削除するオブザーバ
+     */
+    public void removeObserver(KonashiObserver observer){
+        if(mObservers.contains(observer)){
+            mObservers.remove(observer);
         }
     }
     
-    public void removeAllEventListeners(){
+    /**
+     * オブザーバをすべて削除する
+     */
+    public void removeAllObservers(){
         mObservers.clear();
     }
     
+    /**
+     * オブザーバにイベントを通知する
+     * @param event イベント名(KonashiEventだよっ）
+     */
     public void notifyKonashiEvent(final String event){
         for(final KonashiObserver observer: mObservers){
             if(observer.getActivity().isDestroyed()){

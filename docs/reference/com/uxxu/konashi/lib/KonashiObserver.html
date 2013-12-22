@@ -334,6 +334,9 @@ Summary:
 <div class="jd-descr">
 
 
+<h2>Class Overview</h2>
+<p>konashiのイベントをキャッチするためのオブザーバクラス</p>
+
 
 
 
@@ -400,6 +403,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#KonashiObserver(Activity)">KonashiObserver</a></span>(Activity activity)
         
+        <div class="jd-descrdiv">コンストラクタ</div>
+  
   </td></tr>
 
 
@@ -429,6 +434,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#getActivity()">getActivity</a></span>()
         
+        <div class="jd-descrdiv">Activityを取得する</div>
+  
   </td></tr>
 
 
@@ -445,6 +452,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#onCancelSelectKonashi()">onCancelSelectKonashi</a></span>()
         
+        <div class="jd-descrdiv">BLEデバイス選択ダイアログをキャンセルした時に呼ばれる
+</div>
+  
   </td></tr>
 
 
@@ -461,6 +471,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#onConnected()">onConnected</a></span>()
         
+        <div class="jd-descrdiv">konashiに接続した時(まだこの時はkonashiが使える状態ではありません)に呼ばれる
+</div>
+  
   </td></tr>
 
 
@@ -477,6 +490,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#onDisconncted()">onDisconncted</a></span>()
         
+        <div class="jd-descrdiv">konashiとの接続を切断した時に呼ばれる
+</div>
+  
   </td></tr>
 
 
@@ -493,6 +509,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#onNotFoundPeripheral()">onNotFoundPeripheral</a></span>()
         
+        <div class="jd-descrdiv">findWithNameで指定した名前のkonashiが見つからなかった時、もしくはまわりにBLEデバイスがなかった時に呼ばれる
+</div>
+  
   </td></tr>
 
 
@@ -509,6 +528,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#onReady()">onReady</a></span>()
         
+        <div class="jd-descrdiv">konashiに接続完了した時(この時からkonashiにアクセスできるようになります)に呼ばれる
+</div>
+  
   </td></tr>
 
 
@@ -525,6 +547,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#onUpdatePioInput()">onUpdatePioInput</a></span>()
         
+        <div class="jd-descrdiv">PIOの入力の状態が変化した時に呼ばれる
+</div>
+  
   </td></tr>
 
 
@@ -805,7 +830,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>コンストラクタ</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>activity</th>
+          <td>Activity
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -853,7 +888,12 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Activityを取得する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Activity
+</li></ul>
+  </div>
 
     </div>
 </div>
@@ -886,7 +926,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>BLEデバイス選択ダイアログをキャンセルした時に呼ばれる
+</p></div>
 
     </div>
 </div>
@@ -919,7 +960,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiに接続した時(まだこの時はkonashiが使える状態ではありません)に呼ばれる
+</p></div>
 
     </div>
 </div>
@@ -952,7 +994,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiとの接続を切断した時に呼ばれる
+</p></div>
 
     </div>
 </div>
@@ -985,7 +1028,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>findWithNameで指定した名前のkonashiが見つからなかった時、もしくはまわりにBLEデバイスがなかった時に呼ばれる
+</p></div>
 
     </div>
 </div>
@@ -1018,7 +1062,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiに接続完了した時(この時からkonashiにアクセスできるようになります)に呼ばれる
+</p></div>
 
     </div>
 </div>
@@ -1051,7 +1096,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>PIOの入力の状態が変化した時に呼ばれる
+</p></div>
 
     </div>
 </div>

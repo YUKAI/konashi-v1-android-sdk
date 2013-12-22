@@ -14,6 +14,7 @@
              docletpath="tools/doclava-1.0.6/doclava-1.0.6.jar"
              bootclasspath="${javahome}/jre/lib/rt.jar"
              linkoffline="http://d.android.com/reference ${sdk.dir}/docs/reference"
+             encoding="UTF-8"
     >
       <doclet name="com.google.doclava.Doclava">
         <!--param name="-stubs" value="tools/build/stubs" /-->

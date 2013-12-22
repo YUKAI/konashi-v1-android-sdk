@@ -334,6 +334,9 @@ Summary:
 <div class="jd-descr">
 
 
+<h2>Class Overview</h2>
+<p>konashiのイベントたち</p>
+
 
 
 
@@ -380,98 +383,112 @@ Summary:
     <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#CANCEL_SELECT_KONASHI">CANCEL_SELECT_KONASHI</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">BLEデバイス選択ダイアログをキャンセルした時
+</td>
     </tr>
     
     
     <tr class=" api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#CONNECTED">CONNECTED</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">konashiに接続した時(まだこの時はkonashiが使える状態ではありません)
+</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#DISCONNECTED">DISCONNECTED</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">konashiとの接続を切断した時
+</td>
     </tr>
     
     
     <tr class=" api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#I2C_READ_COMPLETE">I2C_READ_COMPLETE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">I2Cからデータを受信した時
+</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#PERIPHERAL_NOT_FOUND">PERIPHERAL_NOT_FOUND</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">findWithNameで指定した名前のkonashiが見つからなかった時、もしくはまわりにBLEデバイスがなかった時
+</td>
     </tr>
     
     
     <tr class=" api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#READY">READY</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">konashiに接続完了した時(この時からkonashiにアクセスできるようになります)
+</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UART_RX_COMPLETE">UART_RX_COMPLETE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">UARTのRxからデータを受信した時
+</td>
     </tr>
     
     
     <tr class=" api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_ANALOG_VALUE">UPDATE_ANALOG_VALUE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">AIOのどれかのピンの電圧が取得できた時
+</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_ANALOG_VALUE_AIO0">UPDATE_ANALOG_VALUE_AIO0</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">AIO0の電圧が取得できた時
+</td>
     </tr>
     
     
     <tr class=" api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_ANALOG_VALUE_AIO1">UPDATE_ANALOG_VALUE_AIO1</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">AIO1の電圧が取得できた時
+</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_ANALOG_VALUE_AIO2">UPDATE_ANALOG_VALUE_AIO2</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">AIO2の電圧が取得できた時
+</td>
     </tr>
     
     
     <tr class=" api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_BATTERY_LEVEL">UPDATE_BATTERY_LEVEL</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">konashiのバッテリーのレベルを取得できた時
+</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_PIO_INPUT">UPDATE_PIO_INPUT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">PIOの入力の状態が変化した時
+</td>
     </tr>
     
     
     <tr class=" api apilevel-v2" >
         <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_SIGNAL_STRENGTH">UPDATE_SIGNAL_STRENGTH</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">konashiの電波強度を取得できた時
+</td>
     </tr>
     
     
@@ -783,7 +800,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>BLEデバイス選択ダイアログをキャンセルした時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -824,7 +842,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiに接続した時(まだこの時はkonashiが使える状態ではありません)
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -865,7 +884,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiとの接続を切断した時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -906,7 +926,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>I2Cからデータを受信した時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -947,7 +968,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>findWithNameで指定した名前のkonashiが見つからなかった時、もしくはまわりにBLEデバイスがなかった時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -988,7 +1010,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiに接続完了した時(この時からkonashiにアクセスできるようになります)
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -1029,7 +1052,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>UARTのRxからデータを受信した時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -1070,7 +1094,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>AIOのどれかのピンの電圧が取得できた時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -1111,7 +1136,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>AIO0の電圧が取得できた時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -1152,7 +1178,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>AIO1の電圧が取得できた時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -1193,7 +1220,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>AIO2の電圧が取得できた時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -1234,7 +1262,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiのバッテリーのレベルを取得できた時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -1275,7 +1304,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>PIOの入力の状態が変化した時
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -1316,7 +1346,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiの電波強度を取得できた時
+</p></div>
 
     
         <div class="jd-tagdata">

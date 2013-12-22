@@ -337,6 +337,9 @@ Summary:
 <div class="jd-descr">
 
 
+<h2>Class Overview</h2>
+<p>周りにあるBLEデバイスを表示するダイアログ</p>
+
 
 
 
@@ -378,7 +381,8 @@ Summary:
         
         interface</td>
       <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.OnBleDeviceSelectListener.html">BleDeviceSelectionDialog.OnBleDeviceSelectListener</a></td>
-      <td class="jd-descrcol" width="100%">&nbsp;</td>
+      <td class="jd-descrcol" width="100%">ダイアログ内のBLEデバイスが選択されたか、キャンセルを押されたかのイベントを伝えるインタフェース
+&nbsp;</td>
     </tr>
     
     
@@ -424,6 +428,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#BleDeviceSelectionDialog(com.uxxu.konashi.lib.BleDeviceListAdapter, com.uxxu.konashi.lib.BleDeviceSelectionDialog.OnBleDeviceSelectListener)">BleDeviceSelectionDialog</a></span>(<a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html">BleDeviceListAdapter</a> adapter, <a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.OnBleDeviceSelectListener.html">BleDeviceSelectionDialog.OnBleDeviceSelectListener</a> listener)
         
+        <div class="jd-descrdiv">コンストラクタ</div>
+  
   </td></tr>
 
 
@@ -453,6 +459,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#finishFinding()">finishFinding</a></span>()
         
+        <div class="jd-descrdiv">「konashi探索中」というテキストを非表示し、「konashiが見つかりませんでした」というテキストを表示にする
+</div>
+  
   </td></tr>
 
 
@@ -467,8 +476,10 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#onItemClick(<any>, View, int, long)">onItemClick</a></span>(<any> l, View v, int position, long id)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#onItemClick(<any>, View, int, long)">onItemClick</a></span>(<any> adapterView, View view, int position, long id)
         
+        <div class="jd-descrdiv">リスト中のBLEデバイスがクリックされたら</div>
+  
   </td></tr>
 
 
@@ -485,6 +496,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#show(Activity)">show</a></span>(Activity activity)
         
+        <div class="jd-descrdiv">BLEデバイスリストのダイアログを表示する</div>
+  
   </td></tr>
 
 
@@ -501,6 +514,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#startFinding()">startFinding</a></span>()
         
+        <div class="jd-descrdiv">「konashi探索中」というテキストを表示し、「konashiが見つかりませんでした」というテキストを非表示にする
+</div>
+  
   </td></tr>
 
 
@@ -781,7 +797,21 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>コンストラクタ</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>adapter</th>
+          <td>表示するBLEデバイスリストのAdapter</td>
+        </tr>
+        <tr>
+          <th>listener</th>
+          <td>ダイアログでキャンセルを押されたか、BLEデバイスが選択されたかをキャッチするためのオブジェクト
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -829,7 +859,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>「konashi探索中」というテキストを非表示し、「konashiが見つかりませんでした」というテキストを表示にする
+</p></div>
 
     </div>
 </div>
@@ -848,7 +879,7 @@ From class
         void
       </span>
       <span class="sympad">onItemClick</span>
-      <span class="normal">(<any> l, View v, int position, long id)</span>
+      <span class="normal">(<any> adapterView, View view, int position, long id)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -862,7 +893,29 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>リスト中のBLEデバイスがクリックされたら</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>adapterView</th>
+          <td>AdapterView(使ってない)</td>
+        </tr>
+        <tr>
+          <th>view</th>
+          <td>View（使ってない)</td>
+        </tr>
+        <tr>
+          <th>position</th>
+          <td>選択されたBLEデバイスのポジション</td>
+        </tr>
+        <tr>
+          <th>id</th>
+          <td>そのBLEデバイスのID
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -895,7 +948,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>BLEデバイスリストのダイアログを表示する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>activity</th>
+          <td>ダイアログを表示する先のActivity
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -928,7 +991,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>「konashi探索中」というテキストを表示し、「konashiが見つかりませんでした」というテキストを非表示にする
+</p></div>
 
     </div>
 </div>
