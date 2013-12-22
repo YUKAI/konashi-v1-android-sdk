@@ -1,8 +1,9 @@
 # konashi SDK for Android
 
 ## 進捗
-- PIOのdigitalWriteでLED制御するところまでできた
+- PIO, PWM系のfunction実装完了 12/23/2013
 - PIOの入力変化のnotificationを受信できた 12/18/2013
+- PIOのdigitalWriteでLED制御するところまでできた
 
 ## 使い方
 - KonashiLibをライブラリプロジェクトとして追加 
