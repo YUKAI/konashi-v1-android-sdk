@@ -34,7 +34,9 @@
   <!-- Generate konashi.jar -->
   <target name="jar">
     <xmlproperty file="Konashi/AndroidManifest.xml" prefix="konashiManifest" collapseAttributes="true"/>
-    <jar destfile="libs/konashi-${konashiManifest.manifest.android:versionName}.jar" basedir="Konashi/bin/classes"/>
+    <jar destfile="libs/konashi-${konashiManifest.manifest.android:versionName}.jar"
+         basedir="Konashi/bin/classes"
+         excludes="Konashi/AndroidManifest.xml,Konashi/proguard-project.txt,Konashi/project.properties"/>
   </target>
 
 </project>
