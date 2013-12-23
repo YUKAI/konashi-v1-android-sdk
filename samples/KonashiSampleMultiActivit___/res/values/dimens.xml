@@ -1,6 +1,0 @@
-<resources>
-
-    <dimen name="main_find_button_margin">16dp</dimen>
-    <dimen name="main_seekbar_margin">16dp</dimen>
-    
-</resources>
