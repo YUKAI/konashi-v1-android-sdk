@@ -27,11 +27,6 @@
             </intent-filter>
         </activity>
         
-        <activity
-            android:name="com.uxxu.konashi.sample.basic.SubActivity"
-            android:label="@string/app_name" >
-        </activity>
-        
     </application>
 
 </manifest>

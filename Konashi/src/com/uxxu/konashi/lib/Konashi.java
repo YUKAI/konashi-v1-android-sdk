@@ -237,6 +237,17 @@ public class Konashi {
         sKonashiManager.initialize(context);
     }
     
+    /**
+     * デストラクタ
+     */
+    public static void close(){
+        if(sKonashiManager!=null){
+            sKonashiManager.disconnect();
+            sKonashiManager.close();
+            sKonashiManager = null;
+        }
+    }
+    
     public static KonashiManager getManager(){
         return sKonashiManager;
     }

@@ -36,8 +36,6 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 //mKonashiManager.find(MainActivity.this);
                 mKonashiManager.findWithName(MainActivity.this, "konashi#4-0452");
-                //Intent intent = new Intent(MainActivity.this, SubActivity.class);
-                //startActivity(intent);
             }
         });
         

@@ -33,6 +33,13 @@ public class MainActivity extends Activity {
         
     }
     
+    @Override
+    protected void onDestroy() {
+        Konashi.close();
+        
+        super.onDestroy();
+    }
+    
     private final KonashiObserver mKonashiObserver = new KonashiObserver(MainActivity.this) {
         @Override
         public void onConnected() {
