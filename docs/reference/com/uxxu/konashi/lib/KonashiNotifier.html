@@ -181,7 +181,6 @@
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html">BleDeviceListAdapter</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html">BleDeviceSelectionDialog</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/Konashi.html">Konashi</a></li>
-          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html">KonashiManager</a></li>
           <li class="selected api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html">KonashiNotifier</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html">KonashiObserver</a></li>
@@ -190,6 +189,12 @@
     </li>
               
               
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a></li>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a></li>
+      </ul>
+    </li>
               
               
             </ul><br/>
@@ -451,7 +456,23 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html#notifyKonashiEvent(java.lang.String)">notifyKonashiEvent</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> event)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html#notifyKonashiError(com.uxxu.konashi.lib.KonashiErrorReason)">notifyKonashiError</a></span>(<a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a> errorReason)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html#notifyKonashiEvent(com.uxxu.konashi.lib.KonashiEvent)">notifyKonashiEvent</a></span>(<a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a> event)
         
         <div class="jd-descrdiv">オブザーバにイベントを通知する</div>
   
@@ -459,7 +480,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -478,7 +499,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -837,7 +858,40 @@ From class
 </div>
 
 
-<a id="notifyKonashiEvent(java.lang.String)"></a>
+<a id="notifyKonashiError(com.uxxu.konashi.lib.KonashiErrorReason)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">notifyKonashiError</span>
+      <span class="normal">(<a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a> errorReason)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="notifyKonashiEvent(com.uxxu.konashi.lib.KonashiEvent)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
@@ -850,7 +904,7 @@ From class
         void
       </span>
       <span class="sympad">notifyKonashiEvent</span>
-      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> event)</span>
+      <span class="normal">(<a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a> event)</span>
     </h4>
       <div class="api-level">
         <div>

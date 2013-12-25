@@ -234,6 +234,17 @@
  visibility="public"
 >
 </constructor>
+<method name="close"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="getManager"
  return="com.uxxu.konashi.lib.KonashiManager"
  abstract="false"
@@ -296,6 +307,17 @@
  transient="false"
  volatile="false"
  value="1300"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="FAILURE"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="-1"
  static="true"
  final="true"
  deprecated="not deprecated"
@@ -676,6 +698,17 @@
  visibility="public"
 >
 </field>
+<field name="SUCCESS"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="0"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="TRUE"
  type="int"
  transient="false"
@@ -732,176 +765,71 @@
 >
 </field>
 </class>
-<class name="KonashiEvent"
- extends="java.lang.Object"
+<class name="KonashiErrorReason"
+ extends="java.lang.Enum"
  abstract="false"
  static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="valueOf"
+ return="com.uxxu.konashi.lib.KonashiErrorReason"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<constructor name="KonashiEvent"
- type="com.uxxu.konashi.lib.KonashiEvent"
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="com.uxxu.konashi.lib.KonashiErrorReason[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="KonashiEvent"
+ extends="java.lang.Enum"
+ abstract="false"
  static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="valueOf"
+ return="com.uxxu.konashi.lib.KonashiEvent"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-</constructor>
-<field name="CANCEL_SELECT_KONASHI"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;CANCEL_SELECT_KONASHI&quot;"
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="com.uxxu.konashi.lib.KonashiEvent[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
  static="true"
  final="true"
  deprecated="not deprecated"
  visibility="public"
 >
-</field>
-<field name="CONNECTED"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;CONNECTED&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="DISCONNECTED"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;DISCONNECTED&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="I2C_READ_COMPLETE"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;I2C_READ_COMPLETE&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="PERIPHERAL_NOT_FOUND"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;PERIPHERAL_NOT_FOUND&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="READY"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;READY&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="UART_RX_COMPLETE"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;UART_RX_COMPLETE&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="UPDATE_ANALOG_VALUE"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;UPDATE_ANALOG_VALUE&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="UPDATE_ANALOG_VALUE_AIO0"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;UPDATE_ANALOG_VALUE_AIO0&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="UPDATE_ANALOG_VALUE_AIO1"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;UPDATE_ANALOG_VALUE_AIO1&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="UPDATE_ANALOG_VALUE_AIO2"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;UPDATE_ANALOG_VALUE_AIO2&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="UPDATE_BATTERY_LEVEL"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;UPDATE_BATTERY_LEVEL&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="UPDATE_PIO_INPUT"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;UPDATE_PIO_INPUT&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="UPDATE_SIGNAL_STRENGTH"
- type="java.lang.String"
- transient="false"
- volatile="false"
- value="&quot;UPDATE_SIGNAL_STRENGTH&quot;"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
+</method>
 </class>
 <class name="KonashiManager"
  extends="java.lang.Object"
@@ -1323,6 +1251,19 @@
 <parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
 </parameter>
 </method>
+<method name="notifyKonashiError"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="errorReason" type="com.uxxu.konashi.lib.KonashiErrorReason">
+</parameter>
+</method>
 <method name="notifyKonashiEvent"
  return="void"
  abstract="false"
@@ -1333,7 +1274,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="event" type="java.lang.String">
+<parameter name="event" type="com.uxxu.konashi.lib.KonashiEvent">
 </parameter>
 </method>
 <method name="removeAllObservers"
@@ -1422,6 +1363,19 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="onError"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="errorReason" type="com.uxxu.konashi.lib.KonashiErrorReason">
+</parameter>
 </method>
 <method name="onNotFoundPeripheral"
  return="void"

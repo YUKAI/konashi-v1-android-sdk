@@ -181,7 +181,6 @@
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html">BleDeviceListAdapter</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html">BleDeviceSelectionDialog</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/Konashi.html">Konashi</a></li>
-          <li class="selected api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html">KonashiManager</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html">KonashiNotifier</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html">KonashiObserver</a></li>
@@ -190,6 +189,12 @@
     </li>
               
               
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a></li>
+          <li class="selected api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a></li>
+      </ul>
+    </li>
               
               
             </ul><br/>
@@ -236,6 +241,25 @@
   
   
 
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -245,18 +269,18 @@ Summary:
 
 
 
-
-  <a href="#constants">Constants</a>
+  <a href="#enumconstants">Enums</a>
   
 
 
 
 
 
-  &#124; <a href="#pubctors">Ctors</a>
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
   
-
-
 
 
 
@@ -283,15 +307,19 @@ Summary:
 <div id="jd-header">
     public
      
-     
+    final 
     
-    class
+    enum
 <h1>KonashiEvent</h1>
 
 
 
   
-    extends <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a><br/>
+  
+  
+
+  
+    extends <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">Enum</a>&lt;E&nbsp;extends&nbsp;<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">Enum</a>&lt;E&gt;&gt;<br/>
   
   
   
@@ -311,11 +339,21 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a></td>
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a></td>
     </tr>
     
 
     <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">java.lang.Enum</a>&lt;E&nbsp;extends&nbsp;<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">java.lang.Enum</a>&lt;E&gt;&gt;</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
@@ -373,126 +411,122 @@ Summary:
 
 
 
-
-
 <!-- =========== ENUM CONSTANT SUMMARY =========== -->
-<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
-
+<table id="enumconstants" class="jd-sumtable"><tr><th colspan="12">Enum Values</th></tr>
 
     
-    <tr class="alt-color api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#CANCEL_SELECT_KONASHI">CANCEL_SELECT_KONASHI</a></td>
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">CANCEL_SELECT_KONASHI&nbsp;</td>
         <td class="jd-descrcol" width="100%">BLEデバイス選択ダイアログをキャンセルした時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#CONNECTED">CONNECTED</a></td>
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">CONNECTED&nbsp;</td>
         <td class="jd-descrcol" width="100%">konashiに接続した時(まだこの時はkonashiが使える状態ではありません)
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#DISCONNECTED">DISCONNECTED</a></td>
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">DISCONNECTED&nbsp;</td>
         <td class="jd-descrcol" width="100%">konashiとの接続を切断した時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#I2C_READ_COMPLETE">I2C_READ_COMPLETE</a></td>
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">I2C_READ_COMPLETE&nbsp;</td>
         <td class="jd-descrcol" width="100%">I2Cからデータを受信した時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#PERIPHERAL_NOT_FOUND">PERIPHERAL_NOT_FOUND</a></td>
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">PERIPHERAL_NOT_FOUND&nbsp;</td>
         <td class="jd-descrcol" width="100%">findWithNameで指定した名前のkonashiが見つからなかった時、もしくはまわりにBLEデバイスがなかった時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#READY">READY</a></td>
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">READY&nbsp;</td>
         <td class="jd-descrcol" width="100%">konashiに接続完了した時(この時からkonashiにアクセスできるようになります)
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UART_RX_COMPLETE">UART_RX_COMPLETE</a></td>
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">UART_RX_COMPLETE&nbsp;</td>
         <td class="jd-descrcol" width="100%">UARTのRxからデータを受信した時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_ANALOG_VALUE">UPDATE_ANALOG_VALUE</a></td>
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">UPDATE_ANALOG_VALUE&nbsp;</td>
         <td class="jd-descrcol" width="100%">AIOのどれかのピンの電圧が取得できた時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_ANALOG_VALUE_AIO0">UPDATE_ANALOG_VALUE_AIO0</a></td>
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">UPDATE_ANALOG_VALUE_AIO0&nbsp;</td>
         <td class="jd-descrcol" width="100%">AIO0の電圧が取得できた時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_ANALOG_VALUE_AIO1">UPDATE_ANALOG_VALUE_AIO1</a></td>
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">UPDATE_ANALOG_VALUE_AIO1&nbsp;</td>
         <td class="jd-descrcol" width="100%">AIO1の電圧が取得できた時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_ANALOG_VALUE_AIO2">UPDATE_ANALOG_VALUE_AIO2</a></td>
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">UPDATE_ANALOG_VALUE_AIO2&nbsp;</td>
         <td class="jd-descrcol" width="100%">AIO2の電圧が取得できた時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_BATTERY_LEVEL">UPDATE_BATTERY_LEVEL</a></td>
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">UPDATE_BATTERY_LEVEL&nbsp;</td>
         <td class="jd-descrcol" width="100%">konashiのバッテリーのレベルを取得できた時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_PIO_INPUT">UPDATE_PIO_INPUT</a></td>
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">UPDATE_PIO_INPUT&nbsp;</td>
         <td class="jd-descrcol" width="100%">PIOの入力の状態が変化した時
-</td>
+&nbsp;</td>
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
-        <td class="jd-typecol"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#UPDATE_SIGNAL_STRENGTH">UPDATE_SIGNAL_STRENGTH</a></td>
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>&nbsp;</td>
+        <td class="jd-linkcol">UPDATE_SIGNAL_STRENGTH&nbsp;</td>
         <td class="jd-descrcol" width="100%">konashiの電波強度を取得できた時
-</td>
+&nbsp;</td>
     </tr>
     
     
-
 </table>
 
 
@@ -506,8 +540,14 @@ Summary:
 
 
 
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
 
 
 
@@ -517,12 +557,28 @@ Summary:
             
             
             
+            static
             
-            
-            
+            <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#KonashiEvent()">KonashiEvent</a></span>()
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#valueOf(java.lang.String)">valueOf</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> name)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            final
+            static
+            
+            <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent[]</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html#values()">values</a></span>()
         
   </td></tr>
 
@@ -536,14 +592,212 @@ Summary:
 
 
 
-
-
-
-
 <!-- ========== METHOD SUMMARY =========== -->
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Enum" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Enum-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">java.lang.Enum</a>
+
+<div id="inherited-methods-java.lang.Enum">
+  <div id="inherited-methods-java.lang.Enum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Enum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">clone</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a> arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(E arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">equals</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a> arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">finalize</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Class.html">Class</a>&lt;E&gt;
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">getDeclaringClass</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">hashCode</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">name</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">ordinal</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">toString</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            &lt;T&nbsp;extends&nbsp;<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">Enum</a>&lt;T&gt;&gt;
+            T
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">valueOf</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Class.html">Class</a>&lt;T&gt; arg0, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> arg1)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
 
 
 <tr class="api apilevel-" >
@@ -747,6 +1001,50 @@ From class
 </td></tr>
 
 
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Comparable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Comparable-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Comparable.html">java.lang.Comparable</a>
+
+<div id="inherited-methods-java.lang.Comparable">
+  <div id="inherited-methods-java.lang.Comparable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Comparable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(T arg0)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -767,31 +1065,28 @@ From class
 <!-- Enum Values -->
 
 
-<!-- Constants -->
-
-
 <!-- ========= ENUM CONSTANTS DETAIL ======== -->
-<h2>Constants</h2>
+<h2>Enum Values</h2>
 
 
 
 
 <a id="CANCEL_SELECT_KONASHI"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         CANCEL_SELECT_KONASHI
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -804,15 +1099,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "CANCEL_SELECT_KONASHI"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -820,20 +1106,20 @@ From class
 
 <a id="CONNECTED"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         CONNECTED
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -846,15 +1132,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "CONNECTED"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -862,20 +1139,20 @@ From class
 
 <a id="DISCONNECTED"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         DISCONNECTED
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -888,15 +1165,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "DISCONNECTED"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -904,20 +1172,20 @@ From class
 
 <a id="I2C_READ_COMPLETE"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         I2C_READ_COMPLETE
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -930,15 +1198,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "I2C_READ_COMPLETE"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -946,20 +1205,20 @@ From class
 
 <a id="PERIPHERAL_NOT_FOUND"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         PERIPHERAL_NOT_FOUND
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -972,15 +1231,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "PERIPHERAL_NOT_FOUND"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -988,20 +1238,20 @@ From class
 
 <a id="READY"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         READY
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -1014,15 +1264,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "READY"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -1030,20 +1271,20 @@ From class
 
 <a id="UART_RX_COMPLETE"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         UART_RX_COMPLETE
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -1056,15 +1297,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "UART_RX_COMPLETE"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -1072,20 +1304,20 @@ From class
 
 <a id="UPDATE_ANALOG_VALUE"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         UPDATE_ANALOG_VALUE
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -1098,15 +1330,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "UPDATE_ANALOG_VALUE"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -1114,20 +1337,20 @@ From class
 
 <a id="UPDATE_ANALOG_VALUE_AIO0"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         UPDATE_ANALOG_VALUE_AIO0
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -1140,15 +1363,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "UPDATE_ANALOG_VALUE_AIO0"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -1156,20 +1370,20 @@ From class
 
 <a id="UPDATE_ANALOG_VALUE_AIO1"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         UPDATE_ANALOG_VALUE_AIO1
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -1182,15 +1396,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "UPDATE_ANALOG_VALUE_AIO1"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -1198,20 +1403,20 @@ From class
 
 <a id="UPDATE_ANALOG_VALUE_AIO2"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         UPDATE_ANALOG_VALUE_AIO2
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -1224,15 +1429,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "UPDATE_ANALOG_VALUE_AIO2"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -1240,20 +1436,20 @@ From class
 
 <a id="UPDATE_BATTERY_LEVEL"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         UPDATE_BATTERY_LEVEL
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -1266,15 +1462,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "UPDATE_BATTERY_LEVEL"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -1282,20 +1469,20 @@ From class
 
 <a id="UPDATE_PIO_INPUT"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         UPDATE_PIO_INPUT
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -1308,15 +1495,6 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "UPDATE_PIO_INPUT"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
@@ -1324,20 +1502,20 @@ From class
 
 <a id="UPDATE_SIGNAL_STRENGTH"></a>
 
-<div class="jd-details api apilevel-v2"> 
+<div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
         final 
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
         UPDATE_SIGNAL_STRENGTH
     </h4>
       <div class="api-level">
         
 
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
 
 
         
@@ -1350,19 +1528,13 @@ From class
 </p></div>
 
     
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "UPDATE_SIGNAL_STRENGTH"
-            
-        </span>
-        </div>
-    
     </div>
 </div>
 
 
+
+
+<!-- Constants -->
 
 
 <!-- Fields -->
@@ -1371,24 +1543,65 @@ From class
 <!-- Public ctors -->
 
 
+
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<h2>Public Constructors</h2>
+<!-- Protected ctors -->
 
 
 
-<a id="KonashiEvent()"></a>
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<a id="valueOf(java.lang.String)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
+        static 
          
          
          
-         
-        
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a>
       </span>
-      <span class="sympad">KonashiEvent</span>
+      <span class="sympad">valueOf</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="values()"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+         
+         
+        <a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent[]</a>
+      </span>
+      <span class="sympad">values</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1409,16 +1622,6 @@ From class
 </div>
 
 
-
-
-
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<!-- Protected ctors -->
-
-
-
-<!-- ========= METHOD DETAIL ======== -->
-<!-- Public methdos -->
 
 
 

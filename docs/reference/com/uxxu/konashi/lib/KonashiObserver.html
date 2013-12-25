@@ -181,7 +181,6 @@
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html">BleDeviceListAdapter</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html">BleDeviceSelectionDialog</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/Konashi.html">Konashi</a></li>
-          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html">KonashiManager</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html">KonashiNotifier</a></li>
           <li class="selected api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html">KonashiObserver</a></li>
@@ -190,6 +189,12 @@
     </li>
               
               
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a></li>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a></li>
+      </ul>
+    </li>
               
               
             </ul><br/>
@@ -507,6 +512,25 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#onError(com.uxxu.konashi.lib.KonashiErrorReason)">onError</a></span>(<a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a> errorReason)
+        
+        <div class="jd-descrdiv">エラーが起きた時に呼ばれる
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html#onNotFoundPeripheral()">onNotFoundPeripheral</a></span>()
         
         <div class="jd-descrdiv">findWithNameで指定した名前のkonashiが見つからなかった時、もしくはまわりにBLEデバイスがなかった時に呼ばれる
@@ -516,7 +540,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -535,7 +559,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -995,6 +1019,40 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>konashiとの接続を切断した時に呼ばれる
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="onError(com.uxxu.konashi.lib.KonashiErrorReason)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">onError</span>
+      <span class="normal">(<a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a> errorReason)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>エラーが起きた時に呼ばれる
 </p></div>
 
     </div>

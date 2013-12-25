@@ -181,7 +181,6 @@
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/BleDeviceListAdapter.html">BleDeviceListAdapter</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html">BleDeviceSelectionDialog</a></li>
           <li class="selected api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/Konashi.html">Konashi</a></li>
-          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html">KonashiManager</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html">KonashiNotifier</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html">KonashiObserver</a></li>
@@ -190,6 +189,12 @@
     </li>
               
               
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a></li>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a></li>
+      </ul>
+    </li>
               
               
             </ul><br/>
@@ -418,13 +423,21 @@ Summary:
     
     <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#FAILURE">FAILURE</a></td>
+        <td class="jd-descrcol" width="100%">APIの失敗レスポンス
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#FALSE">FALSE</a></td>
         <td class="jd-descrcol" width="100%">ピンの出力をLOW(0V)にする, LOWと同じ
 </td>
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#HIGH">HIGH</a></td>
         <td class="jd-descrcol" width="100%">ピンの出力をHIGH(3V)にする
@@ -432,7 +445,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_DATA_MAX_LENGTH">I2C_DATA_MAX_LENGTH</a></td>
         <td class="jd-descrcol" width="100%">I2Cで一度に送受信できる最大バイト数
@@ -440,7 +453,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_DISABLE">I2C_DISABLE</a></td>
         <td class="jd-descrcol" width="100%">I2Cを無効にする
@@ -448,7 +461,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_ENABLE">I2C_ENABLE</a></td>
         <td class="jd-descrcol" width="100%">I2Cを有効にする(100kbpsモードがデフォルト)
@@ -456,7 +469,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_ENABLE_100K">I2C_ENABLE_100K</a></td>
         <td class="jd-descrcol" width="100%">100kbpsモードでI2Cを有効にする
@@ -464,7 +477,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_ENABLE_400K">I2C_ENABLE_400K</a></td>
         <td class="jd-descrcol" width="100%">400kbpsモードでI2Cを有効にする
@@ -472,7 +485,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_RESTART_CONDITION">I2C_RESTART_CONDITION</a></td>
         <td class="jd-descrcol" width="100%">リスタートコンディション
@@ -480,7 +493,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_SCL">I2C_SCL</a></td>
         <td class="jd-descrcol" width="100%">I2CのSDAのピン(PIOの7ピン目)
@@ -488,7 +501,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_SDA">I2C_SDA</a></td>
         <td class="jd-descrcol" width="100%">I2CのSDAのピン(PIOの6ピン目)
@@ -496,7 +509,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_START_CONDITION">I2C_START_CONDITION</a></td>
         <td class="jd-descrcol" width="100%">スタートコンディション
@@ -504,7 +517,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#I2C_STOP_CONDITION">I2C_STOP_CONDITION</a></td>
         <td class="jd-descrcol" width="100%">ストップコンディション
@@ -512,7 +525,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#INPUT">INPUT</a></td>
         <td class="jd-descrcol" width="100%">ピンの入出力設定を入力に
@@ -520,7 +533,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#LED2">LED2</a></td>
         <td class="jd-descrcol" width="100%">konashi上の赤色LED（ジャンパ をショートすることで、 PIO1 に接続されます）
@@ -528,7 +541,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#LED3">LED3</a></td>
         <td class="jd-descrcol" width="100%">konashi上の赤色LED（ジャンパ をショートすることで、 PIO2 に接続されます）
@@ -536,7 +549,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#LED4">LED4</a></td>
         <td class="jd-descrcol" width="100%">konashi上の赤色LED（ジャンパ をショートすることで、 PIO3 に接続されます）
@@ -544,7 +557,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#LED5">LED5</a></td>
         <td class="jd-descrcol" width="100%">konashi上の赤色LED（ジャンパ をショートすることで、 PIO4 に接続されます）
@@ -552,7 +565,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#LOW">LOW</a></td>
         <td class="jd-descrcol" width="100%">ピンの出力をLOW(0V)にする
@@ -560,7 +573,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#NO_PULLS">NO_PULLS</a></td>
         <td class="jd-descrcol" width="100%">ピンのプルアップ設定をOFF
@@ -568,7 +581,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#OUTPUT">OUTPUT</a></td>
         <td class="jd-descrcol" width="100%">ピンの入出力設定を出力に
@@ -576,7 +589,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PIO0">PIO0</a></td>
         <td class="jd-descrcol" width="100%">PIOの0ピン目
@@ -584,7 +597,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PIO1">PIO1</a></td>
         <td class="jd-descrcol" width="100%">PIOの1ピン目
@@ -592,7 +605,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PIO2">PIO2</a></td>
         <td class="jd-descrcol" width="100%">PIOの2ピン目
@@ -600,7 +613,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PIO3">PIO3</a></td>
         <td class="jd-descrcol" width="100%">PIOの3ピン目
@@ -608,7 +621,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PIO4">PIO4</a></td>
         <td class="jd-descrcol" width="100%">PIOの4ピン目
@@ -616,7 +629,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PIO5">PIO5</a></td>
         <td class="jd-descrcol" width="100%">PIOの5ピン目
@@ -624,7 +637,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PIO6">PIO6</a></td>
         <td class="jd-descrcol" width="100%">PIOの6ピン目
@@ -632,7 +645,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PIO7">PIO7</a></td>
         <td class="jd-descrcol" width="100%">PIOの7ピン目
@@ -640,7 +653,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PULLUP">PULLUP</a></td>
         <td class="jd-descrcol" width="100%">ピンのプルアップ設定をON
@@ -648,7 +661,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PWM_DISABLE">PWM_DISABLE</a></td>
         <td class="jd-descrcol" width="100%">指定したPIOをPWMとして使用しない(デジタルI/Oとして使用)
@@ -656,7 +669,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PWM_ENABLE">PWM_ENABLE</a></td>
         <td class="jd-descrcol" width="100%">指定したPIOをPWMとして使用する
@@ -664,7 +677,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PWM_ENABLE_LED_MODE">PWM_ENABLE_LED_MODE</a></td>
         <td class="jd-descrcol" width="100%">指定したPIOをLEDモードとしてPWMとして使用する
@@ -672,7 +685,7 @@ Summary:
     </tr>
     
     
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#PWM_LED_PERIOD">PWM_LED_PERIOD</a></td>
         <td class="jd-descrcol" width="100%">LEDモード時のPWMの周期は10ms
@@ -680,10 +693,18 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#S1">S1</a></td>
         <td class="jd-descrcol" width="100%">タクトスイッチ（ジャンパ をショートすることで、 PIO0 に接続されます）
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#SUCCESS">SUCCESS</a></td>
+        <td class="jd-descrcol" width="100%">APIの成功レスポンス
 </td>
     </tr>
     
@@ -784,6 +805,25 @@ Summary:
             
             static
             
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/Konashi.html#close()">close</a></span>()
+        
+        <div class="jd-descrdiv">デストラクタ
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            
             <a href="../../../../com/uxxu/konashi/lib/KonashiManager.html">KonashiManager</a>
         </td>
         <td class="jd-linkcol" width="100%">
@@ -793,7 +833,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1218,6 +1258,49 @@ From class
             
                 1300
                 (0x00000514)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="FAILURE"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        FAILURE
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>APIの失敗レスポンス
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                -1
+                (0xffffffff)
             
         </span>
         </div>
@@ -2689,6 +2772,49 @@ From class
 
 
 
+<a id="SUCCESS"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SUCCESS
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>APIの成功レスポンス
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 <a id="TRUE"></a>
 
 <div class="jd-details api apilevel-v2"> 
@@ -2962,6 +3088,40 @@ From class
 
 <h2>Public Methods</h2>
 
+
+
+<a id="close()"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">close</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>デストラクタ
+</p></div>
+
+    </div>
+</div>
 
 
 <a id="getManager()"></a>

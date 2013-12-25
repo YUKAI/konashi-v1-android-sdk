@@ -840,9 +840,6 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
             val[0] = mPioModeSetting;
             
             addMessage(KONASHI_PIO_SETTING_UUID, val);
-            
-        } else {
-            notifyKonashiError(KonashiErrorReason.INVALID_PARAMETER);
         }
     }
     
@@ -851,6 +848,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param modes PIO0 〜 PIO7 の計8ピンの設定
      */
     public void pinModeAll(int modes){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         if(modes >= 0x00 && modes <= 0xFF){
             mPioModeSetting = (byte)modes;
             
@@ -867,6 +869,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pullup ピンをプルアップするかの設定。PULLUP か NO_PULLS が設定できます。
      */
     public void pinPullup(int pin, int pullup){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (pullup == Konashi.PULLUP || pullup == Konashi.NO_PULLS)){
             if(pullup == Konashi.PULLUP){
                 mPioPullup |= (byte)(0x01 << pin);
@@ -886,6 +893,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pullups PIO0 〜 PIO7 の計8ピンのプルアップの設定
      */
     public void pinPullupAll(int pullups){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         if(pullups >= 0x00 && pullups <= 0xFF){
             mPioPullup = (byte)pullups;
             
@@ -902,6 +914,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @return HIGH(1) もしくは LOW(0)
      */
     public int digitalRead(int pin){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return -1;
+        }
+        
         return (mPioInput >> pin) & 0x01;
     }
     
@@ -910,6 +927,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @return PIOの状態(PIO0〜PIO7の入力状態が8bit(1byte)で表現)
      */
     public int digitalReadAll(){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return -1;
+        }
+        
         return mPioInput;
     }
     
@@ -919,6 +941,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param value 設定するPIOの出力状態。HIGH もしくは LOW が指定可能
      */
     public void digitalWrite(int pin, int value){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (value == Konashi.HIGH || value == Konashi.LOW)){
             KonashiUtils.log("digitalWrite pin: " + pin + ", value: " + value);
             
@@ -940,6 +967,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param value PIOの出力状態。PIO0〜PIO7の出力状態が8bit(1byte)で表現
      */
     public void digitalWriteAll(int value){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         if(value >= 0x00 && value <= 0xFF){            
             mPioOutput = (byte)value;
             
@@ -961,6 +993,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param mode 設定するPWMのモード。Konashi.PWM_DISABLE, Konashi.PWM_ENABLE, Konashi.PWM_ENABLE_LED_MODE のいずれかをセットする。
      */
     public void pwmMode(int pin, int mode){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (mode == Konashi.PWM_DISABLE || mode == Konashi.PWM_ENABLE || mode == Konashi.PWM_ENABLE_LED_MODE)){
             if(mode == Konashi.PWM_ENABLE || mode == Konashi.PWM_ENABLE_LED_MODE){
                 mPwmSetting |= 0x01 << pin;
@@ -986,6 +1023,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param period 周期。単位はマイクロ秒(us)で32bitで指定してください。最大2^(32)us = 71.5分。
      */
     public void pwmPeriod(int pin, int period){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && mPwmDuty[pin] <= period){
             mPwmPeriod[pin] = period;
             
@@ -1006,6 +1048,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param duty デューティ。単位はマイクロ秒(us)で32bitで指定してください。最大2^(32)us = 71.5分。
      */
     public void pwmDuty(int pin, int duty){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && duty <= mPwmPeriod[pin]){
             mPwmDuty[pin] = duty;
             
@@ -1028,15 +1075,10 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     public void pwmLedDrive(int pin, float dutyRatio){
         int duty;
 
-        if(dutyRatio < 0.0){
-            dutyRatio = 0.0F;
+        if(dutyRatio >= 0.0 && dutyRatio <= 100.0){
+            duty = (int)(Konashi.PWM_LED_PERIOD * dutyRatio / 100);        
+            pwmDuty(pin, duty);
         }
-        if(dutyRatio > 100.0){
-            dutyRatio = 100.0F;
-        }
-
-        duty = (int)(Konashi.PWM_LED_PERIOD * dutyRatio / 100);        
-        pwmDuty(pin, duty);
     }
     
     /**
@@ -1044,7 +1086,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
      * @param dutyRatio LEDの明るさ。0.0〜100.0 をしてしてください。
      */
-    public void pwmLedDrive(int pin, double dutyRatio){
+    public void pwmLedDrive(int pin, double dutyRatio){        
         pwmLedDrive(pin, (float)dutyRatio);
     }
     

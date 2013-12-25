@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
 <title>
 
-  KonashiUtils
+  KonashiErrorReason
 
 
 | konashi-android-sdk
@@ -184,14 +184,14 @@
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html">KonashiManager</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html">KonashiNotifier</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html">KonashiObserver</a></li>
-          <li class="selected api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiUtils.html">KonashiUtils</a></li>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiUtils.html">KonashiUtils</a></li>
       </ul>
     </li>
               
               
     <li><h2>Enums</h2>
       <ul>
-          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a></li>
+          <li class="selected api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a></li>
       </ul>
     </li>
@@ -241,6 +241,25 @@
   
   
 
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -250,13 +269,13 @@ Summary:
 
 
 
-
-
-
-
-
-  <a href="#pubctors">Ctors</a>
+  <a href="#enumconstants">Enums</a>
   
+
+
+
+
+
 
 
 
@@ -288,15 +307,19 @@ Summary:
 <div id="jd-header">
     public
      
-     
+    final 
     
-    class
-<h1>KonashiUtils</h1>
+    enum
+<h1>KonashiErrorReason</h1>
 
 
 
   
-    extends <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a><br/>
+  
+  
+
+  
+    extends <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">Enum</a>&lt;E&nbsp;extends&nbsp;<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">Enum</a>&lt;E&gt;&gt;<br/>
   
   
   
@@ -316,7 +339,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a></td>
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a></td>
     </tr>
     
 
@@ -324,7 +347,17 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.uxxu.konashi.lib.KonashiUtils</td>
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">java.lang.Enum</a>&lt;E&nbsp;extends&nbsp;<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">java.lang.Enum</a>&lt;E&gt;&gt;</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.uxxu.konashi.lib.KonashiErrorReason</td>
     </tr>
     
 
@@ -340,7 +373,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>konashiライブラリの便利ツール。ライブラリ外から使うことはたぶんないかな！</p>
+<p>konashiのエラー</p>
 
 
 
@@ -378,41 +411,39 @@ Summary:
 
 
 
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="enumconstants" class="jd-sumtable"><tr><th colspan="12">Enum Values</th></tr>
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-v2" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiUtils.html#KonashiUtils()">KonashiUtils</a></span>()
-        
-  </td></tr>
-
-
-
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a>&nbsp;</td>
+        <td class="jd-linkcol">INVALID_PARAMETER&nbsp;</td>
+        <td class="jd-descrcol" width="100%">無効なパラメータ
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a>&nbsp;</td>
+        <td class="jd-linkcol">NOT_READY&nbsp;</td>
+        <td class="jd-descrcol" width="100%">まだkonashiを使える状態ではありません
+&nbsp;</td>
+    </tr>
+    
+    
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -432,13 +463,27 @@ Summary:
             
             static
             
-            void
+            <a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiUtils.html#log(java.lang.String)">log</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> text)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html#valueOf(java.lang.String)">valueOf</a></span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> name)
         
-        <div class="jd-descrdiv">logに表示する(関数名や行数も表示するよっ）</div>
-  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            final
+            static
+            
+            <a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason[]</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html#values()">values</a></span>()
+        
   </td></tr>
 
 
@@ -455,6 +500,208 @@ Summary:
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Enum" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Enum-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">java.lang.Enum</a>
+
+<div id="inherited-methods-java.lang.Enum">
+  <div id="inherited-methods-java.lang.Enum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Enum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">clone</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a> arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(E arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">equals</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a> arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">finalize</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Class.html">Class</a>&lt;E&gt;
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">getDeclaringClass</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">hashCode</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">name</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">ordinal</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">toString</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            &lt;T&nbsp;extends&nbsp;<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Enum.html">Enum</a>&lt;T&gt;&gt;
+            T
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">valueOf</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Class.html">Class</a>&lt;T&gt; arg0, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> arg1)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
 
 
 <tr class="api apilevel-" >
@@ -658,6 +905,50 @@ From class
 </td></tr>
 
 
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Comparable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Comparable-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Comparable.html">java.lang.Comparable</a>
+
+<div id="inherited-methods-java.lang.Comparable">
+  <div id="inherited-methods-java.lang.Comparable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Comparable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(T arg0)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -678,6 +969,79 @@ From class
 <!-- Enum Values -->
 
 
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Enum Values</h2>
+
+
+
+
+<a id="INVALID_PARAMETER"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a>
+      </span>
+        INVALID_PARAMETER
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>無効なパラメータ
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="NOT_READY"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a>
+      </span>
+        NOT_READY
+    </h4>
+      <div class="api-level">
+        
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#level">API Level </a>
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>まだkonashiを使える状態ではありません
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+
 <!-- Constants -->
 
 
@@ -687,25 +1051,33 @@ From class
 <!-- Public ctors -->
 
 
+
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<h2>Public Constructors</h2>
+<!-- Protected ctors -->
 
 
 
-<a id="KonashiUtils()"></a>
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<a id="valueOf(java.lang.String)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
+        static 
          
          
          
-         
-        
+        <a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a>
       </span>
-      <span class="sympad">KonashiUtils</span>
-      <span class="normal">()</span>
+      <span class="sympad">valueOf</span>
+      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> name)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -725,35 +1097,20 @@ From class
 </div>
 
 
-
-
-
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<!-- Protected ctors -->
-
-
-
-<!-- ========= METHOD DETAIL ======== -->
-<!-- Public methdos -->
-
-<h2>Public Methods</h2>
-
-
-
-<a id="log(java.lang.String)"></a>
+<a id="values()"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
         static 
+        final 
          
          
-         
-        void
+        <a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason[]</a>
       </span>
-      <span class="sympad">log</span>
-      <span class="normal">(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> text)</span>
+      <span class="sympad">values</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -767,7 +1124,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>logに表示する(関数名や行数も表示するよっ）</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
