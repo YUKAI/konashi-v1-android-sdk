@@ -1,4 +1,5 @@
 <project name="konashi-android-sdk">
+  <property name="konashilib" location="Konashi" />
   <property file="Konashi/local.properties" />
   <loadproperties srcFile="Konashi/project.properties" />
 
@@ -10,7 +11,6 @@
   <!-- javadoc -->
   <target name="javadoc">
 
-    <property file="docdata.properties" />
     <property name="doc" location="docs" />
 
     <delete dir="${doc}/*" />
@@ -19,7 +19,7 @@
        packagenames="com.uxxu.konashi.lib.*"
        classpath="${sdk.dir}/platforms/${target}/android.jar"
        destdir="${doc}"
-       sourcepath="Konashi/src"
+       sourcepath="${konashilib}/src"
        docletpath="tools/doclava-1.0.6/doclava-1.0.6.jar"
        bootclasspath="${javahome}/jre/lib/rt.jar"
        encoding="UTF-8"
@@ -46,10 +46,11 @@
 
   <!-- Generate konashi.jar -->
   <target name="jar">
-    <xmlproperty file="Konashi/AndroidManifest.xml" prefix="konashiManifest" collapseAttributes="true"/>
-    <jar destfile="libs/konashi-${konashiManifest.manifest.android:versionName}.jar"
-         basedir="Konashi/bin/classes"
-         excludes="Konashi/AndroidManifest.xml,Konashi/proguard-project.txt,Konashi/project.properties"/>
+    <xmlproperty file="${konashilib}/AndroidManifest.xml" prefix="konashiManifest" collapseAttributes="true"/>
+    <jar
+      destfile="libs/konashi-${konashiManifest.manifest.android:versionName}.jar"
+      basedir="${konashilib}/bin/classes"
+      excludes="${konashilib}/AndroidManifest.xml,Konashi/proguard-project.txt,Konashi/project.properties"/>
   </target>
 
 </project>
