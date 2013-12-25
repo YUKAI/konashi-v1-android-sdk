@@ -3,7 +3,7 @@
   <loadproperties srcFile="Konashi/project.properties" />
 
   <fail
-    message="sdk.dir is missing. Make sure to generate local.properties using 'android update project -p .' or to inject it through the ANDROID_HOME environment variable."
+    message="sdk.dir is missing. Make sure to generate local.properties using 'android update project -p .' on Konashi directory, or to inject it through the ANDROID_HOME environment variable."
     unless="sdk.dir"
   />
 
