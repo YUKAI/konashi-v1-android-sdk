@@ -77,5 +77,5 @@ public enum KonashiEvent {
     /**
      * konashiの電波強度を取得できた時
      */
-    UPDATE_SIGNAL_STRENGTH;
+    UPDATE_SIGNAL_STRENGTH
 }
