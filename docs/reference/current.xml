@@ -767,6 +767,247 @@
 >
 </field>
 </class>
+<interface name="KonashiApiInterface"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="addObserver"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
+</parameter>
+</method>
+<method name="analogReadRequest"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+</method>
+<method name="digitalRead"
+ return="int"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+</method>
+<method name="digitalReadAll"
+ return="int"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="digitalWrite"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="value" type="int">
+</parameter>
+</method>
+<method name="digitalWriteAll"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="value" type="int">
+</parameter>
+</method>
+<method name="pinMode"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="pinModeAll"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="modes" type="int">
+</parameter>
+</method>
+<method name="pinPullup"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="pullup" type="int">
+</parameter>
+</method>
+<method name="pinPullupAll"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pullups" type="int">
+</parameter>
+</method>
+<method name="pwmDuty"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="duty" type="int">
+</parameter>
+</method>
+<method name="pwmLedDrive"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="dutyRatio" type="float">
+</parameter>
+</method>
+<method name="pwmLedDrive"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="dutyRatio" type="double">
+</parameter>
+</method>
+<method name="pwmMode"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="pwmPeriod"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="period" type="int">
+</parameter>
+</method>
+<method name="removeAllObservers"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="removeObserver"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
+</parameter>
+</method>
+</interface>
 <class name="KonashiErrorReason"
  extends="java.lang.Enum"
  abstract="false"
@@ -843,6 +1084,8 @@
 >
 <implements name="com.uxxu.konashi.lib.BleDeviceSelectionDialog.OnBleDeviceSelectListener">
 </implements>
+<implements name="com.uxxu.konashi.lib.KonashiApiInterface">
+</implements>
 <constructor name="KonashiManager"
  type="com.uxxu.konashi.lib.KonashiManager"
  static="false"
@@ -862,6 +1105,19 @@
  visibility="public"
 >
 <parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
+</parameter>
+</method>
+<method name="analogReadRequest"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
 </parameter>
 </method>
 <method name="close"

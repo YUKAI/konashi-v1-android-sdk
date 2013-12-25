@@ -44,7 +44,7 @@ import android.widget.Toast;
  * limitations under the License.
  *
  */
-public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDeviceSelectListener {
+public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDeviceSelectListener, KonashiApiInterface {
     
     /*************************
      * konashi constants
@@ -786,6 +786,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin 設定するPIOのピン名。
      * @param mode ピンに設定するモード。INPUT か OUTPUT が設定できます。
      */
+    @Override
     public void pinMode(int pin, int mode){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -810,6 +811,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * PIOのピンを入力として使うか、出力として使うかの設定を行う
      * @param modes PIO0 〜 PIO7 の計8ピンの設定
      */
+    @Override
     public void pinModeAll(int modes){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -831,6 +833,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin 設定するPIOのピン名
      * @param pullup ピンをプルアップするかの設定。PULLUP か NO_PULLS が設定できます。
      */
+    @Override
     public void pinPullup(int pin, int pullup){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -855,6 +858,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * PIOのピンをプルアップするかの設定を行う
      * @param pullups PIO0 〜 PIO7 の計8ピンのプルアップの設定
      */
+    @Override
     public void pinPullupAll(int pullups){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -876,6 +880,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin PIOのピン名
      * @return HIGH(1) もしくは LOW(0)
      */
+    @Override
     public int digitalRead(int pin){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -889,6 +894,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * PIOのすべてのピンの状態を取得する
      * @return PIOの状態(PIO0〜PIO7の入力状態が8bit(1byte)で表現)
      */
+    @Override
     public int digitalReadAll(){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -903,6 +909,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin 設定するPIOのピン名
      * @param value 設定するPIOの出力状態。HIGH もしくは LOW が指定可能
      */
+    @Override
     public void digitalWrite(int pin, int value){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -929,6 +936,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * PIOの特定のピンの出力状態を設定する
      * @param value PIOの出力状態。PIO0〜PIO7の出力状態が8bit(1byte)で表現
      */
+    @Override
     public void digitalWriteAll(int value){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -955,6 +963,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
      * @param mode 設定するPWMのモード。Konashi.PWM_DISABLE, Konashi.PWM_ENABLE, Konashi.PWM_ENABLE_LED_MODE のいずれかをセットする。
      */
+    @Override
     public void pwmMode(int pin, int mode){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -985,6 +994,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
      * @param period 周期。単位はマイクロ秒(us)で32bitで指定してください。最大2^(32)us = 71.5分。
      */
+    @Override
     public void pwmPeriod(int pin, int period){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -1010,6 +1020,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
      * @param duty デューティ。単位はマイクロ秒(us)で32bitで指定してください。最大2^(32)us = 71.5分。
      */
+    @Override
     public void pwmDuty(int pin, int duty){
         if(!isEnableAccessKonashi()){
             notifyKonashiError(KonashiErrorReason.NOT_READY);
@@ -1035,6 +1046,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
      * @param dutyRatio LEDの明るさ。0.0F〜100.0F をしてしてください。
      */
+    @Override
     public void pwmLedDrive(int pin, float dutyRatio){
         int duty;
 
@@ -1049,6 +1061,7 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param pin PWMモードの設定をするPIOのピン番号。Konashi.PIO0 〜 Konashi.PIO7。
      * @param dutyRatio LEDの明るさ。0.0〜100.0 をしてしてください。
      */
+    @Override
     public void pwmLedDrive(int pin, double dutyRatio){        
         pwmLedDrive(pin, (float)dutyRatio);
     }
@@ -1058,5 +1071,9 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     // AIO
     ///////////////////////////
 
+    @Override
+    public void analogReadRequest(int pin) {
+        
+    }
     
 }
