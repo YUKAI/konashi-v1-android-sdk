@@ -9,6 +9,7 @@ var DATA = [
       { id:7, label:"com.uxxu.konashi.lib.KonashiManager", link:"com/uxxu/konashi/lib/KonashiManager.html", type:"class" },
       { id:8, label:"com.uxxu.konashi.lib.KonashiNotifier", link:"com/uxxu/konashi/lib/KonashiNotifier.html", type:"class" },
       { id:9, label:"com.uxxu.konashi.lib.KonashiObserver", link:"com/uxxu/konashi/lib/KonashiObserver.html", type:"class" },
-      { id:10, label:"com.uxxu.konashi.lib.KonashiUtils", link:"com/uxxu/konashi/lib/KonashiUtils.html", type:"class" }
+      { id:10, label:"com.uxxu.konashi.lib.KonashiUUID", link:"com/uxxu/konashi/lib/KonashiUUID.html", type:"class" },
+      { id:11, label:"com.uxxu.konashi.lib.KonashiUtils", link:"com/uxxu/konashi/lib/KonashiUtils.html", type:"class" }
 
     ];

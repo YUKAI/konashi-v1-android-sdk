@@ -2,7 +2,7 @@
 <package name="com.uxxu.konashi.lib"
 >
 <class name="BleDeviceListAdapter"
- extends="BaseAdapter"
+ extends="android.widget.BaseAdapter"
  abstract="false"
  static="false"
  final="false"
@@ -16,7 +16,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="Context">
+<parameter name="context" type="android.content.Context">
 </parameter>
 </constructor>
 <method name="addDevice"
@@ -29,7 +29,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="device" type="BluetoothDevice">
+<parameter name="device" type="android.bluetooth.BluetoothDevice">
 </parameter>
 </method>
 <method name="clearDevices"
@@ -55,7 +55,7 @@
 >
 </method>
 <method name="getDevice"
- return="BluetoothDevice"
+ return="android.bluetooth.BluetoothDevice"
  abstract="false"
  native="false"
  synchronized="false"
@@ -94,7 +94,7 @@
 </parameter>
 </method>
 <method name="getView"
- return="View"
+ return="android.view.View"
  abstract="false"
  native="false"
  synchronized="false"
@@ -105,9 +105,9 @@
 >
 <parameter name="position" type="int">
 </parameter>
-<parameter name="convertView" type="View">
+<parameter name="convertView" type="android.view.View">
 </parameter>
-<parameter name="parent" type="ViewGroup">
+<parameter name="parent" type="android.view.ViewGroup">
 </parameter>
 </method>
 </class>
@@ -119,6 +119,8 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<implements name="android.widget.AdapterView.OnItemClickListener">
+</implements>
 <constructor name="BleDeviceSelectionDialog"
  type="com.uxxu.konashi.lib.BleDeviceSelectionDialog"
  static="false"
@@ -152,9 +154,9 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="adapterView" type="&lt;any&gt;">
+<parameter name="adapterView" type="android.widget.AdapterView&lt;?&gt;">
 </parameter>
-<parameter name="view" type="View">
+<parameter name="view" type="android.view.View">
 </parameter>
 <parameter name="position" type="int">
 </parameter>
@@ -171,7 +173,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="activity" type="Activity">
+<parameter name="activity" type="android.app.Activity">
 </parameter>
 </method>
 <method name="startFinding"
@@ -214,7 +216,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="device" type="BluetoothDevice">
+<parameter name="device" type="android.bluetooth.BluetoothDevice">
 </parameter>
 </method>
 </interface>
@@ -266,7 +268,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="Context">
+<parameter name="context" type="android.content.Context">
 </parameter>
 </method>
 <field name="AIO0"
@@ -946,7 +948,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="activity" type="Activity">
+<parameter name="activity" type="android.app.Activity">
 </parameter>
 </method>
 <method name="find"
@@ -959,7 +961,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="activity" type="Activity">
+<parameter name="activity" type="android.app.Activity">
 </parameter>
 <parameter name="isShowKonashiOnly" type="boolean">
 </parameter>
@@ -974,7 +976,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="activity" type="Activity">
+<parameter name="activity" type="android.app.Activity">
 </parameter>
 <parameter name="name" type="java.lang.String">
 </parameter>
@@ -1000,7 +1002,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="Context">
+<parameter name="context" type="android.content.Context">
 </parameter>
 </method>
 <method name="isConnected"
@@ -1046,7 +1048,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="device" type="BluetoothDevice">
+<parameter name="device" type="android.bluetooth.BluetoothDevice">
 </parameter>
 <parameter name="rssi" type="int">
 </parameter>
@@ -1063,7 +1065,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="device" type="BluetoothDevice">
+<parameter name="device" type="android.bluetooth.BluetoothDevice">
 </parameter>
 </method>
 <method name="pinMode"
@@ -1317,11 +1319,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="activity" type="Activity">
+<parameter name="activity" type="android.app.Activity">
 </parameter>
 </constructor>
 <method name="getActivity"
- return="Activity"
+ return="android.app.Activity"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1410,6 +1412,274 @@
  visibility="public"
 >
 </method>
+</class>
+<class name="KonashiUUID"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="KonashiUUID"
+ type="com.uxxu.konashi.lib.KonashiUUID"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<field name="ANALOG_DRIVE_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="ANALOG_READ0_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="ANALOG_READ1_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="ANALOG_READ2_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="BASE_UUID_STRING"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;-0000-1000-8000-00805F9B34FB&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="CLIENT_CHARACTERISTIC_CONFIG"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="HARDWARE_LOW_BAT_NOTIFICATION_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="HARDWARE_RESET_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="I2C_CONFIG_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="I2C_READ_PARAM_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="I2C_READ_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="I2C_START_STOP_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="I2C_WRITE_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PIO_INPUT_NOTIFICATION_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PIO_OUTPUT_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PIO_PULLUP_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PIO_SETTING_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PWM_CONFIG_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PWM_DUTY_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PWM_PARAM_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="SERVICE_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="UART_BAUDRATE_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="UART_CONFIG_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="UART_RX_NOTIFICATION_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="UART_TX_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 </class>
 <class name="KonashiUtils"
  extends="java.lang.Object"

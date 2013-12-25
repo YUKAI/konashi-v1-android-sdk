@@ -15,14 +15,24 @@
 
 ----
 
-## jar 生成
+## ant使う系
+ルートディレクトリにbuild.xmlがあります。
+
+### ant使う前に
+- Konashi ディレクトリにて以下のコマンドを実行して、local.propertiesを生成。これを元にしていろいろやります。
+
+```
+Konashi $ android update project -p .
+```
+
+### jar 生成
 以下の ant コマンドを実行すると、libs ディレクトリに konashi-${versino}.jar が生成される。
 
 ```
 $ ant jar
 ```
 
-## javadoc 生成
+### javadoc 生成
 以下の ant コマンドを実行すると、docs ディレクトリに javadoc の html が生成される。
 
 ```

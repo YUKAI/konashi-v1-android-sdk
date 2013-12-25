@@ -185,6 +185,7 @@
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html">KonashiNotifier</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html">KonashiObserver</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiUtils.html">KonashiUtils</a></li>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiUUID.html">KonashiUUID</a></li>
       </ul>
     </li>
               
@@ -233,6 +234,13 @@
 <div id="api-info-block">
 
 
+
+  
+   
+  
+  
+  
+  
 
   
    
@@ -299,12 +307,17 @@ Summary:
 
 
   
-    extends <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a><br/>
+    extends <a href="http://d.android.com/reference/java/lang/Object.html">Object</a><br/>
   
   
   
 
   
+  
+      implements 
+      
+        <a href="http://d.android.com/reference/android/widget/AdapterView.OnItemClickListener.html">AdapterView.OnItemClickListener</a> 
+      
   
   
 
@@ -319,7 +332,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a></td>
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://d.android.com/reference/java/lang/Object.html">java.lang.Object</a></td>
     </tr>
     
 
@@ -481,7 +494,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#onItemClick(<any>, View, int, long)">onItemClick</a></span>(<any> adapterView, View view, int position, long id)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#onItemClick(android.widget.AdapterView<?>, android.view.View, int, long)">onItemClick</a></span>(<a href="http://d.android.com/reference/android/widget/AdapterView.html">AdapterView</a>&lt;?&gt; adapterView, <a href="http://d.android.com/reference/android/view/View.html">View</a> view, int position, long id)
         
         <div class="jd-descrdiv">リスト中のBLEデバイスがクリックされたら</div>
   
@@ -499,7 +512,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#show(Activity)">show</a></span>(Activity activity)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.html#show(android.app.Activity)">show</a></span>(<a href="http://d.android.com/reference/android/app/Activity.html">Activity</a> activity)
         
         <div class="jd-descrdiv">BLEデバイスリストのダイアログを表示する</div>
   
@@ -548,7 +561,7 @@ Summary:
           class="jd-expando-trigger-img" /></a>
 From class
 
-  <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a>
+  <a href="http://d.android.com/reference/java/lang/Object.html">java.lang.Object</a>
 
 <div id="inherited-methods-java.lang.Object">
   <div id="inherited-methods-java.lang.Object-list"
@@ -567,7 +580,7 @@ From class
             
             
             
-            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a>
+            <a href="http://d.android.com/reference/java/lang/Object.html">Object</a>
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">clone</span>()
@@ -586,7 +599,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">equals</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a> arg0)
+        <span class="sympad">equals</span>(<a href="http://d.android.com/reference/java/lang/Object.html">Object</a> arg0)
         
   </td></tr>
 
@@ -615,7 +628,7 @@ From class
             final
             
             
-            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Class.html">Class</a>&lt;?&gt;
+            <a href="http://d.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">getClass</span>()
@@ -679,7 +692,7 @@ From class
             
             
             
-            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+            <a href="http://d.android.com/reference/java/lang/String.html">String</a>
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">toString</span>()
@@ -731,6 +744,48 @@ From class
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">wait</span>(long arg0)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.widget.AdapterView.OnItemClickListener" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.widget.AdapterView.OnItemClickListener-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="http://d.android.com/reference/android/widget/AdapterView.OnItemClickListener.html">android.widget.AdapterView.OnItemClickListener</a>
+
+<div id="inherited-methods-android.widget.AdapterView.OnItemClickListener">
+  <div id="inherited-methods-android.widget.AdapterView.OnItemClickListener-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.widget.AdapterView.OnItemClickListener-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">onItemClick</span>(<a href="http://d.android.com/reference/android/widget/AdapterView.html">AdapterView</a>&lt;?&gt; arg0, <a href="http://d.android.com/reference/android/view/View.html">View</a> arg1, int arg2, long arg3)
         
   </td></tr>
 
@@ -871,7 +926,7 @@ From class
 </div>
 
 
-<a id="onItemClick(<any>, View, int, long)"></a>
+<a id="onItemClick(android.widget.AdapterView<?>, android.view.View, int, long)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
@@ -884,7 +939,7 @@ From class
         void
       </span>
       <span class="sympad">onItemClick</span>
-      <span class="normal">(<any> adapterView, View view, int position, long id)</span>
+      <span class="normal">(<a href="http://d.android.com/reference/android/widget/AdapterView.html">AdapterView</a>&lt;?&gt; adapterView, <a href="http://d.android.com/reference/android/view/View.html">View</a> view, int position, long id)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -926,7 +981,7 @@ From class
 </div>
 
 
-<a id="show(Activity)"></a>
+<a id="show(android.app.Activity)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
@@ -939,7 +994,7 @@ From class
         void
       </span>
       <span class="sympad">show</span>
-      <span class="normal">(Activity activity)</span>
+      <span class="normal">(<a href="http://d.android.com/reference/android/app/Activity.html">Activity</a> activity)</span>
     </h4>
       <div class="api-level">
         <div>

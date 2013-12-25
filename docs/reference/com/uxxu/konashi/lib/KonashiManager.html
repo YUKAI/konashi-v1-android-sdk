@@ -185,6 +185,7 @@
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiNotifier.html">KonashiNotifier</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiObserver.html">KonashiObserver</a></li>
           <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiUtils.html">KonashiUtils</a></li>
+          <li class="api apilevel-v2"><a href="../../../../com/uxxu/konashi/lib/KonashiUUID.html">KonashiUUID</a></li>
       </ul>
     </li>
               
@@ -233,6 +234,13 @@
 <div id="api-info-block">
 
 
+
+  
+   
+  
+  
+  
+  
 
   
    
@@ -303,7 +311,7 @@ Summary:
 
 
   
-    extends <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a><br/>
+    extends <a href="http://d.android.com/reference/java/lang/Object.html">Object</a><br/>
   
   
   
@@ -311,6 +319,8 @@ Summary:
   
   
       implements 
+      
+        BluetoothAdapter.LeScanCallback 
       
         <a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.OnBleDeviceSelectListener.html">BleDeviceSelectionDialog.OnBleDeviceSelectListener</a> 
       
@@ -328,7 +338,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a></td>
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://d.android.com/reference/java/lang/Object.html">java.lang.Object</a></td>
     </tr>
     
 
@@ -575,9 +585,9 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#find(Activity)">find</a></span>(Activity activity)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#find(android.app.Activity, boolean)">find</a></span>(<a href="http://d.android.com/reference/android/app/Activity.html">Activity</a> activity, boolean isShowKonashiOnly)
         
-        <div class="jd-descrdiv">konashiを見つける(konashiのみBLEデバイスリストに表示する)</div>
+        <div class="jd-descrdiv">konashiを見つける</div>
   
   </td></tr>
 
@@ -593,9 +603,9 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#find(Activity, boolean)">find</a></span>(Activity activity, boolean isShowKonashiOnly)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#find(android.app.Activity)">find</a></span>(<a href="http://d.android.com/reference/android/app/Activity.html">Activity</a> activity)
         
-        <div class="jd-descrdiv">konashiを見つける</div>
+        <div class="jd-descrdiv">konashiを見つける(konashiのみBLEデバイスリストに表示する)</div>
   
   </td></tr>
 
@@ -611,7 +621,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#findWithName(Activity, java.lang.String)">findWithName</a></span>(Activity activity, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> name)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#findWithName(android.app.Activity, java.lang.String)">findWithName</a></span>(<a href="http://d.android.com/reference/android/app/Activity.html">Activity</a> activity, <a href="http://d.android.com/reference/java/lang/String.html">String</a> name)
         
         <div class="jd-descrdiv">名前を指定してkonashiを探索。</div>
   
@@ -626,7 +636,7 @@ Summary:
             
             
             
-            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+            <a href="http://d.android.com/reference/java/lang/String.html">String</a>
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#getPeripheralName()">getPeripheralName</a></span>()
@@ -647,7 +657,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#initialize(Context)">initialize</a></span>(Context context)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#initialize(android.content.Context)">initialize</a></span>(<a href="http://d.android.com/reference/android/content/Context.html">Context</a> context)
         
         <div class="jd-descrdiv">初期化</div>
   
@@ -720,7 +730,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onLeScan(BluetoothDevice, int, byte[])">onLeScan</a></span>(BluetoothDevice device, int rssi, byte[] scanRecord)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onLeScan(android.bluetooth.BluetoothDevice, int, byte[])">onLeScan</a></span>(<a href="http://d.android.com/reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a> device, int rssi, byte[] scanRecord)
         
         <div class="jd-descrdiv">BLE Override methods
 </div>
@@ -739,7 +749,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onSelectBleDevice(BluetoothDevice)">onSelectBleDevice</a></span>(BluetoothDevice device)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onSelectBleDevice(android.bluetooth.BluetoothDevice)">onSelectBleDevice</a></span>(<a href="http://d.android.com/reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a> device)
         
         <div class="jd-descrdiv">BLEデバイス選択ダイアログに表示されているBLEデバイスが選択された時</div>
   
@@ -968,7 +978,7 @@ Summary:
           class="jd-expando-trigger-img" /></a>
 From class
 
-  <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">java.lang.Object</a>
+  <a href="http://d.android.com/reference/java/lang/Object.html">java.lang.Object</a>
 
 <div id="inherited-methods-java.lang.Object">
   <div id="inherited-methods-java.lang.Object-list"
@@ -987,7 +997,7 @@ From class
             
             
             
-            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a>
+            <a href="http://d.android.com/reference/java/lang/Object.html">Object</a>
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">clone</span>()
@@ -1006,7 +1016,7 @@ From class
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad">equals</span>(<a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Object.html">Object</a> arg0)
+        <span class="sympad">equals</span>(<a href="http://d.android.com/reference/java/lang/Object.html">Object</a> arg0)
         
   </td></tr>
 
@@ -1035,7 +1045,7 @@ From class
             final
             
             
-            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/Class.html">Class</a>&lt;?&gt;
+            <a href="http://d.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">getClass</span>()
@@ -1099,7 +1109,7 @@ From class
             
             
             
-            <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+            <a href="http://d.android.com/reference/java/lang/String.html">String</a>
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">toString</span>()
@@ -1164,6 +1174,48 @@ From class
 
 <tr class="api apilevel-" >
 <td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.bluetooth.BluetoothAdapter.LeScanCallback" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.bluetooth.BluetoothAdapter.LeScanCallback-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  android.bluetooth.BluetoothAdapter.LeScanCallback
+
+<div id="inherited-methods-android.bluetooth.BluetoothAdapter.LeScanCallback">
+  <div id="inherited-methods-android.bluetooth.BluetoothAdapter.LeScanCallback-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.bluetooth.BluetoothAdapter.LeScanCallback-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">onLeScan</span>(<a href="http://d.android.com/reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a> arg0, int arg1, byte[] arg2)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
   <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.uxxu.konashi.lib.BleDeviceSelectionDialog.OnBleDeviceSelectListener" class="jd-expando-trigger closed"
           ><img id="inherited-methods-com.uxxu.konashi.lib.BleDeviceSelectionDialog.OnBleDeviceSelectListener-trigger"
           src="../../../../../assets/images/triangle-closed.png"
@@ -1211,7 +1263,7 @@ From interface
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.OnBleDeviceSelectListener.html#onSelectBleDevice(BluetoothDevice)">onSelectBleDevice</a></span>(BluetoothDevice device)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/BleDeviceSelectionDialog.OnBleDeviceSelectListener.html#onSelectBleDevice(android.bluetooth.BluetoothDevice)">onSelectBleDevice</a></span>(<a href="http://d.android.com/reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a> device)
         
         <div class="jd-descrdiv">BLEデバイス選択ダイアログに表示されているBLEデバイスが選択された時</div>
   
@@ -1592,7 +1644,7 @@ From interface
 </div>
 
 
-<a id="find(Activity)"></a>
+<a id="find(android.app.Activity, boolean)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
@@ -1605,50 +1657,7 @@ From interface
         void
       </span>
       <span class="sympad">find</span>
-      <span class="normal">(Activity activity)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>konashiを見つける(konashiのみBLEデバイスリストに表示する)</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>activity</th>
-          <td>BLEデバイスリストを表示する先のActivity
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="find(Activity, boolean)"></a>
-
-<div class="jd-details api apilevel-v2"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">find</span>
-      <span class="normal">(Activity activity, boolean isShowKonashiOnly)</span>
+      <span class="normal">(<a href="http://d.android.com/reference/android/app/Activity.html">Activity</a> activity, boolean isShowKonashiOnly)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1682,7 +1691,50 @@ From interface
 </div>
 
 
-<a id="findWithName(Activity, java.lang.String)"></a>
+<a id="find(android.app.Activity)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">find</span>
+      <span class="normal">(<a href="http://d.android.com/reference/android/app/Activity.html">Activity</a> activity)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>konashiを見つける(konashiのみBLEデバイスリストに表示する)</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>activity</th>
+          <td>BLEデバイスリストを表示する先のActivity
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="findWithName(android.app.Activity, java.lang.String)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
@@ -1695,7 +1747,7 @@ From interface
         void
       </span>
       <span class="sympad">findWithName</span>
-      <span class="normal">(Activity activity, <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a> name)</span>
+      <span class="normal">(<a href="http://d.android.com/reference/android/app/Activity.html">Activity</a> activity, <a href="http://d.android.com/reference/java/lang/String.html">String</a> name)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1739,7 +1791,7 @@ From interface
          
          
          
-        <a href="http://download.oracle.com/javase/6/docs/api/index.html?java/lang/String.html">String</a>
+        <a href="http://d.android.com/reference/java/lang/String.html">String</a>
       </span>
       <span class="sympad">getPeripheralName</span>
       <span class="normal">()</span>
@@ -1767,7 +1819,7 @@ From interface
 </div>
 
 
-<a id="initialize(Context)"></a>
+<a id="initialize(android.content.Context)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
@@ -1780,7 +1832,7 @@ From interface
         void
       </span>
       <span class="sympad">initialize</span>
-      <span class="normal">(Context context)</span>
+      <span class="normal">(<a href="http://d.android.com/reference/android/content/Context.html">Context</a> context)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1920,7 +1972,7 @@ From interface
 </div>
 
 
-<a id="onLeScan(BluetoothDevice, int, byte[])"></a>
+<a id="onLeScan(android.bluetooth.BluetoothDevice, int, byte[])"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
@@ -1933,7 +1985,7 @@ From interface
         void
       </span>
       <span class="sympad">onLeScan</span>
-      <span class="normal">(BluetoothDevice device, int rssi, byte[] scanRecord)</span>
+      <span class="normal">(<a href="http://d.android.com/reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a> device, int rssi, byte[] scanRecord)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1954,7 +2006,7 @@ From interface
 </div>
 
 
-<a id="onSelectBleDevice(BluetoothDevice)"></a>
+<a id="onSelectBleDevice(android.bluetooth.BluetoothDevice)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
@@ -1967,7 +2019,7 @@ From interface
         void
       </span>
       <span class="sympad">onSelectBleDevice</span>
-      <span class="normal">(BluetoothDevice device)</span>
+      <span class="normal">(<a href="http://d.android.com/reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a> device)</span>
     </h4>
       <div class="api-level">
         <div>

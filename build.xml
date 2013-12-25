@@ -1,4 +1,12 @@
 <project name="konashi-android-sdk">
+  <property file="Konashi/local.properties" />
+  <loadproperties srcFile="Konashi/project.properties" />
+
+  <fail
+    message="sdk.dir is missing. Make sure to generate local.properties using 'android update project -p .' or to inject it through the ANDROID_HOME environment variable."
+    unless="sdk.dir"
+  />
+
   <!-- javadoc -->
   <target name="javadoc">
 
@@ -7,14 +15,14 @@
 
     <delete dir="${doc}/*" />
 
-    <javadoc packagenames="com.uxxu.konashi.lib.*"
-             classpath="${sdk.dir}/platforms/${target}/android.jar"
-             destdir="${doc}"
-             sourcepath="Konashi/src"
-             docletpath="tools/doclava-1.0.6/doclava-1.0.6.jar"
-             bootclasspath="${javahome}/jre/lib/rt.jar"
-             linkoffline="http://d.android.com/reference ${sdk.dir}/docs/reference"
-             encoding="UTF-8"
+    <javadoc
+       packagenames="com.uxxu.konashi.lib.*"
+       classpath="${sdk.dir}/platforms/${target}/android.jar"
+       destdir="${doc}"
+       sourcepath="Konashi/src"
+       docletpath="tools/doclava-1.0.6/doclava-1.0.6.jar"
+       bootclasspath="${javahome}/jre/lib/rt.jar"
+       encoding="UTF-8"
     >
       <doclet name="com.google.doclava.Doclava">
         <!--param name="-stubs" value="tools/build/stubs" /-->
@@ -27,6 +35,11 @@
         <param name="http://download.oracle.com/javase/6/docs/api/index.html?"/>
         <param name="-federationxml"/><param name="JDK"/>
         <param name="http://doclava.googlecode.com/svn/static/api/openjdk-6.xml"/>
+        <!-- federation Android-->
+        <param name="-federate" /><param name="android" />
+        <param name="http://d.android.com/reference" />
+        <param name="-federationxml" /><param name="android" />
+        <param name="http://doclava.googlecode.com/svn/static/api/android-8.xml" />
       </doclet>
     </javadoc>
   </target>
