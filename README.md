@@ -17,15 +17,42 @@
 
 ## jar 生成
 以下の ant コマンドを実行すると、libs ディレクトリに konashi-${versino}.jar が生成される。
+
 ```
 $ ant jar
 ```
 
 ## javadoc 生成
 以下の ant コマンドを実行すると、docs ディレクトリに javadoc の html が生成される。
+
 ```
 $ ant javadoc
 ```
+
+
+## 国内のBLE対応Androidに関して
+### Android4.3以降が公式に提供されている端末
+- Nexus 7(2013)
+- Nexus 5
+- GALAXY J
+- GALAXY Note 3
+
+### カスタムROMを焼くことで4.3に移行できるであろう端末
+- GALAXY S III
+- GALAXY S4
+- GALAXY Note II
+- Xperia Z
+- Xperia Z1
+- HTC J One
+- HTC J butterfly
+- LG Optimus G
+- LG Optimus G Pro
+- LG G2
+- その他、海外でよく使われている端末(国産スマホ以外 & 日本向けにカスタマイズされたグローバル端末以外)であれば、Android4.3以降のカスタムROMが有志によって作られています
+
+### キャリアのBluetoothのスペック(4.0,BLE or not)
+#### au
+- http://www.au.kddi.com/developer/android/kishu/bluetooth/
 
 ## 動作環境
 - Android4.3以降 (SDK Version >= 18)
