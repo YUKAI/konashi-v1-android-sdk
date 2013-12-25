@@ -234,14 +234,18 @@ public class Konashi {
     /**
      * KonashiManagerのシングルトン
      */
-    private static KonashiManager sKonashiManager;
+    private static final KonashiManager sKonashiManager = new KonashiManager();
+    
+    /**
+     * コンストラクタ。privateにして外部からインスタンス生成できないようにする
+     */
+    private Konashi(){}
     
     /**
      * konashiの初期化
      * @param context konashiを使用するときのActivity
      */
     public static void initialize(Context context){
-        sKonashiManager = new KonashiManager();
         sKonashiManager.initialize(context);
     }
     
@@ -252,7 +256,6 @@ public class Konashi {
         if(sKonashiManager!=null){
             sKonashiManager.disconnect();
             sKonashiManager.close();
-            sKonashiManager = null;
         }
     }
     

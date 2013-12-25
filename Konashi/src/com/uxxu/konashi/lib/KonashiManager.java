@@ -1073,6 +1073,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
 
     @Override
     public void analogReadRequest(int pin) {
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         
     }
     
