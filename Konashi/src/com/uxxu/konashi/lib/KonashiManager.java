@@ -802,10 +802,13 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * オブザーバにイベントを通知する
      * @param event 通知するイベント名
      */
-    private void notifyKonashiEvent(String event){
+    private void notifyKonashiEvent(KonashiEvent event){
         mNotifier.notifyKonashiEvent(event);
     }
     
+    private void notifyKonashiError(KonashiErrorReason errorReason){
+        mNotifier.notifyKonashiError(errorReason);
+    }
     
     /******************************
      * Konashi methods
@@ -821,6 +824,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
      * @param mode ピンに設定するモード。INPUT か OUTPUT が設定できます。
      */
     public void pinMode(int pin, int mode){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
         if(pin >= Konashi.PIO0 && pin <= Konashi.PIO7 && (mode == Konashi.OUTPUT || mode == Konashi.INPUT)){
             if(mode == Konashi.OUTPUT){
                 mPioModeSetting |= (byte)(0x01 << pin);
@@ -832,6 +840,9 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
             val[0] = mPioModeSetting;
             
             addMessage(KONASHI_PIO_SETTING_UUID, val);
+            
+        } else {
+            notifyKonashiError(KonashiErrorReason.INVALID_PARAMETER);
         }
     }
     
@@ -1036,5 +1047,11 @@ public class KonashiManager implements BluetoothAdapter.LeScanCallback, OnBleDev
     public void pwmLedDrive(int pin, double dutyRatio){
         pwmLedDrive(pin, (float)dutyRatio);
     }
+    
+    
+    ///////////////////////////
+    // AIO
+    ///////////////////////////
 
+    
 }

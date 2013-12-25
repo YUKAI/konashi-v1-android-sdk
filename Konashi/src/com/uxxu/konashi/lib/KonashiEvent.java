@@ -21,61 +21,61 @@ package com.uxxu.konashi.lib;
  * limitations under the License.
  * 
  */
-public class KonashiEvent {
+public enum KonashiEvent {
     /**
      * findWithNameで指定した名前のkonashiが見つからなかった時、もしくはまわりにBLEデバイスがなかった時
      */
-    public static final String PERIPHERAL_NOT_FOUND = "PERIPHERAL_NOT_FOUND";
+    PERIPHERAL_NOT_FOUND,
     /**
      * BLEデバイス選択ダイアログをキャンセルした時
      */
-    public static final String CANCEL_SELECT_KONASHI = "CANCEL_SELECT_KONASHI";
+    CANCEL_SELECT_KONASHI,
     /**
      * konashiに接続した時(まだこの時はkonashiが使える状態ではありません)
      */
-    public static final String CONNECTED = "CONNECTED";
+    CONNECTED,
     /**
      * konashiとの接続を切断した時
      */
-    public static final String DISCONNECTED = "DISCONNECTED";
+    DISCONNECTED,
     /**
      * konashiに接続完了した時(この時からkonashiにアクセスできるようになります)
      */
-    public static final String READY = "READY";
+    READY,
     /**
      * PIOの入力の状態が変化した時
      */
-    public static final String UPDATE_PIO_INPUT = "UPDATE_PIO_INPUT";
+    UPDATE_PIO_INPUT,
     /**
      * AIOのどれかのピンの電圧が取得できた時
      */
-    public static final String UPDATE_ANALOG_VALUE = "UPDATE_ANALOG_VALUE";
+    UPDATE_ANALOG_VALUE,
     /**
      * AIO0の電圧が取得できた時
      */
-    public static final String UPDATE_ANALOG_VALUE_AIO0 = "UPDATE_ANALOG_VALUE_AIO0";
+    UPDATE_ANALOG_VALUE_AIO0,
     /**
      * AIO1の電圧が取得できた時
      */
-    public static final String UPDATE_ANALOG_VALUE_AIO1 = "UPDATE_ANALOG_VALUE_AIO1";
+    UPDATE_ANALOG_VALUE_AIO1,
     /**
      * AIO2の電圧が取得できた時
      */
-    public static final String UPDATE_ANALOG_VALUE_AIO2 = "UPDATE_ANALOG_VALUE_AIO2";
+    UPDATE_ANALOG_VALUE_AIO2,
     /**
      * I2Cからデータを受信した時
      */
-    public static final String I2C_READ_COMPLETE = "I2C_READ_COMPLETE";
+    I2C_READ_COMPLETE,
     /**
      * UARTのRxからデータを受信した時
      */
-    public static final String UART_RX_COMPLETE = "UART_RX_COMPLETE";
+    UART_RX_COMPLETE,
     /**
      * konashiのバッテリーのレベルを取得できた時
      */
-    public static final String UPDATE_BATTERY_LEVEL = "UPDATE_BATTERY_LEVEL";
+    UPDATE_BATTERY_LEVEL,
     /**
      * konashiの電波強度を取得できた時
      */
-    public static final String UPDATE_SIGNAL_STRENGTH = "UPDATE_SIGNAL_STRENGTH";
+    UPDATE_SIGNAL_STRENGTH;
 }

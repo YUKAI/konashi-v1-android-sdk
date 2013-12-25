@@ -221,6 +221,14 @@ public class Konashi {
      * リスタートコンディション
      */
     public static final int I2C_RESTART_CONDITION = 2;
+    /**
+     * APIの成功レスポンス
+     */
+    public static final int SUCCESS = 0;
+    /**
+     * APIの失敗レスポンス
+     */
+    public static final int FAILURE = -1;
     
     
     /**

@@ -69,4 +69,8 @@ public abstract class KonashiObserver {
      * BLEデバイス選択ダイアログをキャンセルした時に呼ばれる
      */
     public void onCancelSelectKonashi(){}
+    /**
+     * エラーが起きた時に呼ばれる
+     */
+    public void onError(KonashiErrorReason errorReason){}
 }

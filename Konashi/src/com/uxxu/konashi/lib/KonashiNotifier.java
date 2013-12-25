@@ -67,7 +67,7 @@ public class KonashiNotifier {
      * オブザーバにイベントを通知する
      * @param event イベント名(KonashiEventだよっ）
      */
-    public void notifyKonashiEvent(final String event){
+    public void notifyKonashiEvent(final KonashiEvent event){
         for(final KonashiObserver observer: mObservers){
             if(observer.getActivity().isDestroyed()){
                 break;
@@ -76,24 +76,41 @@ public class KonashiNotifier {
             observer.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if(event.equals(KonashiEvent.PERIPHERAL_NOT_FOUND)){
+                    switch(event){
+                    case PERIPHERAL_NOT_FOUND:
                         observer.onNotFoundPeripheral();
-                    }
-                    else if(event.equals(KonashiEvent.CONNECTED)){
+                        break;
+                    case CONNECTED:
                         observer.onConnected();
-                    }
-                    else if(event.equals(KonashiEvent.DISCONNECTED)){
+                        break;
+                    case DISCONNECTED:
                         observer.onDisconncted();
-                    }
-                    else if(event.equals(KonashiEvent.READY)){
+                        break;
+                    case READY:
                         observer.onReady();
-                    }
-                    else if(event.equals(KonashiEvent.UPDATE_PIO_INPUT)){
+                        break;
+                    case UPDATE_PIO_INPUT:
                         observer.onUpdatePioInput();
-                    }
-                    else if(event.equals(KonashiEvent.CANCEL_SELECT_KONASHI)){
+                        break;
+                    case CANCEL_SELECT_KONASHI:
                         observer.onCancelSelectKonashi();
+                        break;
                     }
+                }
+            });
+        }
+    }
+    
+    public void notifyKonashiError(final KonashiErrorReason errorReason){
+        for(final KonashiObserver observer: mObservers){
+            if(observer.getActivity().isDestroyed()){
+                break;
+            }
+            
+            observer.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    observer.onError(errorReason);
                 }
             });
         }
