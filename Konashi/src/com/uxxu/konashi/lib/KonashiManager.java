@@ -1,6 +1,7 @@
 package com.uxxu.konashi.lib;
 
 import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothGattService;
 import android.content.Context;
 
 /**
@@ -500,6 +501,47 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
     }
     
     
+    ///////////////////////////
+    // Hardware
+    ///////////////////////////
+    
+    /**
+     * konashiをリセットする
+     */
+    @Override
+    public void reset(){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
+        byte[] val = new byte[1];
+        val[0] = 1;
+        
+        addWriteMessage(KonashiUUID.HARDWARE_RESET_UUID, val);
+    }
+    
+    @Override
+    public void batteryLevelReadRequest(){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
+        addReadMessage(KonashiUUID.BATTERY_SERVICE_UUID, KonashiUUID.BATTERY_LEVEL_UUID);
+    }
+    
+    @Override
+    public int getBatteryLevel(){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return -1;
+        }
+        
+        return mBatteryLevel;
+    }
+    
+    
     ////////////////////////////////
     // Notification event handler 
     ////////////////////////////////
@@ -517,6 +559,13 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
         mAioValue[pin] = value;
                 
         super.onUpdateAnalogValue(pin, value);
+    }
+
+    @Override
+    protected void onUpdateBatteryLevel(int level) {
+        mBatteryLevel = level;
+                
+        super.onUpdateBatteryLevel(level);
     }
     
     

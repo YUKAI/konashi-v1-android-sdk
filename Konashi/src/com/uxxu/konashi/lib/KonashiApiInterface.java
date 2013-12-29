@@ -1,6 +1,7 @@
 package com.uxxu.konashi.lib;
 
 import android.app.Activity;
+import android.content.Context;
 
 /**
  * konashi APIのインタフェース
@@ -29,8 +30,11 @@ public interface KonashiApiInterface {
     public void removeObserver(KonashiObserver observer);
     public void removeAllObservers();
     
-    // initialize
+    // initialization
+    public void initialize(Context context);
     public void find(Activity activity);
+    public void find(Activity activity, boolean isShowKonashiOnly);
+    public void findWithName(Activity activity, String name);
     
     // PIO
     public void pinMode(int pin, int mode);
@@ -53,4 +57,14 @@ public interface KonashiApiInterface {
     public void analogReadRequest(int pin);
     public int analogRead(int pin);
     public void analogWrite(int pin, int milliVolt);
+    
+    // I2C
+    
+    // UART
+    
+    // Hardware
+    public void reset();
+    public void batteryLevelReadRequest();
+    public int getBatteryLevel();
+    
 }

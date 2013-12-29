@@ -24,9 +24,14 @@ import java.util.UUID;
  * 
  */
 public class KonashiUUID {
-    // konashi service UUID
     public static final String BASE_UUID_STRING = "-0000-1000-8000-00805F9B34FB";
-    public static final UUID SERVICE_UUID = UUID.fromString("0000FF00" + BASE_UUID_STRING);
+
+    // Battery service UUID
+    public static final UUID BATTERY_SERVICE_UUID                 = UUID.fromString("0000180F" + BASE_UUID_STRING);
+    public static final UUID BATTERY_LEVEL_UUID                   = UUID.fromString("00002A19" + BASE_UUID_STRING);
+    
+    // konashi service UUID
+    public static final UUID KONASHI_SERVICE_UUID                 = UUID.fromString("0000FF00" + BASE_UUID_STRING);
    
     // konashi characteristics
     public static final UUID PIO_SETTING_UUID                     = UUID.fromString("00003000" + BASE_UUID_STRING);

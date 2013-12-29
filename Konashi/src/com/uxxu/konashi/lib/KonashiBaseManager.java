@@ -91,18 +91,20 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
     private Timer mFifoTimer;
     private ArrayList<KonashiMessage> mKonashiMessageList;
     private class KonashiMessage{
-        public UUID uuid;
+        public UUID characteristicUuid;
     }
     private class KonashiWriteMessage extends KonashiMessage{
         public byte[] data;
-        public KonashiWriteMessage(UUID uuid, byte[] data){
-            this.uuid = uuid;
+        public KonashiWriteMessage(UUID characteristicUuid, byte[] data){
+            this.characteristicUuid = characteristicUuid;
             this.data = data;
         }
     }
     private class KonashiReadMessage extends KonashiMessage{
-        public KonashiReadMessage(UUID uuid){
-            this.uuid = uuid;
+        public UUID serviceUuid;
+        public KonashiReadMessage(UUID serviceUuid, UUID characteristicUuid){
+            this.serviceUuid = serviceUuid;
+            this.characteristicUuid = characteristicUuid;
         }
     }
     
@@ -439,21 +441,28 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
         @Override
         public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
             int value;
+            UUID uuid;
             
             KonashiUtils.log("onCharacteristicRead: " + characteristic.getUuid());
             
             if(status==BluetoothGatt.GATT_SUCCESS){
-                if(characteristic.getUuid().equals(KonashiUUID.ANALOG_READ0_UUID)){
+                uuid = characteristic.getUuid();
+                
+                if(uuid.equals(KonashiUUID.ANALOG_READ0_UUID)){
                     value = (characteristic.getValue()[0]<<8 & 0xFF) | (characteristic.getValue()[1] & 0xFF);
                     onUpdateAnalogValue(Konashi.AIO0, value);
                 }
-                else if(characteristic.getUuid().equals(KonashiUUID.ANALOG_READ1_UUID)){
+                else if(uuid.equals(KonashiUUID.ANALOG_READ1_UUID)){
                     value = (characteristic.getValue()[0]<<8 & 0xFF) | (characteristic.getValue()[1] & 0xFF);
                     onUpdateAnalogValue(Konashi.AIO1, value);
                 }
-                else if(characteristic.getUuid().equals(KonashiUUID.ANALOG_READ2_UUID)){
+                else if(uuid.equals(KonashiUUID.ANALOG_READ2_UUID)){
                     value = (characteristic.getValue()[0]<<8 & 0xFF) | (characteristic.getValue()[1] & 0xFF);
                     onUpdateAnalogValue(Konashi.AIO2, value);
+                }
+                else if(uuid.equals(KonashiUUID.BATTERY_LEVEL_UUID)){
+                    value = characteristic.getValue()[0] & 0xFF;
+                    onUpdateBatteryLevel(value);
                 }
             } else {
                 KonashiUtils.log("onCharacteristicRead GATT_FAILURE");
@@ -515,7 +524,7 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
             KonashiUtils.log("onServicesDiscovered start");
             
             if(status == BluetoothGatt.GATT_SUCCESS){
-                BluetoothGattService service = gatt.getService(KonashiUUID.SERVICE_UUID);
+                BluetoothGattService service = gatt.getService(KonashiUUID.KONASHI_SERVICE_UUID);
 
                 // Check konashi service
                 if (service == null) {
@@ -526,28 +535,29 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
                 setStatus(BleStatus.SERVICE_FOUND);
                     
                 // Check the characteristics
-                if(!isAvailableCharacteristic(KonashiUUID.PIO_SETTING_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.PIO_PULLUP_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.PIO_OUTPUT_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.PIO_INPUT_NOTIFICATION_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.PWM_CONFIG_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.PWM_PARAM_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.PWM_DUTY_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.ANALOG_DRIVE_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.ANALOG_READ0_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.ANALOG_READ1_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.ANALOG_READ2_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.I2C_CONFIG_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.I2C_START_STOP_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.I2C_WRITE_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.I2C_READ_PARAM_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.I2C_READ_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.UART_CONFIG_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.UART_BAUDRATE_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.UART_TX_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.UART_RX_NOTIFICATION_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.HARDWARE_RESET_UUID) ||
-                   !isAvailableCharacteristic(KonashiUUID.HARDWARE_LOW_BAT_NOTIFICATION_UUID)
+                if(!isAvailableCharacteristic(KonashiUUID.BATTERY_SERVICE_UUID, KonashiUUID.BATTERY_LEVEL_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.PIO_SETTING_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.PIO_PULLUP_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.PIO_OUTPUT_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.PIO_INPUT_NOTIFICATION_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.PWM_CONFIG_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.PWM_PARAM_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.PWM_DUTY_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.ANALOG_DRIVE_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.ANALOG_READ0_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.ANALOG_READ1_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.ANALOG_READ2_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.I2C_CONFIG_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.I2C_START_STOP_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.I2C_WRITE_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.I2C_READ_PARAM_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.I2C_READ_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.UART_CONFIG_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.UART_BAUDRATE_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.UART_TX_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.UART_RX_NOTIFICATION_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.HARDWARE_RESET_UUID) ||
+                   !isAvailableCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, KonashiUUID.HARDWARE_LOW_BAT_NOTIFICATION_UUID)
                 ){
                     setStatus(BleStatus.CHARACTERISTICS_NOT_FOUND);
                     return;
@@ -568,25 +578,25 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
         }
     };
     
-    private BluetoothGattCharacteristic getCharacteristic(UUID uuid){
+    private BluetoothGattCharacteristic getCharacteristic(UUID serviceUuid, UUID characteristicUuid){
         if(mBluetoothGatt!=null){
-            BluetoothGattService service = mBluetoothGatt.getService(KonashiUUID.SERVICE_UUID);
-            return service.getCharacteristic(uuid);
+            BluetoothGattService service = mBluetoothGatt.getService(serviceUuid);
+            return service.getCharacteristic(characteristicUuid);
         } else {
             return null;
         }
     }
     
-    private boolean isAvailableCharacteristic(UUID uuid){
-        KonashiUtils.log("check characteristic: " + uuid.toString());
+    private boolean isAvailableCharacteristic(UUID serviceUuid, UUID characteristicUuid){
+        KonashiUtils.log("check characteristic service: " + serviceUuid.toString() + ", chara: " + characteristicUuid.toString());
 
-        return getCharacteristic(uuid) != null;
+        return getCharacteristic(serviceUuid, characteristicUuid) != null;
     }
     
     private boolean enableNotification(UUID uuid){
         KonashiUtils.log("try enable notification: " + uuid.toString());
         
-        BluetoothGattCharacteristic characteristic = getCharacteristic(uuid);
+        BluetoothGattCharacteristic characteristic = getCharacteristic(KonashiUUID.KONASHI_SERVICE_UUID, uuid);
         if(mBluetoothGatt!=null && characteristic!=null){
             boolean registered = mBluetoothGatt.setCharacteristicNotification(characteristic, true);
             BluetoothGattDescriptor descriptor = characteristic.getDescriptor(KonashiUUID.CLIENT_CHARACTERISTIC_CONFIG);
@@ -622,8 +632,12 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
         mKonashiMessageList.add(new KonashiWriteMessage(uuid, value));
     }
     
-    protected void addReadMessage(UUID uuid){
-        mKonashiMessageList.add(new KonashiReadMessage(uuid));
+    protected void addReadMessage(UUID characteristicUuid){
+        addReadMessage(KonashiUUID.KONASHI_SERVICE_UUID, characteristicUuid);
+    }
+    
+    protected void addReadMessage(UUID serviceUuid, UUID characteristicUuid){
+        mKonashiMessageList.add(new KonashiReadMessage(serviceUuid, characteristicUuid));
     }
     
     private KonashiMessage getFirstMessage(){
@@ -650,11 +664,13 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
                         KonashiMessage message = getFirstMessage();
                         if(message!=null){
                             if(message.getClass() == (Class<?>)KonashiWriteMessage.class){
+                                // Write
                                 KonashiWriteMessage m = (KonashiWriteMessage)message;
-                                writeValue(m.uuid, m.data);
+                                writeValue(m.characteristicUuid, m.data);
                             } else {
+                                // Read
                                 KonashiReadMessage m = (KonashiReadMessage)message;
-                                readValue(m.uuid);
+                                readValue(m.serviceUuid, m.characteristicUuid);
                             }
                         }
                     }
@@ -677,7 +693,7 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
     
     private void writeValue(UUID uuid, byte[] value){
         if (mBluetoothGatt != null) {
-            BluetoothGattService service = mBluetoothGatt.getService(KonashiUUID.SERVICE_UUID);
+            BluetoothGattService service = mBluetoothGatt.getService(KonashiUUID.KONASHI_SERVICE_UUID);
             BluetoothGattCharacteristic characteristic = service.getCharacteristic(uuid);
             if(characteristic!=null){
                 characteristic.setValue(value);
@@ -686,10 +702,10 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
         }
     }
     
-    private void readValue(UUID uuid){
+    private void readValue(UUID serviceUuid, UUID characteristicUuid){
         if (mBluetoothGatt != null) {
-            BluetoothGattService service = mBluetoothGatt.getService(KonashiUUID.SERVICE_UUID);
-            BluetoothGattCharacteristic characteristic = service.getCharacteristic(uuid);
+            BluetoothGattService service = mBluetoothGatt.getService(serviceUuid);
+            BluetoothGattCharacteristic characteristic = service.getCharacteristic(characteristicUuid);
             if(characteristic!=null){
                 mBluetoothGatt.readCharacteristic(characteristic);
             }
@@ -744,5 +760,9 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
             notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO1);
         else
             notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO2);
+    }
+    
+    protected void onUpdateBatteryLevel(int level){
+        notifyKonashiEvent(KonashiEvent.UPDATE_BATTERY_LEVEL);
     }
 }

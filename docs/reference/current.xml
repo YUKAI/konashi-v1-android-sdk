@@ -820,6 +820,17 @@
 <parameter name="milliVolt" type="int">
 </parameter>
 </method>
+<method name="batteryLevelReadRequest"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="digitalRead"
  return="int"
  abstract="true"
@@ -883,6 +894,60 @@
  visibility="public"
 >
 <parameter name="activity" type="android.app.Activity">
+</parameter>
+</method>
+<method name="find"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="activity" type="android.app.Activity">
+</parameter>
+<parameter name="isShowKonashiOnly" type="boolean">
+</parameter>
+</method>
+<method name="findWithName"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="activity" type="android.app.Activity">
+</parameter>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="getBatteryLevel"
+ return="int"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="initialize"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
 </parameter>
 </method>
 <method name="pinMode"
@@ -1040,6 +1105,17 @@
 <parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
 </parameter>
 </method>
+<method name="reset"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 </interface>
 <class name="KonashiBaseManager"
  extends="java.lang.Object"
@@ -1069,7 +1145,22 @@
  deprecated="not deprecated"
  visibility="protected"
 >
-<parameter name="uuid" type="java.util.UUID">
+<parameter name="characteristicUuid" type="java.util.UUID">
+</parameter>
+</method>
+<method name="addReadMessage"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="serviceUuid" type="java.util.UUID">
+</parameter>
+<parameter name="characteristicUuid" type="java.util.UUID">
 </parameter>
 </method>
 <method name="addWriteMessage"
@@ -1291,6 +1382,19 @@
 <parameter name="value" type="int">
 </parameter>
 </method>
+<method name="onUpdateBatteryLevel"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="level" type="int">
+</parameter>
+</method>
 <method name="onUpdatePioInput"
  return="void"
  abstract="false"
@@ -1453,6 +1557,17 @@
 <parameter name="milliVolt" type="int">
 </parameter>
 </method>
+<method name="batteryLevelReadRequest"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="digitalRead"
  return="int"
  abstract="false"
@@ -1504,6 +1619,17 @@
 >
 <parameter name="value" type="int">
 </parameter>
+</method>
+<method name="getBatteryLevel"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
 </method>
 <method name="pinMode"
  return="void"
@@ -1659,6 +1785,17 @@
 >
 <parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
 </parameter>
+</method>
+<method name="reset"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
 </method>
 </class>
 <class name="KonashiNotifier"
@@ -1838,6 +1975,61 @@
  visibility="public"
 >
 </method>
+<method name="onUpdateAnalogValue"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onUpdateAnalogValueAio0"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onUpdateAnalogValueAio1"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onUpdateAnalogValueAio2"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onUpdateBatteryLevel"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="onUpdatePioInput"
  return="void"
  abstract="false"
@@ -1911,6 +2103,26 @@
  transient="false"
  volatile="false"
  value="&quot;-0000-1000-8000-00805F9B34FB&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="BATTERY_LEVEL_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="BATTERY_SERVICE_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
  static="true"
  final="true"
  deprecated="not deprecated"
@@ -1997,6 +2209,16 @@
  visibility="public"
 >
 </field>
+<field name="KONASHI_SERVICE_UUID"
+ type="java.util.UUID"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="PIO_INPUT_NOTIFICATION_UUID"
  type="java.util.UUID"
  transient="false"
@@ -2058,16 +2280,6 @@
 >
 </field>
 <field name="PWM_PARAM_UUID"
- type="java.util.UUID"
- transient="false"
- volatile="false"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</field>
-<field name="SERVICE_UUID"
  type="java.util.UUID"
  transient="false"
  volatile="false"

@@ -66,6 +66,26 @@ public abstract class KonashiObserver {
      */
     public void onUpdatePioInput(){}
     /**
+     * AIOのどれかのピンの電圧が取得できた時
+     */
+    public void onUpdateAnalogValue(){}
+    /**
+     * AIO0の電圧が取得できた時
+     */
+    public void onUpdateAnalogValueAio0(){}
+    /**
+     * AIO1の電圧が取得できた時
+     */
+    public void onUpdateAnalogValueAio1(){}
+    /**
+     * AIO2の電圧が取得できた時
+     */
+    public void onUpdateAnalogValueAio2(){}
+    /**
+     * konashiのバッテリーのレベルを取得できた時
+     */
+    public void onUpdateBatteryLevel(){}
+    /**
      * BLEデバイス選択ダイアログをキャンセルした時に呼ばれる
      */
     public void onCancelSelectKonashi(){}

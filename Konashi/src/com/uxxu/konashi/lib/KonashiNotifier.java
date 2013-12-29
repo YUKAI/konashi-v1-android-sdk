@@ -92,6 +92,21 @@ public class KonashiNotifier {
                     case UPDATE_PIO_INPUT:
                         observer.onUpdatePioInput();
                         break;
+                    case UPDATE_ANALOG_VALUE:
+                        observer.onUpdateAnalogValue();
+                        break;
+                    case UPDATE_ANALOG_VALUE_AIO0:
+                        observer.onUpdateAnalogValueAio0();
+                        break;
+                    case UPDATE_ANALOG_VALUE_AIO1:
+                        observer.onUpdateAnalogValueAio1();
+                        break;
+                    case UPDATE_ANALOG_VALUE_AIO2:
+                        observer.onUpdateAnalogValueAio2();
+                        break;
+                    case UPDATE_BATTERY_LEVEL:
+                        observer.onUpdateBatteryLevel();
+                        break;
                     case CANCEL_SELECT_KONASHI:
                         observer.onCancelSelectKonashi();
                         break;

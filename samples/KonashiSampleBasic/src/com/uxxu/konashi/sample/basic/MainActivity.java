@@ -60,7 +60,9 @@ public class MainActivity extends Activity {
         readAioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mKonashiManager.analogReadRequest(Konashi.AIO1);
+                //mKonashiManager.analogReadRequest(Konashi.AIO1);
+                //mKonashiManager.reset();
+                mKonashiManager.batteryLevelReadRequest();
             }
         });
         
@@ -115,6 +117,13 @@ public class MainActivity extends Activity {
             } else {
                 mSwStateTextView.setText("OFF");
             }
+        }
+        
+        
+
+        @Override
+        public void onUpdateBatteryLevel() {
+            Log.d(TAG, "onUpdateBatteryLevel: " + mKonashiManager.getBatteryLevel());
         }
 
         @Override
