@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
     private Button findButton;
     private Button onButton;
     private Button offButton;
+    private Button readAioButton;
     private TextView mSwStateTextView;
     private LinearLayout mContainer;
 
@@ -52,6 +53,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 mKonashiManager.digitalWrite(Konashi.LED2, Konashi.LOW);
+            }
+        });
+        
+        readAioButton = (Button)findViewById(R.id.read_aio_button);
+        readAioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mKonashiManager.analogReadRequest(Konashi.AIO1);
             }
         });
         

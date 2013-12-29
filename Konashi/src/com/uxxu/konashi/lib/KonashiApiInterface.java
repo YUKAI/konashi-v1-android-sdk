@@ -51,4 +51,6 @@ public interface KonashiApiInterface {
     
     // AIO
     public void analogReadRequest(int pin);
+    public int analogRead(int pin);
+    public void analogWrite(int pin, int milliVolt);
 }

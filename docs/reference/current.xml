@@ -779,6 +779,19 @@
 <parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
 </parameter>
 </method>
+<method name="analogRead"
+ return="int"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+</method>
 <method name="analogReadRequest"
  return="void"
  abstract="true"
@@ -790,6 +803,21 @@
  visibility="public"
 >
 <parameter name="pin" type="int">
+</parameter>
+</method>
+<method name="analogWrite"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="milliVolt" type="int">
 </parameter>
 </method>
 <method name="digitalRead"
@@ -1031,7 +1059,20 @@
  visibility="public"
 >
 </constructor>
-<method name="addMessage"
+<method name="addReadMessage"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="uuid" type="java.util.UUID">
+</parameter>
+</method>
+<method name="addWriteMessage"
  return="void"
  abstract="false"
  native="false"
@@ -1235,6 +1276,21 @@
 <parameter name="device" type="android.bluetooth.BluetoothDevice">
 </parameter>
 </method>
+<method name="onUpdateAnalogValue"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="value" type="int">
+</parameter>
+</method>
 <method name="onUpdatePioInput"
  return="void"
  abstract="false"
@@ -1245,7 +1301,7 @@
  deprecated="not deprecated"
  visibility="protected"
 >
-<parameter name="characteristic" type="android.bluetooth.BluetoothGattCharacteristic">
+<parameter name="value" type="byte">
 </parameter>
 </method>
 <field name="mNotifier"
@@ -1356,6 +1412,19 @@
 <parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
 </parameter>
 </method>
+<method name="analogRead"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+</method>
 <method name="analogReadRequest"
  return="void"
  abstract="false"
@@ -1367,6 +1436,21 @@
  visibility="public"
 >
 <parameter name="pin" type="int">
+</parameter>
+</method>
+<method name="analogWrite"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="milliVolt" type="int">
 </parameter>
 </method>
 <method name="digitalRead"

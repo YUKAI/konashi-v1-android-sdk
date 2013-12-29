@@ -92,12 +92,19 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
     private ArrayList<KonashiMessage> mKonashiMessageList;
     private class KonashiMessage{
         public UUID uuid;
+    }
+    private class KonashiWriteMessage extends KonashiMessage{
         public byte[] data;
-        public KonashiMessage(UUID uuid, byte[] data){
+        public KonashiWriteMessage(UUID uuid, byte[] data){
             this.uuid = uuid;
             this.data = data;
         }
-    }    
+    }
+    private class KonashiReadMessage extends KonashiMessage{
+        public KonashiReadMessage(UUID uuid){
+            this.uuid = uuid;
+        }
+    }
     
     // BLE members
     private BleStatus mStatus = BleStatus.DISCONNECTED;
@@ -419,18 +426,38 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
     private final BluetoothGattCallback mBluetoothGattCallback = new BluetoothGattCallback() {
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
+            byte value;
+
             KonashiUtils.log("onCharacteristicChanged: " + characteristic.getUuid());
-            
-            if(characteristic.getUuid().toString().equals(KonashiUUID.PIO_INPUT_NOTIFICATION_UUID)){                
-                // fire event
-                onUpdatePioInput(characteristic);
+
+            if(characteristic.getUuid().equals(KonashiUUID.PIO_INPUT_NOTIFICATION_UUID)){                
+                value = characteristic.getValue()[0];
+                onUpdatePioInput(value);
             }
         }
 
         @Override
         public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
-            // TODO Auto-generated method stub
-            super.onCharacteristicRead(gatt, characteristic, status);
+            int value;
+            
+            KonashiUtils.log("onCharacteristicRead: " + characteristic.getUuid());
+            
+            if(status==BluetoothGatt.GATT_SUCCESS){
+                if(characteristic.getUuid().equals(KonashiUUID.ANALOG_READ0_UUID)){
+                    value = (characteristic.getValue()[0]<<8 & 0xFF) | (characteristic.getValue()[1] & 0xFF);
+                    onUpdateAnalogValue(Konashi.AIO0, value);
+                }
+                else if(characteristic.getUuid().equals(KonashiUUID.ANALOG_READ1_UUID)){
+                    value = (characteristic.getValue()[0]<<8 & 0xFF) | (characteristic.getValue()[1] & 0xFF);
+                    onUpdateAnalogValue(Konashi.AIO1, value);
+                }
+                else if(characteristic.getUuid().equals(KonashiUUID.ANALOG_READ2_UUID)){
+                    value = (characteristic.getValue()[0]<<8 & 0xFF) | (characteristic.getValue()[1] & 0xFF);
+                    onUpdateAnalogValue(Konashi.AIO2, value);
+                }
+            } else {
+                KonashiUtils.log("onCharacteristicRead GATT_FAILURE");
+            }
         }
 
         @Override
@@ -591,8 +618,12 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
      * FIFO send buffer
      *********************************/
     
-    protected void addMessage(UUID uuid, byte[] value){
-        mKonashiMessageList.add(new KonashiMessage(uuid, value));
+    protected void addWriteMessage(UUID uuid, byte[] value){
+        mKonashiMessageList.add(new KonashiWriteMessage(uuid, value));
+    }
+    
+    protected void addReadMessage(UUID uuid){
+        mKonashiMessageList.add(new KonashiReadMessage(uuid));
     }
     
     private KonashiMessage getFirstMessage(){
@@ -618,7 +649,13 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
                     public void run() {
                         KonashiMessage message = getFirstMessage();
                         if(message!=null){
-                            writeValue(message.uuid, message.data);
+                            if(message.getClass() == (Class<?>)KonashiWriteMessage.class){
+                                KonashiWriteMessage m = (KonashiWriteMessage)message;
+                                writeValue(m.uuid, m.data);
+                            } else {
+                                KonashiReadMessage m = (KonashiReadMessage)message;
+                                readValue(m.uuid);
+                            }
                         }
                     }
                 });
@@ -649,6 +686,16 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
         }
     }
     
+    private void readValue(UUID uuid){
+        if (mBluetoothGatt != null) {
+            BluetoothGattService service = mBluetoothGatt.getService(KonashiUUID.SERVICE_UUID);
+            BluetoothGattCharacteristic characteristic = service.getCharacteristic(uuid);
+            if(characteristic!=null){
+                mBluetoothGatt.readCharacteristic(characteristic);
+            }
+        }
+    }
+    
     
     /******************************
      * Konashi observer methods
@@ -662,6 +709,10 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
         mNotifier.notifyKonashiEvent(event);
     }
     
+    /**
+     * オブザーバにエラーイベントを通知する
+     * @param event 通知するエラーイベント名
+     */
     protected void notifyKonashiError(KonashiErrorReason errorReason){
         mNotifier.notifyKonashiError(errorReason);
     }
@@ -671,7 +722,27 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
      * Konashi notificatoin event handler
      ***************************************/
     
-    protected void onUpdatePioInput(BluetoothGattCharacteristic characteristic){
+    /**
+     * PIOの入力の状態が変更された時
+     * @param value PIO8bitで表現
+     */
+    protected void onUpdatePioInput(byte value){
         notifyKonashiEvent(KonashiEvent.UPDATE_PIO_INPUT);
+    }
+    
+    /**
+     * AIOの特定の値が取得できた時
+     * @param pin ピン番号 AIO0〜AIO2
+     * @param value アナログ値
+     */
+    protected void onUpdateAnalogValue(int pin, int value){
+        notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE);
+        
+        if(pin==Konashi.AIO0)
+            notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO0);
+        else if(pin==Konashi.AIO1)
+            notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO1);
+        else
+            notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO2);
     }
 }

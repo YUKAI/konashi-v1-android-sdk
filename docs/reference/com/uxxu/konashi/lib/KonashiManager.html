@@ -559,11 +559,49 @@ Summary:
             
             
             
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#analogRead(int)">analogRead</a></span>(int pin)
+        
+        <div class="jd-descrdiv">AIO の指定のピンの入力電圧を取得する</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             void
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#analogReadRequest(int)">analogReadRequest</a></span>(int pin)
         
+        <div class="jd-descrdiv">AIO の指定のピンの入力電圧を取得するリクエストを konashi に送る</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#analogWrite(int, int)">analogWrite</a></span>(int pin, int milliVolt)
+        
+        <div class="jd-descrdiv">AIO の指定のピンに任意の電圧を出力する</div>
+  
   </td></tr>
 
 
@@ -878,10 +916,27 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onUpdatePioInput(android.bluetooth.BluetoothGattCharacteristic)">onUpdatePioInput</a></span>(BluetoothGattCharacteristic characteristic)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onUpdateAnalogValue(int, int)">onUpdateAnalogValue</a></span>(int pin, int value)
         
-        <div class="jd-descrdiv">Konashi notificatoin event handler
-</div>
+        <div class="jd-descrdiv">AIOの特定の値が取得できた時</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onUpdatePioInput(byte)">onUpdatePioInput</a></span>(byte value)
+        
+        <div class="jd-descrdiv">PIOの入力の状態が変更された時</div>
   
   </td></tr>
 
@@ -929,7 +984,23 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#addMessage(java.util.UUID, byte[])">addMessage</a></span>(<a href="http://d.android.com/reference/java/util/UUID.html">UUID</a> uuid, byte[] value)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#addReadMessage(java.util.UUID)">addReadMessage</a></span>(<a href="http://d.android.com/reference/java/util/UUID.html">UUID</a> uuid)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#addWriteMessage(java.util.UUID, byte[])">addWriteMessage</a></span>(<a href="http://d.android.com/reference/java/util/UUID.html">UUID</a> uuid, byte[] value)
         
         <div class="jd-descrdiv">FIFO send buffer
 </div>
@@ -938,7 +1009,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -957,7 +1028,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -976,7 +1047,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -994,7 +1065,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1012,7 +1083,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1030,7 +1101,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1048,7 +1119,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1066,7 +1137,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1084,7 +1155,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1100,7 +1171,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1118,7 +1189,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1130,11 +1201,13 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#notifyKonashiError(com.uxxu.konashi.lib.KonashiErrorReason)">notifyKonashiError</a></span>(<a href="../../../../com/uxxu/konashi/lib/KonashiErrorReason.html">KonashiErrorReason</a> errorReason)
         
+        <div class="jd-descrdiv">オブザーバにエラーイベントを通知する</div>
+  
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1152,7 +1225,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1171,7 +1244,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1190,7 +1263,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -1208,6 +1281,24 @@ From class
 
 
 	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#onUpdateAnalogValue(int, int)">onUpdateAnalogValue</a></span>(int pin, int value)
+        
+        <div class="jd-descrdiv">AIOの特定の値が取得できた時</div>
+  
+  </td></tr>
+
+
+	 
     <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
@@ -1218,10 +1309,9 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#onUpdatePioInput(android.bluetooth.BluetoothGattCharacteristic)">onUpdatePioInput</a></span>(BluetoothGattCharacteristic characteristic)
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#onUpdatePioInput(byte)">onUpdatePioInput</a></span>(byte value)
         
-        <div class="jd-descrdiv">Konashi notificatoin event handler
-</div>
+        <div class="jd-descrdiv">PIOの入力の状態が変更された時</div>
   
   </td></tr>
 
@@ -1583,10 +1673,42 @@ From interface
             
             
             
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiApiInterface.html#analogRead(int)">analogRead</a></span>(int pin)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
             void
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiApiInterface.html#analogReadRequest(int)">analogReadRequest</a></span>(int pin)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiApiInterface.html#analogWrite(int, int)">analogWrite</a></span>(int pin, int milliVolt)
         
   </td></tr>
 
@@ -1978,6 +2100,49 @@ From interface
 </div>
 
 
+<a id="analogRead(int)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">analogRead</span>
+      <span class="normal">(int pin)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>AIO の指定のピンの入力電圧を取得する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>AIOのピン名。指定可能なピン名は AIO0, AIO1, AIO2
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <a id="analogReadRequest(int)"></a>
 
 <div class="jd-details api apilevel-v2"> 
@@ -2005,7 +2170,64 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>AIO の指定のピンの入力電圧を取得するリクエストを konashi に送る</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>AIOのピン名。指定可能なピン名は AIO0, AIO1, AIO2
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="analogWrite(int, int)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">analogWrite</span>
+      <span class="normal">(int pin, int milliVolt)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>AIO の指定のピンに任意の電圧を出力する</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>AIOのピン名。指定可能なピン名は AIO0, AIO1, AIO2</td>
+        </tr>
+        <tr>
+          <th>milliVolt</th>
+          <td>設定する電圧をmVで指定。0〜1300を指定可能
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -2730,7 +2952,7 @@ From interface
 
 
 
-<a id="onUpdatePioInput(android.bluetooth.BluetoothGattCharacteristic)"></a>
+<a id="onUpdateAnalogValue(int, int)"></a>
 
 <div class="jd-details api apilevel-v2"> 
     <h4 class="jd-details-title">
@@ -2742,8 +2964,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">onUpdatePioInput</span>
-      <span class="normal">(BluetoothGattCharacteristic characteristic)</span>
+      <span class="sympad">onUpdateAnalogValue</span>
+      <span class="normal">(int pin, int value)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2757,8 +2979,64 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Konashi notificatoin event handler
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>AIOの特定の値が取得できた時</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pin</th>
+          <td>ピン番号 AIO0〜AIO2</td>
+        </tr>
+        <tr>
+          <th>value</th>
+          <td>アナログ値
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="onUpdatePioInput(byte)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">onUpdatePioInput</span>
+      <span class="normal">(byte value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>PIOの入力の状態が変更された時</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</th>
+          <td>PIO8bitで表現
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>

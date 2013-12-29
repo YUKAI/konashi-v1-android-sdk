@@ -166,7 +166,7 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             byte[] val = new byte[1];
             val[0] = mPioModeSetting;
             
-            addMessage(KonashiUUID.PIO_SETTING_UUID, val);
+            addWriteMessage(KonashiUUID.PIO_SETTING_UUID, val);
         }
     }
     
@@ -187,7 +187,7 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             byte[] val = new byte[1];
             val[0] = mPioModeSetting;
             
-            addMessage(KonashiUUID.PIO_SETTING_UUID, val);
+            addWriteMessage(KonashiUUID.PIO_SETTING_UUID, val);
         }
     }
     
@@ -213,7 +213,7 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             byte[] val = new byte[1];
             val[0] = mPioPullup;
             
-            addMessage(KonashiUUID.PIO_PULLUP_UUID, val);
+            addWriteMessage(KonashiUUID.PIO_PULLUP_UUID, val);
         }
     }
     
@@ -234,7 +234,7 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             byte[] val = new byte[1];
             val[0] = mPioPullup;
             
-            addMessage(KonashiUUID.PIO_PULLUP_UUID, val);
+            addWriteMessage(KonashiUUID.PIO_PULLUP_UUID, val);
         }
     }
     
@@ -291,7 +291,7 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             byte[] val = new byte[1];
             val[0] = mPioOutput;
             
-            addMessage(KonashiUUID.PIO_OUTPUT_UUID, val);
+            addWriteMessage(KonashiUUID.PIO_OUTPUT_UUID, val);
         }
     }
     
@@ -312,7 +312,7 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             byte[] val = new byte[1];
             val[0] = mPioOutput;
             
-            addMessage(KonashiUUID.PIO_OUTPUT_UUID, val);
+            addWriteMessage(KonashiUUID.PIO_OUTPUT_UUID, val);
         }
     }
     
@@ -348,7 +348,7 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             byte[] val = new byte[1];
             val[0] = mPwmSetting;
             
-            addMessage(KonashiUUID.PWM_CONFIG_UUID, val);
+            addWriteMessage(KonashiUUID.PWM_CONFIG_UUID, val);
         }
     }
     
@@ -374,7 +374,7 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             val[3] = (byte)((mPwmPeriod[pin] >> 8) & 0xFF);
             val[4] = (byte)((mPwmPeriod[pin] >> 0) & 0xFF);
             
-            addMessage(KonashiUUID.PWM_PARAM_UUID, val);
+            addWriteMessage(KonashiUUID.PWM_PARAM_UUID, val);
         }
     }
     
@@ -400,7 +400,7 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             val[3] = (byte)((mPwmDuty[pin] >> 8) & 0xFF);
             val[4] = (byte)((mPwmDuty[pin] >> 0) & 0xFF);
             
-            addMessage(KonashiUUID.PWM_DUTY_UUID, val);
+            addWriteMessage(KonashiUUID.PWM_DUTY_UUID, val);
         }
     }
     
@@ -434,6 +434,10 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
     // AIO
     ///////////////////////////
 
+    /**
+     * AIO の指定のピンの入力電圧を取得するリクエストを konashi に送る
+     * @param pin AIOのピン名。指定可能なピン名は AIO0, AIO1, AIO2
+     */
     @Override
     public void analogReadRequest(int pin) {
         if(!isEnableAccessKonashi()){
@@ -441,7 +445,58 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
             return;
         }
         
+        if(pin==Konashi.AIO0){
+            addReadMessage(KonashiUUID.ANALOG_READ0_UUID);
+        } else if(pin==Konashi.AIO1){
+            addReadMessage(KonashiUUID.ANALOG_READ1_UUID);
+        } else if(pin==Konashi.AIO2) {
+            addReadMessage(KonashiUUID.ANALOG_READ2_UUID);
+        } else {
+            // TODO: invalid paramter
+        }
+    }
+    
+    /**
+     * AIO の指定のピンの入力電圧を取得する
+     * @param pin AIOのピン名。指定可能なピン名は AIO0, AIO1, AIO2
+     */
+    @Override
+    public int analogRead(int pin) {
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return -1;
+        }
         
+        if(pin >= Konashi.AIO0 && pin <= Konashi.AIO2){
+            return mAioValue[pin];
+        } else {
+            // TODO: invalid parameter
+            return -1;
+        }
+    }
+    
+    /**
+     * AIO の指定のピンに任意の電圧を出力する
+     * @param pin AIOのピン名。指定可能なピン名は AIO0, AIO1, AIO2
+     * @param milliVolt 設定する電圧をmVで指定。0〜1300を指定可能
+     */
+    @Override
+    public void analogWrite(int pin, int milliVolt){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
+        if(pin >= Konashi.AIO0 && pin <= Konashi.AIO2 && milliVolt >= 0 && milliVolt <= Konashi.ANALOG_REFERENCE){
+            byte[] val = new byte[3];
+            val[0] = (byte)pin;
+            val[1] = (byte)((milliVolt >> 8) & 0xFF);
+            val[2] = (byte)((milliVolt >> 0) & 0xFF);
+            
+            addWriteMessage(KonashiUUID.ANALOG_DRIVE_UUID, val);
+        } else {
+            // TODO: invalid paramter
+        }
     }
     
     
@@ -450,14 +505,18 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
     ////////////////////////////////
 
     @Override
-    protected void onUpdatePioInput(BluetoothGattCharacteristic characteristic) {
+    protected void onUpdatePioInput(byte value) {
         // PIO input notification
-        byte value = characteristic.getValue()[0];
         mPioInput = value;
-        
-        KonashiUtils.log("#####  " + mPioInput);
-        
-        super.onUpdatePioInput(characteristic);
+                
+        super.onUpdatePioInput(value);
+    }
+
+    @Override
+    protected void onUpdateAnalogValue(int pin, int value) {
+        mAioValue[pin] = value;
+                
+        super.onUpdateAnalogValue(pin, value);
     }
     
     
