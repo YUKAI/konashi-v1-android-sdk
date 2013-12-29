@@ -1,5 +1,7 @@
 package com.uxxu.konashi.lib;
 
+import android.app.Activity;
+
 /**
  * konashi APIのインタフェース
  * 
@@ -26,6 +28,9 @@ public interface KonashiApiInterface {
     public void addObserver(KonashiObserver observer);
     public void removeObserver(KonashiObserver observer);
     public void removeAllObservers();
+    
+    // initialize
+    public void find(Activity activity);
     
     // PIO
     public void pinMode(int pin, int mode);
