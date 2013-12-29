@@ -618,6 +618,9 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#batteryLevelReadRequest()">batteryLevelReadRequest</a></span>()
         
+        <div class="jd-descrdiv">konashi のバッテリ残量を取得するリクエストを konashi に送信
+</div>
+  
   </td></tr>
 
 
@@ -706,11 +709,31 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#getBatteryLevel()">getBatteryLevel</a></span>()
         
+        <div class="jd-descrdiv">konashi のバッテリ残量を取得</div>
+  
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#getSignalStrength()">getSignalStrength</a></span>()
+        
+        <div class="jd-descrdiv">konashi の電波強度を取得</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -728,7 +751,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -746,7 +769,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -764,7 +787,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -782,7 +805,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -800,7 +823,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -818,7 +841,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -836,7 +859,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -854,7 +877,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -872,7 +895,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -890,7 +913,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -909,7 +932,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -927,7 +950,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             
             
@@ -940,6 +963,25 @@ Summary:
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#reset()">reset</a></span>()
         
         <div class="jd-descrdiv">konashiをリセットする
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#signalStrengthReadRequest()">signalStrengthReadRequest</a></span>()
+        
+        <div class="jd-descrdiv">konashi の電波強度を取得するリクエストを行う
 </div>
   
   </td></tr>
@@ -1005,6 +1047,22 @@ Summary:
         
         <div class="jd-descrdiv">PIOの入力の状態が変更された時</div>
   
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onUpdateSignalSrength(int)">onUpdateSignalSrength</a></span>(int rssi)
+        
   </td></tr>
 
 
@@ -1412,6 +1470,38 @@ From class
         
         <div class="jd-descrdiv">PIOの入力の状態が変更された時</div>
   
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#onUpdateSignalSrength(int)">onUpdateSignalSrength</a></span>(int rssi)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#readRemoteRssi()">readRemoteRssi</a></span>()
+        
   </td></tr>
 
 
@@ -1964,6 +2054,22 @@ From interface
             
             
             
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiApiInterface.html#getSignalStrength()">getSignalStrength</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
             void
         </td>
         <td class="jd-linkcol" width="100%">
@@ -1973,7 +2079,7 @@ From interface
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -1989,7 +2095,7 @@ From interface
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2005,7 +2111,7 @@ From interface
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2021,7 +2127,7 @@ From interface
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2037,7 +2143,7 @@ From interface
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2053,7 +2159,7 @@ From interface
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2069,7 +2175,7 @@ From interface
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2085,7 +2191,7 @@ From interface
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2101,7 +2207,7 @@ From interface
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2117,7 +2223,7 @@ From interface
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2133,7 +2239,7 @@ From interface
 
 
 	 
-    <tr class="alt-color api apilevel-v2" >
+    <tr class=" api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2149,7 +2255,7 @@ From interface
 
 
 	 
-    <tr class=" api apilevel-v2" >
+    <tr class="alt-color api apilevel-v2" >
         <td class="jd-typecol">
             abstract
             
@@ -2160,6 +2266,22 @@ From interface
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiApiInterface.html#reset()">reset</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiApiInterface.html#signalStrengthReadRequest()">signalStrengthReadRequest</a></span>()
         
   </td></tr>
 
@@ -2455,7 +2577,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashi のバッテリ残量を取得するリクエストを konashi に送信
+</p></div>
 
     </div>
 </div>
@@ -2663,7 +2786,50 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashi のバッテリ残量を取得</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>0 〜 100 のパーセント単位でバッテリ残量が返る
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="getSignalStrength()"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getSignalStrength</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>konashi の電波強度を取得</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>電波強度(単位はdb)
+</li></ul>
+  </div>
 
     </div>
 </div>
@@ -3238,6 +3404,40 @@ From interface
 </div>
 
 
+<a id="signalStrengthReadRequest()"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">signalStrengthReadRequest</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>konashi の電波強度を取得するリクエストを行う
+</p></div>
+
+    </div>
+</div>
+
+
 
 
 
@@ -3365,6 +3565,39 @@ From interface
         </tr>
       </table>
   </div>
+
+    </div>
+</div>
+
+
+<a id="onUpdateSignalSrength(int)"></a>
+
+<div class="jd-details api apilevel-v2"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">onUpdateSignalSrength</span>
+      <span class="normal">(int rssi)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+  Since: <a href="../../../../guide/appendix/api-levels.html#levelv2">API Level v2</a>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>

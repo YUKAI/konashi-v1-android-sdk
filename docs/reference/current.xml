@@ -937,6 +937,17 @@
  visibility="public"
 >
 </method>
+<method name="getSignalStrength"
+ return="int"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="initialize"
  return="void"
  abstract="true"
@@ -1106,6 +1117,17 @@
 </parameter>
 </method>
 <method name="reset"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="signalStrengthReadRequest"
  return="void"
  abstract="true"
  native="false"
@@ -1408,6 +1430,30 @@
 <parameter name="value" type="byte">
 </parameter>
 </method>
+<method name="onUpdateSignalSrength"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="rssi" type="int">
+</parameter>
+</method>
+<method name="readRemoteRssi"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</method>
 <field name="mNotifier"
  type="com.uxxu.konashi.lib.KonashiNotifier"
  transient="false"
@@ -1631,6 +1677,17 @@
  visibility="public"
 >
 </method>
+<method name="getSignalStrength"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="pinMode"
  return="void"
  abstract="false"
@@ -1787,6 +1844,17 @@
 </parameter>
 </method>
 <method name="reset"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="signalStrengthReadRequest"
  return="void"
  abstract="false"
  native="false"
@@ -2031,6 +2099,17 @@
 >
 </method>
 <method name="onUpdatePioInput"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onUpdateSignalStrength"
  return="void"
  abstract="false"
  native="false"

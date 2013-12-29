@@ -86,6 +86,10 @@ public abstract class KonashiObserver {
      */
     public void onUpdateBatteryLevel(){}
     /**
+     * konashiの電波強度を取得できた時
+     */
+    public void onUpdateSignalStrength(){}
+    /**
      * BLEデバイス選択ダイアログをキャンセルした時に呼ばれる
      */
     public void onCancelSelectKonashi(){}

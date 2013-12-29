@@ -66,5 +66,6 @@ public interface KonashiApiInterface {
     public void reset();
     public void batteryLevelReadRequest();
     public int getBatteryLevel();
-    
+    public void signalStrengthReadRequest();
+    public int getSignalStrength();
 }

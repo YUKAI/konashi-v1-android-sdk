@@ -313,6 +313,15 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
             return "";
         }
     }
+    
+    protected void readRemoteRssi(){
+        if(!isEnableAccessKonashi() || mBluetoothGatt==null){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
+        mBluetoothGatt.readRemoteRssi();
+    }
         
     
     /****************************
@@ -509,8 +518,9 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
 
         @Override
         public void onReadRemoteRssi(BluetoothGatt gatt, int rssi, int status) {
-            // TODO Auto-generated method stub
-            super.onReadRemoteRssi(gatt, rssi, status);
+            if(status==BluetoothGatt.GATT_SUCCESS){
+                onUpdateSignalSrength(rssi);
+            }
         }
 
         @Override
@@ -584,7 +594,7 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
             return service.getCharacteristic(characteristicUuid);
         } else {
             return null;
-        }
+        }        
     }
     
     private boolean isAvailableCharacteristic(UUID serviceUuid, UUID characteristicUuid){
@@ -727,7 +737,7 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
     
     /**
      * オブザーバにエラーイベントを通知する
-     * @param event 通知するエラーイベント名
+     * @param errorReason 通知するエラーの原因
      */
     protected void notifyKonashiError(KonashiErrorReason errorReason){
         mNotifier.notifyKonashiError(errorReason);
@@ -764,5 +774,9 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
     
     protected void onUpdateBatteryLevel(int level){
         notifyKonashiEvent(KonashiEvent.UPDATE_BATTERY_LEVEL);
+    }
+    
+    protected void onUpdateSignalSrength(int rssi){
+        notifyKonashiEvent(KonashiEvent.UPDATE_SIGNAL_STRENGTH);
     }
 }

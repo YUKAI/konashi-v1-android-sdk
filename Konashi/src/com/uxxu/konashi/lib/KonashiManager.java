@@ -521,6 +521,9 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
         addWriteMessage(KonashiUUID.HARDWARE_RESET_UUID, val);
     }
     
+    /**
+     * konashi のバッテリ残量を取得するリクエストを konashi に送信
+     */
     @Override
     public void batteryLevelReadRequest(){
         if(!isEnableAccessKonashi()){
@@ -531,6 +534,10 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
         addReadMessage(KonashiUUID.BATTERY_SERVICE_UUID, KonashiUUID.BATTERY_LEVEL_UUID);
     }
     
+    /**
+     * konashi のバッテリ残量を取得
+     * @return 0 〜 100 のパーセント単位でバッテリ残量が返る
+     */
     @Override
     public int getBatteryLevel(){
         if(!isEnableAccessKonashi()){
@@ -541,10 +548,38 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
         return mBatteryLevel;
     }
     
+    /**
+     * konashi の電波強度を取得するリクエストを行う
+     */
+    @Override
+    public void signalStrengthReadRequest() {
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
+        readRemoteRssi();
+    }
+
+    /**
+     * konashi の電波強度を取得
+     * @return 電波強度(単位はdb)
+     */
+    @Override
+    public int getSignalStrength() {
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return -1;
+        }
+        
+        return mRssi;
+    }
+    
     
     ////////////////////////////////
     // Notification event handler 
     ////////////////////////////////
+
 
     @Override
     protected void onUpdatePioInput(byte value) {
@@ -566,6 +601,13 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
         mBatteryLevel = level;
                 
         super.onUpdateBatteryLevel(level);
+    }
+
+    @Override
+    protected void onUpdateSignalSrength(int rssi) {
+        mRssi = rssi;
+        
+        super.onUpdateSignalSrength(rssi);
     }
     
     

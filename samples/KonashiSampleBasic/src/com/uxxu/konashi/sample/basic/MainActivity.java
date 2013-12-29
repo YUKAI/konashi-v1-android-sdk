@@ -62,7 +62,8 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 //mKonashiManager.analogReadRequest(Konashi.AIO1);
                 //mKonashiManager.reset();
-                mKonashiManager.batteryLevelReadRequest();
+                //mKonashiManager.batteryLevelReadRequest();
+                mKonashiManager.signalStrengthReadRequest();
             }
         });
         
@@ -119,11 +120,14 @@ public class MainActivity extends Activity {
             }
         }
         
-        
-
         @Override
         public void onUpdateBatteryLevel() {
             Log.d(TAG, "onUpdateBatteryLevel: " + mKonashiManager.getBatteryLevel());
+        }
+
+        @Override
+        public void onUpdateSignalStrength() {
+            Log.d(TAG, "onUpdateSignalStrength: " + mKonashiManager.getSignalStrength());
         }
 
         @Override

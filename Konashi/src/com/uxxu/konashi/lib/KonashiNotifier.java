@@ -107,6 +107,9 @@ public class KonashiNotifier {
                     case UPDATE_BATTERY_LEVEL:
                         observer.onUpdateBatteryLevel();
                         break;
+                    case UPDATE_SIGNAL_STRENGTH:
+                        observer.onUpdateSignalStrength();
+                        break;
                     case CANCEL_SELECT_KONASHI:
                         observer.onCancelSelectKonashi();
                         break;
