@@ -5,12 +5,13 @@ var DATA = [
       { id:3, label:"com.uxxu.konashi.lib.BleDeviceSelectionDialog.OnBleDeviceSelectListener", link:"com/uxxu/konashi/lib/BleDeviceSelectionDialog.OnBleDeviceSelectListener.html", type:"class" },
       { id:4, label:"com.uxxu.konashi.lib.Konashi", link:"com/uxxu/konashi/lib/Konashi.html", type:"class" },
       { id:5, label:"com.uxxu.konashi.lib.KonashiApiInterface", link:"com/uxxu/konashi/lib/KonashiApiInterface.html", type:"class" },
-      { id:6, label:"com.uxxu.konashi.lib.KonashiErrorReason", link:"com/uxxu/konashi/lib/KonashiErrorReason.html", type:"class" },
-      { id:7, label:"com.uxxu.konashi.lib.KonashiEvent", link:"com/uxxu/konashi/lib/KonashiEvent.html", type:"class" },
-      { id:8, label:"com.uxxu.konashi.lib.KonashiManager", link:"com/uxxu/konashi/lib/KonashiManager.html", type:"class" },
-      { id:9, label:"com.uxxu.konashi.lib.KonashiNotifier", link:"com/uxxu/konashi/lib/KonashiNotifier.html", type:"class" },
-      { id:10, label:"com.uxxu.konashi.lib.KonashiObserver", link:"com/uxxu/konashi/lib/KonashiObserver.html", type:"class" },
-      { id:11, label:"com.uxxu.konashi.lib.KonashiUUID", link:"com/uxxu/konashi/lib/KonashiUUID.html", type:"class" },
-      { id:12, label:"com.uxxu.konashi.lib.KonashiUtils", link:"com/uxxu/konashi/lib/KonashiUtils.html", type:"class" }
+      { id:6, label:"com.uxxu.konashi.lib.KonashiBaseManager", link:"com/uxxu/konashi/lib/KonashiBaseManager.html", type:"class" },
+      { id:7, label:"com.uxxu.konashi.lib.KonashiErrorReason", link:"com/uxxu/konashi/lib/KonashiErrorReason.html", type:"class" },
+      { id:8, label:"com.uxxu.konashi.lib.KonashiEvent", link:"com/uxxu/konashi/lib/KonashiEvent.html", type:"class" },
+      { id:9, label:"com.uxxu.konashi.lib.KonashiManager", link:"com/uxxu/konashi/lib/KonashiManager.html", type:"class" },
+      { id:10, label:"com.uxxu.konashi.lib.KonashiNotifier", link:"com/uxxu/konashi/lib/KonashiNotifier.html", type:"class" },
+      { id:11, label:"com.uxxu.konashi.lib.KonashiObserver", link:"com/uxxu/konashi/lib/KonashiObserver.html", type:"class" },
+      { id:12, label:"com.uxxu.konashi.lib.KonashiUUID", link:"com/uxxu/konashi/lib/KonashiUUID.html", type:"class" },
+      { id:13, label:"com.uxxu.konashi.lib.KonashiUtils", link:"com/uxxu/konashi/lib/KonashiUtils.html", type:"class" }
 
     ];

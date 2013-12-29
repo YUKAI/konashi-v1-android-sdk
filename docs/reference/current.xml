@@ -228,14 +228,6 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<constructor name="Konashi"
- type="com.uxxu.konashi.lib.Konashi"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</constructor>
 <method name="close"
  return="void"
  abstract="false"
@@ -248,7 +240,7 @@
 >
 </method>
 <method name="getManager"
- return="com.uxxu.konashi.lib.KonashiManager"
+ return="com.uxxu.konashi.lib.KonashiBaseManager"
  abstract="false"
  native="false"
  synchronized="false"
@@ -852,6 +844,19 @@
 <parameter name="value" type="int">
 </parameter>
 </method>
+<method name="find"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="activity" type="android.app.Activity">
+</parameter>
+</method>
 <method name="pinMode"
  return="void"
  abstract="true"
@@ -1008,73 +1013,7 @@
 </parameter>
 </method>
 </interface>
-<class name="KonashiErrorReason"
- extends="java.lang.Enum"
- abstract="false"
- static="false"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-<method name="valueOf"
- return="com.uxxu.konashi.lib.KonashiErrorReason"
- abstract="false"
- native="false"
- synchronized="false"
- static="true"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="name" type="java.lang.String">
-</parameter>
-</method>
-<method name="values"
- return="com.uxxu.konashi.lib.KonashiErrorReason[]"
- abstract="false"
- native="false"
- synchronized="false"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-</class>
-<class name="KonashiEvent"
- extends="java.lang.Enum"
- abstract="false"
- static="false"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-<method name="valueOf"
- return="com.uxxu.konashi.lib.KonashiEvent"
- abstract="false"
- native="false"
- synchronized="false"
- static="true"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="name" type="java.lang.String">
-</parameter>
-</method>
-<method name="values"
- return="com.uxxu.konashi.lib.KonashiEvent[]"
- abstract="false"
- native="false"
- synchronized="false"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-</class>
-<class name="KonashiManager"
+<class name="KonashiBaseManager"
  extends="java.lang.Object"
  abstract="false"
  static="false"
@@ -1084,17 +1023,15 @@
 >
 <implements name="com.uxxu.konashi.lib.BleDeviceSelectionDialog.OnBleDeviceSelectListener">
 </implements>
-<implements name="com.uxxu.konashi.lib.KonashiApiInterface">
-</implements>
-<constructor name="KonashiManager"
- type="com.uxxu.konashi.lib.KonashiManager"
+<constructor name="KonashiBaseManager"
+ type="com.uxxu.konashi.lib.KonashiBaseManager"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
 </constructor>
-<method name="addObserver"
+<method name="addMessage"
  return="void"
  abstract="false"
  native="false"
@@ -1102,22 +1039,11 @@
  static="false"
  final="false"
  deprecated="not deprecated"
- visibility="public"
+ visibility="protected"
 >
-<parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
+<parameter name="uuid" type="java.util.UUID">
 </parameter>
-</method>
-<method name="analogReadRequest"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="pin" type="int">
+<parameter name="value" type="byte[]">
 </parameter>
 </method>
 <method name="close"
@@ -1130,58 +1056,6 @@
  deprecated="not deprecated"
  visibility="public"
 >
-</method>
-<method name="digitalRead"
- return="int"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="pin" type="int">
-</parameter>
-</method>
-<method name="digitalReadAll"
- return="int"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-<method name="digitalWrite"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="pin" type="int">
-</parameter>
-<parameter name="value" type="int">
-</parameter>
-</method>
-<method name="digitalWriteAll"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="value" type="int">
-</parameter>
 </method>
 <method name="disconnect"
  return="void"
@@ -1272,6 +1146,17 @@
  visibility="public"
 >
 </method>
+<method name="isEnableAccessKonashi"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</method>
 <method name="isReady"
  return="boolean"
  abstract="false"
@@ -1282,6 +1167,32 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="notifyKonashiError"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="errorReason" type="com.uxxu.konashi.lib.KonashiErrorReason">
+</parameter>
+</method>
+<method name="notifyKonashiEvent"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="event" type="com.uxxu.konashi.lib.KonashiEvent">
+</parameter>
 </method>
 <method name="onCancelSelectingBleDevice"
  return="void"
@@ -1322,6 +1233,192 @@
  visibility="public"
 >
 <parameter name="device" type="android.bluetooth.BluetoothDevice">
+</parameter>
+</method>
+<method name="onUpdatePioInput"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="characteristic" type="android.bluetooth.BluetoothGattCharacteristic">
+</parameter>
+</method>
+<field name="mNotifier"
+ type="com.uxxu.konashi.lib.KonashiNotifier"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</field>
+</class>
+<class name="KonashiErrorReason"
+ extends="java.lang.Enum"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="valueOf"
+ return="com.uxxu.konashi.lib.KonashiErrorReason"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="com.uxxu.konashi.lib.KonashiErrorReason[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="KonashiEvent"
+ extends="java.lang.Enum"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="valueOf"
+ return="com.uxxu.konashi.lib.KonashiEvent"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="com.uxxu.konashi.lib.KonashiEvent[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="KonashiManager"
+ extends="com.uxxu.konashi.lib.KonashiBaseManager"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.uxxu.konashi.lib.KonashiApiInterface">
+</implements>
+<constructor name="KonashiManager"
+ type="com.uxxu.konashi.lib.KonashiManager"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="addObserver"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="observer" type="com.uxxu.konashi.lib.KonashiObserver">
+</parameter>
+</method>
+<method name="analogReadRequest"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+</method>
+<method name="digitalRead"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+</method>
+<method name="digitalReadAll"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="digitalWrite"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pin" type="int">
+</parameter>
+<parameter name="value" type="int">
+</parameter>
+</method>
+<method name="digitalWriteAll"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="value" type="int">
 </parameter>
 </method>
 <method name="pinMode"

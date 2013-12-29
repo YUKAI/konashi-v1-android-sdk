@@ -24,7 +24,7 @@ import android.os.Message;
 import android.widget.Toast;
 
 /**
- * konashiを管理するメインクラス
+ * konashiのベース部分(BLEまわり)を管理するクラス
  * 
  * @author monakaz, YUKAI Engineering
  * http://konashi.ux-xu.com
