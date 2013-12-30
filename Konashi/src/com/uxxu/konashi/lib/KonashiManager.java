@@ -502,6 +502,72 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
     
     
     ///////////////////////////
+    // UART
+    ///////////////////////////
+        
+    /**
+     * UART の有効/無効を設定する
+     * @param mode 設定するUARTのモード。Konashi.UART_DISABLE, Konashi.UART_ENABLE を指定
+     */
+    public void uartMode(int mode){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
+        if(mode==Konashi.UART_DISABLE || mode==Konashi.UART_ENABLE){
+            mUartSetting = (byte)mode;
+            
+            byte[] val = new byte[1];
+            val[0] = (byte)mode;
+            
+            addWriteMessage(KonashiUUID.UART_CONFIG_UUID, val);
+        } else {
+            // TODO: invalid paramter
+        }
+    }
+    
+    /**
+     * UART の通信速度を設定する
+     * @param baudrate UARTの通信速度。Konashi.UART_RATE_2K4 か Konashi.UART_RATE_9K6 を指定
+     */
+    public void uartBaudrate(int baudrate){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
+        if(baudrate==Konashi.UART_RATE_2K4 || baudrate==Konashi.UART_RATE_9K6){
+            mUartBaudrate = (byte)baudrate;
+            
+            byte[] val = new byte[2];
+            val[0] = (byte)((baudrate >> 8) & 0xFF);
+            val[1] = (byte)((baudrate >> 0) & 0xFF);
+            
+            addWriteMessage(KonashiUUID.UART_BAUDRATE_UUID, val);
+        } else {
+            // TODO: invalid paramter
+        }
+    }
+    
+    /**
+     * UART でデータを1バイト送信する
+     * @param data 送信するデータ
+     */
+    public void uartWrite(byte data){
+        if(!isEnableAccessKonashi()){
+            notifyKonashiError(KonashiErrorReason.NOT_READY);
+            return;
+        }
+        
+        byte[] val = new byte[1];
+        val[0] = data;
+        
+        addWriteMessage(KonashiUUID.UART_TX_UUID, val);
+    }
+    
+    
+    ///////////////////////////
     // Hardware
     ///////////////////////////
     
@@ -580,7 +646,8 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
     // Notification event handler 
     ////////////////////////////////
 
-
+    // TODO: need refactor
+    
     @Override
     protected void onUpdatePioInput(byte value) {
         // PIO input notification
@@ -597,6 +664,12 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
     }
 
     @Override
+    protected void onRecieveUart(byte data) {
+        mUartRxData = data;
+        super.onRecieveUart(data);
+    }
+
+    @Override
     protected void onUpdateBatteryLevel(int level) {
         mBatteryLevel = level;
                 
@@ -608,7 +681,5 @@ public class KonashiManager extends KonashiBaseManager implements KonashiApiInte
         mRssi = rssi;
         
         super.onUpdateSignalSrength(rssi);
-    }
-    
-    
+    }    
 }

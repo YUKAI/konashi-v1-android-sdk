@@ -61,6 +61,9 @@ public interface KonashiApiInterface {
     // I2C
     
     // UART
+    public void uartMode(int mode);
+    public void uartBaudrate(int baudrate);
+    public void uartWrite(byte data);
     
     // Hardware
     public void reset();

@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import com.uxxu.konashi.lib.BleDeviceSelectionDialog.OnBleDeviceSelectListener;
 import android.app.Activity;
+import android.app.Notification;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -445,6 +446,10 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
                 value = characteristic.getValue()[0];
                 onUpdatePioInput(value);
             }
+            else if(characteristic.getUuid().equals(KonashiUUID.UART_RX_NOTIFICATION_UUID)){
+                value = characteristic.getValue()[0];
+                onRecieveUart(value);
+            }
         }
 
         @Override
@@ -576,9 +581,18 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
                 // available all konashi characteristics
                 setStatus(BleStatus.CHARACTERISTICS_FOUND);
                 
-                // enable notification
-                if(!enableNotification(KonashiUUID.PIO_INPUT_NOTIFICATION_UUID)
-                ){
+                // enable notifications
+                if(!enableNotification(KonashiUUID.PIO_INPUT_NOTIFICATION_UUID)){
+                    setStatus(BleStatus.CHARACTERISTICS_NOT_FOUND);
+                    return;
+                }
+                
+                if(!enableNotification(KonashiUUID.UART_RX_NOTIFICATION_UUID)){
+                    setStatus(BleStatus.CHARACTERISTICS_NOT_FOUND);
+                    return;
+                }
+                
+                if(!enableNotification(KonashiUUID.HARDWARE_LOW_BAT_NOTIFICATION_UUID)){
                     setStatus(BleStatus.CHARACTERISTICS_NOT_FOUND);
                     return;
                 }
@@ -748,6 +762,8 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
      * Konashi notificatoin event handler
      ***************************************/
     
+    // TODO: uuuumm.... need refactor
+    
     /**
      * PIOの入力の状態が変更された時
      * @param value PIO8bitで表現
@@ -770,6 +786,10 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
             notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO1);
         else
             notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO2);
+    }
+    
+    protected void onRecieveUart(byte data){
+        notifyKonashiEvent(KonashiEvent.UART_RX_COMPLETE);
     }
     
     protected void onUpdateBatteryLevel(int level){
