@@ -234,7 +234,7 @@ public class Konashi {
     /**
      * KonashiManagerのシングルトン
      */
-    private static final KonashiBaseManager sKonashiManager = new KonashiBaseManager();
+    private static final KonashiManager sKonashiManager = new KonashiManager();
     
     /**
      * コンストラクタ。privateにして外部からインスタンス生成できないようにする
@@ -259,7 +259,7 @@ public class Konashi {
         }
     }
     
-    public static KonashiBaseManager getManager(){
+    public static KonashiManager getManager(){
         return sKonashiManager;
     }
 
