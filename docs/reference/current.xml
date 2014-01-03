@@ -240,7 +240,7 @@
 >
 </method>
 <method name="getManager"
- return="com.uxxu.konashi.lib.KonashiBaseManager"
+ return="com.uxxu.konashi.lib.KonashiManager"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1138,6 +1138,45 @@
  visibility="public"
 >
 </method>
+<method name="uartBaudrate"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="baudrate" type="int">
+</parameter>
+</method>
+<method name="uartMode"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="uartWrite"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="data" type="byte">
+</parameter>
+</method>
 </interface>
 <class name="KonashiBaseManager"
  extends="java.lang.Object"
@@ -1374,6 +1413,19 @@
 <parameter name="rssi" type="int">
 </parameter>
 <parameter name="scanRecord" type="byte[]">
+</parameter>
+</method>
+<method name="onRecieveUart"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="data" type="byte">
 </parameter>
 </method>
 <method name="onSelectBleDevice"
@@ -1864,6 +1916,45 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="uartBaudrate"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="baudrate" type="int">
+</parameter>
+</method>
+<method name="uartMode"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="uartWrite"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="data" type="byte">
+</parameter>
 </method>
 </class>
 <class name="KonashiNotifier"

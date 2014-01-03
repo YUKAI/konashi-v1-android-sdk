@@ -259,6 +259,10 @@ public class Konashi {
         }
     }
     
+    /**
+     * Konashiシングルトンオブジェクトを取得
+     * @return KonashiManagerのシングルトンオブジェクト
+     */
     public static KonashiManager getManager(){
         return sKonashiManager;
     }
