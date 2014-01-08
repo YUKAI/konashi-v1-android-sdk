@@ -742,11 +742,30 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
      ******************************/
     
     /**
-     * オブザーバにイベントを通知する
+     * オブザーバにイベントを通知する（パラメータ2つ）
+     * @param event 通知するイベント名
+     * @param param0 パラメータその1
+     * @param param1 パラメータその2
+     */
+    protected void notifyKonashiEvent(KonashiEvent event, Object param0, Object param1){
+        mNotifier.notifyKonashiEvent(event, param0, param1);
+    }
+    
+    /**
+     * オブザーバにイベントを通知する（パラメータ1つ）
+     * @param event 通知するイベント名
+     * @param param0 パラメータその1
+     */
+    protected void notifyKonashiEvent(KonashiEvent event, Object param0){
+        mNotifier.notifyKonashiEvent(event, param0, null);
+    }
+    
+    /**
+     * オブザーバにイベントを通知する（パラメータなし）
      * @param event 通知するイベント名
      */
     protected void notifyKonashiEvent(KonashiEvent event){
-        mNotifier.notifyKonashiEvent(event);
+        mNotifier.notifyKonashiEvent(event, null, null);
     }
     
     /**
@@ -769,7 +788,7 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
      * @param value PIO8bitで表現
      */
     protected void onUpdatePioInput(byte value){
-        notifyKonashiEvent(KonashiEvent.UPDATE_PIO_INPUT);
+        notifyKonashiEvent(KonashiEvent.UPDATE_PIO_INPUT, value);
     }
     
     /**

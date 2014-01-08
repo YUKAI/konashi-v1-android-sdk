@@ -67,7 +67,7 @@ public class KonashiNotifier {
      * オブザーバにイベントを通知する
      * @param event イベント名(KonashiEventだよっ）
      */
-    public void notifyKonashiEvent(final KonashiEvent event){
+    public void notifyKonashiEvent(final KonashiEvent event, final Object param0, final Object param1){
         for(final KonashiObserver observer: mObservers){
             if(observer.getActivity().isDestroyed()){
                 break;
@@ -90,7 +90,7 @@ public class KonashiNotifier {
                         observer.onReady();
                         break;
                     case UPDATE_PIO_INPUT:
-                        observer.onUpdatePioInput();
+                        observer.onUpdatePioInput(Byte.valueOf(param0.toString()));
                         break;
                     case UPDATE_ANALOG_VALUE:
                         observer.onUpdateAnalogValue();

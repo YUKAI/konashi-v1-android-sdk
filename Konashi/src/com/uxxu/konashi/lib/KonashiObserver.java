@@ -64,7 +64,7 @@ public abstract class KonashiObserver {
     /**
      * PIOの入力の状態が変化した時に呼ばれる
      */
-    public void onUpdatePioInput(){}
+    public void onUpdatePioInput(byte value){}
     /**
      * AIOのどれかのピンの電圧が取得できた時
      */

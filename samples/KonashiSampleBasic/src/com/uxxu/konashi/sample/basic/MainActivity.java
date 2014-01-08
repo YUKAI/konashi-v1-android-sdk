@@ -110,8 +110,8 @@ public class MainActivity extends Activity {
         }
         
         @Override
-        public void onUpdatePioInput(){
-            Log.d(TAG, "onUpdatePioInput: " + mKonashiManager.digitalRead(Konashi.S1));
+        public void onUpdatePioInput(byte value){
+            Log.d(TAG, "onUpdatePioInput: " + value);
             
             if(mKonashiManager.digitalRead(Konashi.S1)==Konashi.HIGH){
                 mSwStateTextView.setText("ON");
