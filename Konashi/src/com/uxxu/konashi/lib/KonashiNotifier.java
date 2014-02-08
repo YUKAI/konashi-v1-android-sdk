@@ -1,6 +1,8 @@
 package com.uxxu.konashi.lib;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * konashiのイベントをKonashiObserverに伝えるクラス
@@ -28,6 +30,14 @@ public class KonashiNotifier {
      * オブザーバたち
      */
     private ArrayList<KonashiObserver> mObservers = null;
+    
+    private final Map<KonashiErrorReason, String> errorStrings =
+            new HashMap<KonashiErrorReason, String>() {{
+                put(KonashiErrorReason.INVALID_PARAMETER, "INVALID_PARAMETER");
+                put(KonashiErrorReason.NOT_READY, "NOT_READY");
+                put(KonashiErrorReason.NOT_ENABLED_UART, "NOT_ENABLED_UART");
+                put(KonashiErrorReason.NOT_ENABLED_I2C, "NOT_ENABLED_I2C");
+            }};
     
     /**
      * コンストラクタ
@@ -123,6 +133,9 @@ public class KonashiNotifier {
     }
     
     public void notifyKonashiError(final KonashiErrorReason errorReason){
+        // 呼び出し元のメソッド名
+        final String cause = errorStrings.get(errorReason) + " on " + new Throwable().getStackTrace()[2].getMethodName();
+        
         for(final KonashiObserver observer: mObservers){
             if(observer.getActivity().isDestroyed()){
                 break;
@@ -131,7 +144,7 @@ public class KonashiNotifier {
             observer.getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    observer.onError(errorReason);
+                    observer.onError(errorReason, cause);
                 }
             });
         }

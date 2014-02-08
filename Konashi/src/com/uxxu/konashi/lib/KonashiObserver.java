@@ -100,5 +100,5 @@ public abstract class KonashiObserver {
     /**
      * エラーが起きた時に呼ばれる
      */
-    public void onError(KonashiErrorReason errorReason){}
+    public void onError(KonashiErrorReason errorReason, String message){}
 }

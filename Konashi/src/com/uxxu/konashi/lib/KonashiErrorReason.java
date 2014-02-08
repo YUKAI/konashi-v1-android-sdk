@@ -29,5 +29,13 @@ public enum KonashiErrorReason {
     /**
      * まだkonashiを使える状態ではありません
      */
-    NOT_READY
+    NOT_READY,
+    /**
+     * まだUARTが有効なモードに設定されていません
+     */
+    NOT_ENABLED_UART,
+    /**
+     * まだI2Cが有効なモードに設定されていません
+     */
+    NOT_ENABLED_I2C
 }

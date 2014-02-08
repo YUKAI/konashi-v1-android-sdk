@@ -63,7 +63,8 @@ public class MainActivity extends Activity {
                 //mKonashiManager.analogReadRequest(Konashi.AIO1);
                 //mKonashiManager.reset();
                 //mKonashiManager.batteryLevelReadRequest();
-                mKonashiManager.signalStrengthReadRequest();
+                //mKonashiManager.signalStrengthReadRequest();
+                mKonashiManager.i2cWrite(1, new byte[1], (byte) 1);
             }
         });
         
@@ -133,6 +134,11 @@ public class MainActivity extends Activity {
         @Override
         public void onCancelSelectKonashi() {
             Log.d(TAG, "onCancelSelectKonashi");
+        }
+
+        @Override
+        public void onError(KonashiErrorReason errorReason, String message) {
+            Log.d(TAG, "onError: " + message);
         }
     };
 }
