@@ -19,45 +19,33 @@
         android:orientation="vertical" >
         
         <Button 
-	        android:id="@+id/on_button"
+	        android:id="@+id/led2_button"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_margin="@dimen/find_button_margin"
-	        android:text="@string/led_on"/>
+	        android:text="@string/led2"/>
 	    
 	    <Button 
-	        android:id="@+id/off_button"
+	        android:id="@+id/led3_button"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_margin="@dimen/find_button_margin"
-	        android:text="@string/led_off"/>
+	        android:text="@string/led3"/>
 	    
 	    <Button 
-            android:id="@+id/read_aio_button"
+            android:id="@+id/led4_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/find_button_margin"
-            android:text="Read AIO"/>
+            android:text="@string/led4"/>
 	    
-	    <LinearLayout
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:orientation="horizontal"
-	        android:layout_margin="@dimen/find_button_margin" >
-	        
-	        <TextView
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="@string/sw" />
-	        
-	        <TextView
-	            android:id="@+id/sw_state"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="" />
-	        
-	    </LinearLayout>
-        
+	    <Button 
+            android:id="@+id/led5_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/find_button_margin"
+            android:text="@string/led5"/>
+	    
     </LinearLayout>
 
 </LinearLayout>

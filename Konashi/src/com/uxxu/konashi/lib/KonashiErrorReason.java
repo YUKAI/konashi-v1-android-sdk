@@ -31,6 +31,10 @@ public enum KonashiErrorReason {
      */
     NOT_READY,
     /**
+     * すでにkonashiと接続済みです
+     */
+    ALREADY_READY,
+    /**
      * まだUARTが有効なモードに設定されていません
      */
     NOT_ENABLED_UART,

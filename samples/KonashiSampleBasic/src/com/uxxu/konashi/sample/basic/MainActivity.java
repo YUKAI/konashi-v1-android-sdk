@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -12,16 +13,11 @@ import android.widget.TextView;
 
 import com.uxxu.konashi.lib.*;
 
-public class MainActivity extends Activity {
+public class MainActivity extends KonashiActivity {
     private static final String TAG = "KonashiSample";
     
-    private KonashiManager mKonashiManager;
-    private Button findButton;
-    private Button onButton;
-    private Button offButton;
-    private Button readAioButton;
-    private TextView mSwStateTextView;
     private LinearLayout mContainer;
+    private Button mFindButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,114 +27,64 @@ public class MainActivity extends Activity {
         mContainer = (LinearLayout)findViewById(R.id.container);
         mContainer.setVisibility(View.GONE);
         
-        findButton = (Button)findViewById(R.id.find_button);
-        findButton.setOnClickListener(new View.OnClickListener() {
+        mFindButton = (Button)findViewById(R.id.find_button);
+        mFindButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mKonashiManager.find(MainActivity.this);
-                //mKonashiManager.findWithName(MainActivity.this, "konashi#4-0452");
+                if(!getKonashiManager().isReady()){
+                    // connect konashi
+                    getKonashiManager().find(MainActivity.this);
+                    //mKonashiManager.findWithName(MainActivity.this, "konashi#4-0452");                    
+                } else {
+                    // disconnect konashi
+                    getKonashiManager().disconnect();
+                    
+                    mFindButton.setText(getText(R.string.find_button));
+                    mContainer.setVisibility(View.GONE);
+                }
             }
         });
         
-        onButton = (Button)findViewById(R.id.on_button);
-        onButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mKonashiManager.digitalWrite(Konashi.LED2, Konashi.HIGH);
-            }
-        });
-        
-        offButton = (Button)findViewById(R.id.off_button);
-        offButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mKonashiManager.digitalWrite(Konashi.LED2, Konashi.LOW);
-            }
-        });
-        
-        readAioButton = (Button)findViewById(R.id.read_aio_button);
-        readAioButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //mKonashiManager.analogReadRequest(Konashi.AIO1);
-                //mKonashiManager.reset();
-                //mKonashiManager.batteryLevelReadRequest();
-                //mKonashiManager.signalStrengthReadRequest();
-                mKonashiManager.i2cWrite(1, new byte[1], (byte) 1);
-            }
-        });
-        
-        mSwStateTextView = (TextView)findViewById(R.id.sw_state);
-        mSwStateTextView.setText("OFF");
+        setButtonAction(R.id.led2_button, Konashi.LED2);
+        setButtonAction(R.id.led3_button, Konashi.LED3);
+        setButtonAction(R.id.led4_button, Konashi.LED4);
+        setButtonAction(R.id.led5_button, Konashi.LED5);
         
         // Initialize konashi manager
-        mKonashiManager = new KonashiManager();
-        mKonashiManager.initialize(getApplicationContext());
-        mKonashiManager.addObserver(mKonashiObserver);
+        getKonashiManager().addObserver(mKonashiObserver);
     }
     
-    @Override
-    protected void onDestroy() {
-        if(mKonashiManager!=null){
-            mKonashiManager.disconnect();
-            mKonashiManager.close();
-            mKonashiManager = null;
-        }
-        
-        super.onDestroy();
+    private void setButtonAction(int resId, final int pin){
+        Button button = (Button)findViewById(resId);
+        button.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {                
+                switch(event.getAction()){
+                case MotionEvent.ACTION_DOWN:
+                    getKonashiManager().digitalWrite(pin, Konashi.HIGH);
+                    break;
+                    
+                case MotionEvent.ACTION_UP:
+                    getKonashiManager().digitalWrite(pin, Konashi.LOW);
+                    break;
+                }
+                return false;
+            }
+        });
     }
 
     private final KonashiObserver mKonashiObserver = new KonashiObserver(MainActivity.this) {
         @Override
-        public void onConnected() {
-            Log.d(TAG, "#########onConnected");
-        }
-
-        @Override
-        public void onDisconncted() {
-            Log.d(TAG, "#########onDisconncted");
-        }
-
-        @Override
         public void onReady(){
             Log.d(TAG, "onKonashiReady");
             
+            mFindButton.setText(getText(R.string.disconnect_button));
             mContainer.setVisibility(View.VISIBLE);
-            
-            mKonashiManager.pinMode(Konashi.LED2, Konashi.OUTPUT);
-            /*mKonashiManager.pwmMode(Konashi.LED3, Konashi.PWM_ENABLE_LED_MODE);
-            mKonashiManager.pwmLedDrive(Konashi.LED3, 20.0);*/
-        }
-        
-        @Override
-        public void onUpdatePioInput(byte value){
-            Log.d(TAG, "onUpdatePioInput: " + value);
-            
-            if(mKonashiManager.digitalRead(Konashi.S1)==Konashi.HIGH){
-                mSwStateTextView.setText("ON");
-            } else {
-                mSwStateTextView.setText("OFF");
-            }
-        }
-        
-        @Override
-        public void onUpdateBatteryLevel(int level) {
-            Log.d(TAG, "onUpdateBatteryLevel: " + level);
-        }
 
-        @Override
-        public void onUpdateSignalStrength(int rssi) {
-            Log.d(TAG, "onUpdateSignalStrength: " + rssi);
-        }
-
-        @Override
-        public void onCancelSelectKonashi() {
-            Log.d(TAG, "onCancelSelectKonashi");
-        }
-
-        @Override
-        public void onError(KonashiErrorReason errorReason, String message) {
-            Log.d(TAG, "onError: " + message);
+            getKonashiManager().pinMode(Konashi.LED2, Konashi.OUTPUT);
+            getKonashiManager().pinMode(Konashi.LED3, Konashi.OUTPUT);
+            getKonashiManager().pinMode(Konashi.LED4, Konashi.OUTPUT);
+            getKonashiManager().pinMode(Konashi.LED5, Konashi.OUTPUT);
         }
     };
 }

@@ -213,6 +213,7 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
     private void find(Activity activity, boolean isShowKonashiOnly, String name){        
         // check initialized
         if(!mIsInitialized || mStatus.equals(BleStatus.READY)){
+            notifyKonashiError(KonashiErrorReason.ALREADY_READY);
             return;
         }
         

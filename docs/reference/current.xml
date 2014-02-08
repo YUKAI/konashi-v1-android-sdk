@@ -759,6 +759,34 @@
 >
 </field>
 </class>
+<class name="KonashiActivity"
+ extends="android.app.Activity"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="KonashiActivity"
+ type="com.uxxu.konashi.lib.KonashiActivity"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getKonashiManager"
+ return="com.uxxu.konashi.lib.KonashiManager"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
 <interface name="KonashiApiInterface"
  abstract="true"
  static="false"
@@ -947,6 +975,97 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="i2cMode"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="i2cRead"
+ return="byte[]"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="length" type="int">
+</parameter>
+</method>
+<method name="i2cReadRequest"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="length" type="int">
+</parameter>
+<parameter name="address" type="byte">
+</parameter>
+</method>
+<method name="i2cRestartCondition"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="i2cStartCondition"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="i2cStopCondition"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="i2cWrite"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="length" type="int">
+</parameter>
+<parameter name="data" type="byte[]">
+</parameter>
+<parameter name="address" type="byte">
+</parameter>
 </method>
 <method name="initialize"
  return="void"
@@ -1772,6 +1891,97 @@
  visibility="public"
 >
 </method>
+<method name="i2cMode"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="i2cRead"
+ return="byte[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="length" type="int">
+</parameter>
+</method>
+<method name="i2cReadRequest"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="length" type="int">
+</parameter>
+<parameter name="address" type="byte">
+</parameter>
+</method>
+<method name="i2cRestartCondition"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="i2cStartCondition"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="i2cStopCondition"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="i2cWrite"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="length" type="int">
+</parameter>
+<parameter name="data" type="byte[]">
+</parameter>
+<parameter name="address" type="byte">
+</parameter>
+</method>
 <method name="pinMode"
  return="void"
  abstract="false"
@@ -2159,6 +2369,8 @@
  visibility="public"
 >
 <parameter name="errorReason" type="com.uxxu.konashi.lib.KonashiErrorReason">
+</parameter>
+<parameter name="message" type="java.lang.String">
 </parameter>
 </method>
 <method name="onNotFoundPeripheral"

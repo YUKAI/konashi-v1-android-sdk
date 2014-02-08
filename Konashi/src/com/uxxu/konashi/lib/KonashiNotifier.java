@@ -35,6 +35,7 @@ public class KonashiNotifier {
             new HashMap<KonashiErrorReason, String>() {{
                 put(KonashiErrorReason.INVALID_PARAMETER, "INVALID_PARAMETER");
                 put(KonashiErrorReason.NOT_READY, "NOT_READY");
+                put(KonashiErrorReason.ALREADY_READY, "ALREADY_READY");
                 put(KonashiErrorReason.NOT_ENABLED_UART, "NOT_ENABLED_UART");
                 put(KonashiErrorReason.NOT_ENABLED_I2C, "NOT_ENABLED_I2C");
             }};
@@ -134,7 +135,7 @@ public class KonashiNotifier {
     
     public void notifyKonashiError(final KonashiErrorReason errorReason){
         // 呼び出し元のメソッド名
-        final String cause = errorStrings.get(errorReason) + " on " + new Throwable().getStackTrace()[2].getMethodName();
+        final String cause = errorStrings.get(errorReason) + " on " + new Throwable().getStackTrace()[2].getMethodName() + "()";
         
         for(final KonashiObserver observer: mObservers){
             if(observer.getActivity().isDestroyed()){
