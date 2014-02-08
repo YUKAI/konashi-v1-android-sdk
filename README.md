@@ -49,13 +49,19 @@ Bluetooth を使えるように、AndroidManifest.xml に以下のパーミッ�
 ```
 
 #### コードを書く
-comming soon
+
+[こちら](https://github.com/YUKAI/konashi-android-sdk/blob/master/samples/KonashiSampleBasic/src/com/uxxu/konashi/sample/basic/MainActivity.java)を参考に、LEDをチカチカさせるコードを書いてみましょう！
 
 #### 実機で動かす
 
 Galaxy S3 (docomo) に CyanogenMod のAndroid4.3のカスタムROMを利用してBLEを使えるようにして実行してみましょう。
 
 ![image](images/konashi_sample_basic.png)
+
+LEDを光らせることができたら成功です！
+
+## APIリファレンス
+Javadocで提供しています。
 
 
 ## 国内のBLE対応Androidに関して
