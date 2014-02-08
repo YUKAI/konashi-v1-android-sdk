@@ -35,8 +35,8 @@ public class MainActivity extends Activity {
         findButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //mKonashiManager.find(MainActivity.this);
-                mKonashiManager.findWithName(MainActivity.this, "konashi#4-0452");
+                mKonashiManager.find(MainActivity.this);
+                //mKonashiManager.findWithName(MainActivity.this, "konashi#4-0452");
             }
         });
         
@@ -121,13 +121,13 @@ public class MainActivity extends Activity {
         }
         
         @Override
-        public void onUpdateBatteryLevel() {
-            Log.d(TAG, "onUpdateBatteryLevel: " + mKonashiManager.getBatteryLevel());
+        public void onUpdateBatteryLevel(int level) {
+            Log.d(TAG, "onUpdateBatteryLevel: " + level);
         }
 
         @Override
-        public void onUpdateSignalStrength() {
-            Log.d(TAG, "onUpdateSignalStrength: " + mKonashiManager.getSignalStrength());
+        public void onUpdateSignalStrength(int rssi) {
+            Log.d(TAG, "onUpdateSignalStrength: " + rssi);
         }
 
         @Override

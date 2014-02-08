@@ -778,11 +778,9 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
     
     
     /***************************************
-     * Konashi notificatoin event handler
+     * Konashi notification event handler
      ***************************************/
-    
-    // TODO: uuuumm.... need refactor
-    
+        
     /**
      * PIOの入力の状態が変更された時
      * @param value PIO8bitで表現
@@ -797,25 +795,37 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
      * @param value アナログ値
      */
     protected void onUpdateAnalogValue(int pin, int value){
-        notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE);
+        notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE, pin, value);
         
         if(pin==Konashi.AIO0)
-            notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO0);
+            notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO0, value);
         else if(pin==Konashi.AIO1)
-            notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO1);
+            notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO1, value);
         else
-            notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO2);
+            notifyKonashiEvent(KonashiEvent.UPDATE_ANALOG_VALUE_AIO2, value);
     }
     
+    /**
+     * UARTのRxからデータを受信した時
+     * @param data 受信データ
+     */
     protected void onRecieveUart(byte data){
-        notifyKonashiEvent(KonashiEvent.UART_RX_COMPLETE);
+        notifyKonashiEvent(KonashiEvent.UART_RX_COMPLETE, data);
     }
     
+    /**
+     * konashiのバッテリーのレベルを取得できた時
+     * @param level バッテリー(%)
+     */
     protected void onUpdateBatteryLevel(int level){
-        notifyKonashiEvent(KonashiEvent.UPDATE_BATTERY_LEVEL);
+        notifyKonashiEvent(KonashiEvent.UPDATE_BATTERY_LEVEL, level);
     }
     
+    /**
+     * konashiの電波強度を取得できた時
+     * @param rssi 電波強度(db) 距離が近いと-40db, 距離が遠いと-90db程度になる
+     */
     protected void onUpdateSignalSrength(int rssi){
-        notifyKonashiEvent(KonashiEvent.UPDATE_SIGNAL_STRENGTH);
+        notifyKonashiEvent(KonashiEvent.UPDATE_SIGNAL_STRENGTH, rssi);
     }
 }

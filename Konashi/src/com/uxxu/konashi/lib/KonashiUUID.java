@@ -32,7 +32,7 @@ public class KonashiUUID {
     
     // konashi service UUID
     public static final UUID KONASHI_SERVICE_UUID                 = UUID.fromString("0000FF00" + BASE_UUID_STRING);
-   
+
     // konashi characteristics
     public static final UUID PIO_SETTING_UUID                     = UUID.fromString("00003000" + BASE_UUID_STRING);
     public static final UUID PIO_PULLUP_UUID                      = UUID.fromString("00003001" + BASE_UUID_STRING);
