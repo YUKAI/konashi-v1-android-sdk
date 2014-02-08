@@ -147,7 +147,7 @@ public class KonashiBaseManager implements BluetoothAdapter.LeScanCallback, OnBl
         mIsSupportBle = isSupportBle(context);
         if(!mIsSupportBle){
             // BLE not supported. can't initialize
-            Toast.makeText(context, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.konashi_lib_ble_not_supported, Toast.LENGTH_SHORT).show();
             return;
         }
         

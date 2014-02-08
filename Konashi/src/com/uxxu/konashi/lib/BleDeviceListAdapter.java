@@ -124,14 +124,14 @@ public class BleDeviceListAdapter extends BaseAdapter {
         BluetoothDevice device = (BluetoothDevice)mBleDevices.get(position);
         
         String deviceName = device.getName();
-        TextView name = (TextView)v.findViewById(R.id.device_name);
+        TextView name = (TextView)v.findViewById(R.id.konashi_lib_device_name);
         if (deviceName != null && deviceName.length() > 0){
             name.setText(device.getName());
         } else {
-            name.setText(R.string.device_list_element_unknown_device);
+            name.setText(R.string.konashi_lib_device_list_element_unknown_device);
         }
         
-        TextView address = (TextView)v.findViewById(R.id.device_address);
+        TextView address = (TextView)v.findViewById(R.id.konashi_lib_device_address);
         address.setText(device.getAddress());
         
         return v;

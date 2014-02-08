@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="device_list_element_name_text">#333333</color>
-    <color name="device_list_element_address_text">#777777</color>
-    <color name="dialog_device_list_finding_text">#888888</color>
-    <color name="dialog_device_list_not_found">#333333</color>
+    <color name="konashi_lib_device_list_element_name_text">#333333</color>
+    <color name="konashi_lib_device_list_element_address_text">#777777</color>
+    <color name="konashi_lib_dialog_device_list_finding_text">#888888</color>
+    <color name="konashi_lib_dialog_device_list_not_found">#333333</color>
 </resources>

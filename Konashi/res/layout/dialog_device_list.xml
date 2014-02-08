@@ -5,16 +5,16 @@
     android:orientation="vertical" >
     
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/konashi_lib_list"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/device_list_height"
+        android:layout_height="@dimen/konashi_lib_device_list_height"
     ></ListView>
     
     <LinearLayout 
-        android:id="@+id/finding"
+        android:id="@+id/konashi_lib_finding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dialog_device_list_finding_margin"
+        android:layout_margin="@dimen/konashi_lib_dialog_device_list_finding_margin"
         android:layout_alignParentRight="true" >
         
         <ProgressBar
@@ -25,26 +25,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dialog_device_list_finding_text_margin_left"
-            android:textColor="@color/dialog_device_list_finding_text"
-            android:textSize="@dimen/dialog_device_list_finding_text_size"
-            android:text="@string/dialog_device_list_finding_text" />
+            android:layout_marginLeft="@dimen/konashi_lib_dialog_device_list_finding_text_margin_left"
+            android:textColor="@color/konashi_lib_dialog_device_list_finding_text"
+            android:textSize="@dimen/konashi_lib_dialog_device_list_finding_text_size"
+            android:text="@string/konashi_lib_dialog_device_list_finding_text" />
         
     </LinearLayout>
     
     <LinearLayout 
-        android:id="@+id/not_found"
+        android:id="@+id/konashi_lib_not_found"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dialog_device_list_not_found_margin"
+        android:layout_margin="@dimen/konashi_lib_dialog_device_list_not_found_margin"
         android:visibility="gone" >
         
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/dialog_device_list_not_found"
-            android:textSize="@dimen/dialog_device_list_not_found_text_size"
-            android:text="@string/dialog_device_list_not_found" />
+            android:textColor="@color/konashi_lib_dialog_device_list_not_found"
+            android:textSize="@dimen/konashi_lib_dialog_device_list_not_found_text_size"
+            android:text="@string/konashi_lib_dialog_device_list_not_found" />
         
     </LinearLayout>
     

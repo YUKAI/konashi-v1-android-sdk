@@ -1,12 +1,9 @@
-<resources>
-
-    <string name="app_name">Konashi</string>
+<resources>    
+    <string name="konashi_lib_ble_not_supported">BLE not supported on this device.</string>
     
-    <string name="ble_not_supported">BLE not supported on this device.</string>
-    
-    <string name="device_list_element_unknown_device">Unknown Device</string>
-    <string name="dialog_device_list_title">Select konashi</string>
-    <string name="dialog_device_list_cancel_button">Cancel</string>
-    <string name="dialog_device_list_finding_text">Finding konashi</string>
-    <string name="dialog_device_list_not_found">konashi Not Found...</string>
+    <string name="konashi_lib_device_list_element_unknown_device">Unknown Device</string>
+    <string name="konashi_lib_dialog_device_list_title">Select konashi</string>
+    <string name="konashi_lib_dialog_device_list_cancel_button">Cancel</string>
+    <string name="konashi_lib_dialog_device_list_finding_text">Finding konashi</string>
+    <string name="konashi_lib_dialog_device_list_not_found">konashi Not Found...</string>
 </resources>
