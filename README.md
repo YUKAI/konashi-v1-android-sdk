@@ -63,6 +63,8 @@ LEDを光らせることができたら成功です！
 ## APIリファレンス
 Javadocで提供しています。
 
+[http://yukai.github.com/konashi-android-sdk/docs/index.html](http://yukai.github.com/konashi-android-sdk/docs/index.html)
+
 
 ## 国内のBLE対応Androidに関して
 ### Android4.3以降が公式に提供されている端末
