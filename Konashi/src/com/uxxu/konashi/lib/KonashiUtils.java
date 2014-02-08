@@ -1,7 +1,5 @@
 package com.uxxu.konashi.lib;
 
-import com.uxxu.konashi.lib.BuildConfig;
-
 import android.util.Log;
 
 /**

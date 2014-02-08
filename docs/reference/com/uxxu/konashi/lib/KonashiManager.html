@@ -1065,6 +1065,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onRecieveUart(byte)">onRecieveUart</a></span>(byte data)
         
+        <div class="jd-descrdiv">UARTのRxからデータを受信した時</div>
+  
   </td></tr>
 
 
@@ -1099,6 +1101,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onUpdateBatteryLevel(int)">onUpdateBatteryLevel</a></span>(int level)
         
+        <div class="jd-descrdiv">konashiのバッテリーのレベルを取得できた時</div>
+  
   </td></tr>
 
 
@@ -1133,6 +1137,8 @@ Summary:
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiManager.html#onUpdateSignalSrength(int)">onUpdateSignalSrength</a></span>(int rssi)
         
+        <div class="jd-descrdiv">konashiの電波強度を取得できた時</div>
+  
   </td></tr>
 
 
@@ -1428,9 +1434,45 @@ From class
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#notifyKonashiEvent(com.uxxu.konashi.lib.KonashiEvent, java.lang.Object, java.lang.Object)">notifyKonashiEvent</a></span>(<a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a> event, <a href="http://d.android.com/reference/java/lang/Object.html">Object</a> param0, <a href="http://d.android.com/reference/java/lang/Object.html">Object</a> param1)
+        
+        <div class="jd-descrdiv">オブザーバにイベントを通知する（パラメータ2つ）</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#notifyKonashiEvent(com.uxxu.konashi.lib.KonashiEvent)">notifyKonashiEvent</a></span>(<a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a> event)
         
-        <div class="jd-descrdiv">オブザーバにイベントを通知する</div>
+        <div class="jd-descrdiv">オブザーバにイベントを通知する（パラメータなし）</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-v2" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#notifyKonashiEvent(com.uxxu.konashi.lib.KonashiEvent, java.lang.Object)">notifyKonashiEvent</a></span>(<a href="../../../../com/uxxu/konashi/lib/KonashiEvent.html">KonashiEvent</a> event, <a href="http://d.android.com/reference/java/lang/Object.html">Object</a> param0)
+        
+        <div class="jd-descrdiv">オブザーバにイベントを通知する（パラメータ1つ）</div>
   
   </td></tr>
 
@@ -1486,6 +1528,8 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#onRecieveUart(byte)">onRecieveUart</a></span>(byte data)
         
+        <div class="jd-descrdiv">UARTのRxからデータを受信した時</div>
+  
   </td></tr>
 
 
@@ -1538,6 +1582,8 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#onUpdateBatteryLevel(int)">onUpdateBatteryLevel</a></span>(int level)
         
+        <div class="jd-descrdiv">konashiのバッテリーのレベルを取得できた時</div>
+  
   </td></tr>
 
 
@@ -1572,6 +1618,8 @@ From class
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/uxxu/konashi/lib/KonashiBaseManager.html#onUpdateSignalSrength(int)">onUpdateSignalSrength</a></span>(int rssi)
         
+        <div class="jd-descrdiv">konashiの電波強度を取得できた時</div>
+  
   </td></tr>
 
 
@@ -3737,7 +3785,17 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>UARTのRxからデータを受信した時</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>data</th>
+          <td>受信データ
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -3817,7 +3875,17 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiのバッテリーのレベルを取得できた時</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>level</th>
+          <td>バッテリー(%)
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -3893,7 +3961,17 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>konashiの電波強度を取得できた時</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>rssi</th>
+          <td>電波強度(db) 距離が近いと-40db, 距離が遠いと-90db程度になる
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
