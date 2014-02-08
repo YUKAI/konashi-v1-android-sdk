@@ -6,7 +6,7 @@ package com.uxxu.konashi.lib;
  * @author monakaz, YUKAI Engineering
  * http://konashi.ux-xu.com
  * ========================================================================
- * Copyright 2013 Yukai Engineering Inc.
+ * Copyright 2014 Yukai Engineering Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

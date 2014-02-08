@@ -1,70 +1,12 @@
-# konashi SDK for Android
+# konashi SDK for Android #alpha
 
-## 進捗
-- ハードウェア系のfunction実装完了 12/29/2013
-- AIO系のfunction実装完了 12/29/2013
-- PIO, PWM系のfunction実装完了 12/23/2013
-- PIOの入力変化のnotificationを受信できた 12/18/2013
-- PIOのdigitalWriteでLED制御するところまでできた
+![image](http://konashi.ux-xu.com/img/header_logo.png)
 
-## 使い方
-- KonashiLibをライブラリプロジェクトとして追加 
-- KonashiManagerをnewする or Konashiシングルトン。
+スマートフォンでのフィジカルコンピューティングツールキットであるkonashiのAndroid対応SDKです。
 
-## 要検証
-- konashi2台使う時、KonashiManager2つとかでいけるのかな。 多分いけると思うけど
+現在α版でまだまだ改良される予定ですが、いち早く公開いたします。
 
-
-----
-
-## ant使う系
-ルートディレクトリにbuild.xmlがあります。
-
-### ant使う前に
-- Konashi ディレクトリにて以下のコマンドを実行して、local.propertiesを生成。これを元にしていろいろやります。
-
-```
-Konashi $ android update project -p .
-```
-
-### jar 生成
-以下の ant コマンドを実行すると、libs ディレクトリに konashi-${versino}.jar が生成される。
-
-```
-$ ant jar
-```
-
-### javadoc 生成
-以下の ant コマンドを実行すると、docs ディレクトリに javadoc の html が生成される。
-
-```
-$ ant javadoc
-```
-
-
-## 国内のBLE対応Androidに関して
-### Android4.3以降が公式に提供されている端末
-- Nexus 7(2013)
-- Nexus 5
-- GALAXY J
-- GALAXY Note 3
-
-### カスタムROMを焼くことで4.3に移行できるであろう端末
-- GALAXY S III
-- GALAXY S4
-- GALAXY Note II
-- Xperia Z
-- Xperia Z1
-- HTC J One
-- HTC J butterfly
-- LG Optimus G
-- LG Optimus G Pro
-- LG G2
-- その他、海外でよく使われている端末(国産スマホ以外 & 日本向けにカスタマイズされたグローバル端末以外)であれば、Android4.3以降のカスタムROMが有志によって作られています
-
-### キャリアのBluetoothのスペック(4.0,BLE or not)
-#### au
-- http://www.au.kddi.com/developer/android/kishu/bluetooth/
+なにか不具合がございましたら、issueにしていただくか、
 
 ## 動作環境
 - Android4.3以降 (SDK Version >= 18)
@@ -112,15 +54,84 @@ Bluetooth を使えるように、AndroidManifest.xml に以下のパーミッ�
 comming soon
 
 #### 実機で動かす
-comming soon
 
+Galaxy S3 (docomo) に CyanogenMod のAndroid4.3のカスタムROMを利用してBLEを使えるようにして実行してみましょう。
+
+
+
+
+## 国内のBLE対応Androidに関して
+### Android4.3以降が公式に提供されている端末
+- Nexus 7(2013)
+- Nexus 5
+- GALAXY J
+- GALAXY Note 3
+
+### キャリアのBluetoothのスペック(4.0,BLE or not)
+#### au
+- [http://www.au.kddi.com/developer/android/kishu/bluetooth/](http://www.au.kddi.com/developer/android/kishu/bluetooth/)
+
+## 開発について
+
+### 機能要望やバグ報告をするには
+開発者に要望を伝える報告する方法は以下です。
+
+- GitHub の Issues に投稿
+  - [https://github.com/YUKAI/konashi-ios-sdk/issues](https://github.com/YUKAI/konashi-ios-sdk/issues)
+  - feature-requests、bug、discussion などのラベルをご使用ください。
+- Pull Request
+  - バグ見つけて修正しといたよ、というときは Pull Request を **develop ブランチ**に送ってください。
+  - 詳細は ブランチの運用 をご覧ください。
+- “konashi" をキーワードにつぶやく
+  - twitter で #konashi のハッシュをつけるか、 konashi というキーワードを使って tweet してください。
+  - もしくは konashi をキーワードにブログに書いてください。
+- [contact@ux-xu.com](contact@ux-xu.com) にメールする
+  - メールでの報告も受け付けています。
+  
+### ブランチの運用
+[git-flow](https://github.com/nvie/gitflow) を使用しています。各ブランチの役割は以下です。
+
+- master
+  - リリース用のブランチです。GitHubでは master ブランチがデフォルトのブランチです。
+- develop
+  - 開発用のブランチです。
+- feature/***
+  - 新機能追加やバグ修正を行うブランチです。develop ブランチから feature ブランチを切り、開発が完了後に develop ブランチに merge します。
+- release/v***
+  - リリース前ブランチです。develop ブランチから release ブランチを切り、テストが終わり次第 master ブランチにマージされます。(現在は基本的に origin に push されません)
+
+
+### タグの運用
+基本的にリリース時にバージョン名でタグを切ります。konashi 公式ページからリンクされる zip ダウンロード先は最新のリリースタグの zip です。
+
+タグ一覧は[こちら](https://github.com/YUKAI/konashi-ios-sdk/tags)。
+
+### Pull Request
+**規模の大小関わらず、バグ修正や機能追加などの Pull Request 大歓迎！**
+
+Pull Request を送るにあたっての注意点は以下です。
+
+- 最新の develop ブランチから任意の名前でブランチを切り、実装後に develop ブランチに対して Pull Request を送ってください。
+  - master ブランチへの Pull Request は(なるべく)ご遠慮ください。
+
+### コマンド集
+#### javadoc 生成
+以下の ant コマンドを実行すると、docs ディレクトリに javadoc の html が生成される。
+
+```
+$ ant javadoc
+```
 
 ## ライセンス
 konashi のソフトウェアのソースコード、ハードウェアに関するドキュメント・ファイルのライセンスは以下です。
 
 - ソフトウェア
-  - konashi-ios-sdk のソースコードは [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) のもと公開されています。
+  - konashi-android-sdk のソースコードは [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) のもと公開されています。
 - ハードウェア
   - konashi の回路図などハードウェア関連のドキュメント・ファイルのライセンスは [クリエイティブ・コモンズ・ライセンス「表示-継承 2.1 日本」](http://creativecommons.org/licenses/by-sa/2.1/jp/deed.ja)です。これに従う場合に限り、自由に複製、頒布、二次的著作物を作成することができます。
-  - 回路図のデータ(eagleライブラリ)は3月上旬公開予定です。
+  - [こちらに公開しています](https://github.com/YUKAI/konashi-ios-sdk/tree/master/documents)
 - konashi のBLEモジュールのファームウェアは [csr社](http://www.csr.com/) とのNDAのため公開しておりません。
+
+## 関連
+- [YUKAI/konashi-ios-sdk](https://github.com/YUKAI/konashi-ios-sdk): konashi SDK for iOS
+

@@ -72,12 +72,12 @@ public class MainActivity extends KonashiActivity {
                 switch(event.getAction()){
                 case MotionEvent.ACTION_DOWN:
                     // 触った時
-                    getKonashiManager().digitalWrite(pin, Konashi.HIGH);
+                    getKonashiManager().digitalWrite(pin, Konashi.HIGH);  // HIGHでLEDが点灯
                     break;
                     
                 case MotionEvent.ACTION_UP:
                     // 離した時
-                    getKonashiManager().digitalWrite(pin, Konashi.LOW);
+                    getKonashiManager().digitalWrite(pin, Konashi.LOW);  // LOWでLEDが消灯
                     break;
                 }
                 return false;
