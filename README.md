@@ -54,8 +54,6 @@ Bluetooth を使えるように、AndroidManifest.xml に以下のパーミッ�
 
 #### 実機で動かす
 
-Galaxy S3 (docomo) に CyanogenMod のAndroid4.3のカスタムROMを利用してBLEを使えるようにして実行してみましょう。
-
 ![image](images/konashi_sample_basic.png)
 
 LEDを光らせることができたら成功です！
@@ -63,7 +61,7 @@ LEDを光らせることができたら成功です！
 ## APIリファレンス
 Javadocで提供しています。
 
-[http://yukai.github.com/konashi-android-sdk/docs/index.html](http://yukai.github.com/konashi-android-sdk/docs/index.html)
+[http://yukai.github.io/konashi-android-sdk/docs/reference/com/uxxu/konashi/lib/package-summary.html](http://yukai.github.io/konashi-android-sdk/docs/reference/com/uxxu/konashi/lib/package-summary.html)
 
 
 ## 国内のBLE対応Androidに関して
