@@ -55,7 +55,7 @@ comming soon
 
 Galaxy S3 (docomo) に CyanogenMod のAndroid4.3のカスタムROMを利用してBLEを使えるようにして実行してみましょう。
 
-[image](images/konashi_sample_basic.png)
+![image](images/konashi_sample_basic.png)
 
 
 ## 国内のBLE対応Androidに関して
