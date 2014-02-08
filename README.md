@@ -4,9 +4,7 @@
 
 スマートフォンでのフィジカルコンピューティングツールキットであるkonashiのAndroid対応SDKです。
 
-現在α版でまだまだ改良される予定ですが、いち早く公開いたします。
-
-なにか不具合がございましたら、issueにしていただくか、
+現在α版でまだまだ改良される予定です！
 
 ## 動作環境
 - Android4.3以降 (SDK Version >= 18)
@@ -57,7 +55,7 @@ comming soon
 
 Galaxy S3 (docomo) に CyanogenMod のAndroid4.3のカスタムROMを利用してBLEを使えるようにして実行してみましょう。
 
-
+[image](images/konashi_sample_basic.png)
 
 
 ## 国内のBLE対応Androidに関して
