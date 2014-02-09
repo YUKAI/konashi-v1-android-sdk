@@ -20,22 +20,17 @@ public class ControllerActivity extends Activity {
         
         mSeekbar = (SeekBar)findViewById(R.id.seekbar);
         mSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
             
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                
-            }
-            
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Log.d(TAG, "onProgress: " + progress);
                 
-                Konashi.getManager().pwmLedDrive(Konashi.LED3, progress);
+                Konashi.getManager().pwmLedDrive(Konashi.LED2, progress);
             }
         });
     }

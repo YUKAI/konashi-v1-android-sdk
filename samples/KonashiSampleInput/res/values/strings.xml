@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Input</string>
+
+    <string name="find_button">Find konashi</string>
+    <string name="disconnect_button">Disconnect konashi</string>
+    
+    <string name="sw">S1:</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+</resources>
+

@@ -39,27 +39,25 @@ public class MainActivity extends Activity {
         
         super.onDestroy();
     }
-    
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        
+        if(Konashi.getManager()!=null){
+            Konashi.getManager().disconnect();
+        }
+    }
+
     private final KonashiObserver mKonashiObserver = new KonashiObserver(MainActivity.this) {
-        @Override
-        public void onConnected() {
-            Log.d(TAG, "#########onConnected");
-        }
-
-        @Override
-        public void onDisconncted() {
-            Log.d(TAG, "#########onDisconncted");
-        }
-
         @Override
         public void onReady(){
             Log.d(TAG, "onKonashiReady");
             
-            Konashi.getManager().pwmMode(Konashi.LED3, Konashi.PWM_ENABLE_LED_MODE);
+            Konashi.getManager().pwmMode(Konashi.LED2, Konashi.PWM_ENABLE_LED_MODE);
 
             Intent intent = new Intent(MainActivity.this, ControllerActivity.class);
             startActivity(intent);            
         }
     };
-
 }
