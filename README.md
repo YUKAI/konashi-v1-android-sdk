@@ -10,6 +10,12 @@
 - Android4.3以降 (SDK Version >= 18)
 - Bluetooth Low Energy (Bluetooth4.0) 対応端末
 
+## さくっとAndroidでkonashiを動かす
+[Google Play](https://play.google.com/store/apps/details?id=com.uxxu.konashi.sample.basic)にてkonashi LEDピカピカアプリを公開中です。
+
+プログラミングせずにAndroidでkonashiのLEDを動かすことができます！
+
+
 ## Getting started
 
 #### まず konashi-android-sdk をダウンロード
