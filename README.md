@@ -1,10 +1,10 @@
-# konashi SDK for Android #alpha
+# konashi-v1 SDK for Android #alpha
 
 ![image](http://konashi.ux-xu.com/img/header_logo.png)
 
-スマートフォンでのフィジカルコンピューティングツールキットであるkonashiのAndroid対応SDKです。
+スマートフォンでのフィジカルコンピューティングツールキットであるkonashi(version 1)のAndroid対応SDKです。
 
-現在α版でまだまだ改良される予定です！
+将来的に[konashi-android-sdk](https://github.com/YUKAI/konashi-android-sdk)への統合を予定しています。
 
 ## 動作環境
 - Android4.3以降 (SDK Version >= 18)
