@@ -4,7 +4,7 @@
 
 スマートフォンでのフィジカルコンピューティングツールキットであるkonashi(version 1)のAndroid対応SDKです。
 
-将来的に[konashi-android-sdk](https://github.com/YUKAI/konashi-android-sdk)への統合を予定しています。
+konashi2.0をお使いの方は、[konashi-android-sdk](https://github.com/YUKAI/konashi-android-sdk)をご利用ください。konashi-v1-android-sdkは将来的にkonashi-android-sdkへの統合を予定しています。
 
 ## 動作環境
 - Android4.3以降 (SDK Version >= 18)
